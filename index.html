@@ -1,364 +1,111 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#5b0b16">
-<title>Ilham & Qonita — Wedding Invitation</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-:root{--maroon:#650b17;--maroon2:#3b0610;--gold:#d6ad55;--cream:#f8f0df;--black:#130d0d}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:#29191a;font-family:Montserrat,sans-serif}
-body.locked{overflow:hidden}.cover{position:fixed;inset:0;z-index:50;display:flex;align-items:center;justify-content:center;text-align:center;background:#21070c;overflow:hidden}
-.cover:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,5,7,.25),rgba(20,5,7,.78)),url("assets/images/cover.jpg") center/cover no-repeat;transform:scale(1.03);animation:ken 14s ease-in-out infinite alternate}
-@keyframes ken{to{transform:scale(1.09)}} .cover-inner{position:relative;z-index:1;color:#fff;padding:25px;max-width:650px}
-.monogram{font-family:"Cormorant Garamond";font-size:28px;color:var(--gold);letter-spacing:1px}.eyebrow{letter-spacing:1px;font-size:12px;margin:25px 0 8px}.names{font:500 clamp(52px,10vw,92px)/.82 "Cormorant Garamond";margin:0;text-shadow:0 5px 30px #000}.amp{font-size:.62em;color:var(--gold)}.date{margin:25px 0;font:500 18px "Cormorant Garamond";letter-spacing:3px}.btn{border:1px solid var(--gold);background:linear-gradient(135deg,#f1cf7d,#b98932);color:#2b090d;border-radius:999px;padding:14px 30px;font-weight:600;cursor:pointer;box-shadow:0 8px 25px #0005}.music-note{position:fixed;right:20px;top:20px;z-index:20;width:45px;height:45px;border-radius:50%;border:1px solid var(--gold);background:#4d0712cc;color:#fff;display:none;align-items:center;justify-content:center}.music-note.playing{animation:spin 3s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
-nav{position:fixed;top:0;left:0;right:0;z-index:15;padding:18px 5%;display:flex;justify-content:space-between;align-items:center;color:#fff;background:linear-gradient(#180407aa,transparent);mix-blend-mode:normal}nav .brand{font-family:"Cormorant Garamond";font-size:22px}nav .links{display:flex;gap:24px;font-size:11px;letter-spacing:1px}nav a{color:#fff;text-decoration:none}
-section{padding:90px 7%;max-width:1200px;margin:auto}.hero{min-height:100vh;display:flex;align-items:flex-end;padding-bottom:100px;color:#fff;background:linear-gradient(180deg,#0002,#170409aa),url("assets/images/cover.jpg") center/cover fixed no-repeat;max-width:none}.hero-content{max-width:900px;margin:auto;text-align:center}.hero h1{font:600 clamp(55px,10vw,120px)/.85 "Cormorant Garamond";margin:10px}.hero p{font:300 14px Montserrat;letter-spacing:3px}
-.title{font:600 52px "Cormorant Garamond";color:var(--maroon);text-align:center;margin:0}.subtitle{text-align:center;max-width:650px;margin:15px auto 45px;line-height:1.8;font-size:14px}
-.details{background:#fff8ed}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.card{padding:30px;text-align:center;border:1px solid #d6ad5544;background:#fffdf8}.icon{font-size:30px;color:var(--gold)}.card h3{font:600 25px "Cormorant Garamond";color:var(--maroon);margin:12px}
-.story{background:linear-gradient(#f8f0dfdd,#f8f0dfdd),url("assets/images/cover.jpg") center/cover fixed}.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:center}.story-img{width:100%;border-radius:2px;box-shadow:0 20px 45px #4a151522}.story-text{line-height:2;font-size:14px}.timeline{border-left:1px solid var(--gold);padding-left:25px;margin-top:30px}.timeline div{margin:18px 0}.timeline strong{color:var(--maroon)}
-.gallery{background:#21070c;color:white;max-width:none}.gallery .title{color:var(--gold)}.gallery-grid{max-width:1100px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.gallery-grid img{width:100%;aspect-ratio:1/1;object-fit:cover;cursor:pointer;transition:.3s}.gallery-grid img:hover{transform:scale(.98);opacity:.85}
-.video-wrap{max-width:950px;margin:auto;background:#000;box-shadow:0 20px 50px #0004}.video-wrap video{display:block;width:100%;max-height:650px}.caption{text-align:center;margin:20px auto 0;max-width:700px;line-height:1.8;font-size:13px}
-.rsvp{background:linear-gradient(135deg,#5f0915,#28050b);color:white;max-width:none;text-align:center}.rsvp .title{color:var(--gold)}.rsvp p{max-width:600px;margin:15px auto 30px;line-height:1.8;font-size:14px}.guest-form{max-width:550px;margin:auto;display:grid;gap:12px}.guest-form input,.guest-form select,.guest-form textarea{width:100%;padding:14px;border:0;border-radius:4px;font:14px Montserrat}.guest-form button{padding:14px;border:1px solid var(--gold);background:var(--gold);color:#2b090d;font-weight:700;border-radius:4px}
-footer{background:#180408;color:#d8bd7b;text-align:center;padding:45px 20px;font:22px "Cormorant Garamond"}footer small{display:block;font:11px Montserrat;color:#fff8;margin-top:8px}
-.modal{display:none;position:fixed;z-index:60;inset:0;background:#000d;align-items:center;justify-content:center;padding:20px}.modal.show{display:flex}.modal img{max-width:95vw;max-height:90vh}.close{position:absolute;top:18px;right:25px;color:white;font-size:35px;cursor:pointer}
-@media(max-width:750px){nav .links{display:none}.cards,.story-grid,.gallery-grid{grid-template-columns:1fr}.hero{background-attachment:scroll}.story{background-attachment:scroll}section{padding:70px 6%}.title{font-size:43px}.names{font-size:64px}}
-/* Ornamen Minangkabau untuk bagian jadwal acara */
-.details{position:relative;isolation:isolate;overflow:hidden}
-.details > *:not(.rumah-gadang-art):not(.minang-corner){position:relative;z-index:2}
-.rumah-gadang-art{position:absolute;z-index:0;left:50%;bottom:-8px;transform:translateX(-50%);width:min(760px,92%);height:230px;opacity:.19;pointer-events:none}
-.rumah-gadang-art svg{width:100%;height:100%;display:block}
-.minang-corner{position:absolute;z-index:1;width:118px;height:118px;opacity:.72;pointer-events:none}
-.minang-corner svg{width:100%;height:100%;display:block}
-.minang-corner.left{left:0;top:0}
-.minang-corner.right{right:0;top:0;transform:scaleX(-1)}
-.details .title{position:relative}
-.details .title:after{content:"";display:block;width:170px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:15px auto 0}
-.details .subtitle{position:relative}
-.details .cards{position:relative;z-index:2}
-@media(max-width:750px){.minang-corner{width:72px;height:72px;opacity:.5}.rumah-gadang-art{width:110%;height:160px;bottom:0}.details .cards{grid-template-columns:1fr;max-width:420px;margin:auto}}
+<!doctype html>
+<html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#650d17"><meta name="description" content="Undangan pernikahan Ilham dan Qonita, 27 Desember 2026 di Politeknik Negeri Batam."><title>Ilham & Qonita — Undangan Pernikahan</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet"><style>
+*{box-sizing:border-box}:root{--bg:#090807;--panel:#11100d;--red:#650d17;--gold:#d7a94d;--ivory:#f8edcf;--muted:#d5c9b3;--pattern:rgba(215,169,77,.12);--shadow:0 18px 60px rgba(0,0,0,.35)}html{scroll-behavior:smooth;scroll-padding-top:80px}body{margin:0;background:var(--bg);color:var(--ivory);font-family:Montserrat,Arial,sans-serif;font-size:14px;line-height:1.7}a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit}button{cursor:pointer}.page-frame{max-width:1440px;margin:auto;overflow:hidden;border-inline:1px solid var(--gold)}.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(18px,5vw,72px);background:var(--bg);border-bottom:1px solid var(--pattern);position:relative;z-index:3}.monogram{font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--gold);letter-spacing:2px}.monogram span{font-size:12px}nav{display:flex;gap:clamp(12px,3vw,34px);font-size:10px;letter-spacing:1.6px;text-transform:uppercase}nav a{opacity:.8}nav a:hover{color:var(--gold)}.sound-toggle{width:35px;height:35px;border:1px solid var(--gold);border-radius:50%;color:var(--gold);background:transparent}.hero-art{min-height:650px;position:relative;display:grid;place-items:center;isolation:isolate;background-image:linear-gradient(180deg,rgba(0,0,0,.16),rgba(0,0,0,.38) 48%,var(--bg) 100%),url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201400%20760%22%20role%3D%22img%22%20aria-label%3D%22Ilustrasi%20Rumah%20Gadang%20Minangkabau%20saat%20senja%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22sky%22%20x2%3D%220%22%20y2%3D%221%22%3E%3Cstop%20stop-color%3D%22%23171216%22%2F%3E%3Cstop%20offset%3D%22.55%22%20stop-color%3D%22%237b3020%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23d28b45%22%2F%3E%3C%2FlinearGradient%3E%3ClinearGradient%20id%3D%22roof%22%20x2%3D%220.2%22%20y2%3D%221%22%3E%3Cstop%20stop-color%3D%22%23171719%22%2F%3E%3Cstop%20offset%3D%22.5%22%20stop-color%3D%22%233b1716%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2308090a%22%2F%3E%3C%2FlinearGradient%3E%3ClinearGradient%20id%3D%22wood%22%20x2%3D%220%22%20y2%3D%221%22%3E%3Cstop%20stop-color%3D%22%238b421e%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2325100c%22%2F%3E%3C%2FlinearGradient%3E%3ClinearGradient%20id%3D%22gold%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20stop-color%3D%22%23fff0a5%22%2F%3E%3Cstop%20offset%3D%22.5%22%20stop-color%3D%22%23d8a33e%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%238d5818%22%2F%3E%3C%2FlinearGradient%3E%3Cfilter%20id%3D%22glow%22%3E%3CfeGaussianBlur%20stdDeviation%3D%2218%22%2F%3E%3C%2Ffilter%3E%3C%2Fdefs%3E%3Crect%20width%3D%221400%22%20height%3D%22760%22%20fill%3D%22url%28%23sky%29%22%2F%3E%3Ccircle%20cx%3D%221020%22%20cy%3D%22230%22%20r%3D%2295%22%20fill%3D%22%23ffb45d%22%20opacity%3D%22.23%22%20filter%3D%22url%28%23glow%29%22%2F%3E%3Cpath%20d%3D%22M0%20420%20Q180%20300%20340%20405%20T690%20390%20T1050%20405%20T1400%20360%20V760%20H0Z%22%20fill%3D%22%23100f10%22%20opacity%3D%22.7%22%2F%3E%3Cpath%20d%3D%22M0%20515%20Q250%20440%20480%20500%20T950%20490%20T1400%20470%20V760%20H0Z%22%20fill%3D%22%23080909%22%2F%3E%3Cg%20stroke%3D%22%23d5a34d%22%20stroke-width%3D%224%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M170%20465%20L215%20370%20Q250%20395%20280%20330%20Q315%20390%20350%20355%20L390%20465Z%22%20fill%3D%22url%28%23roof%29%22%2F%3E%3Cpath%20d%3D%22M305%20465%20L365%20330%20Q410%20365%20455%20260%20Q500%20360%20550%20310%20L610%20465Z%22%20fill%3D%22url%28%23roof%29%22%2F%3E%3Cpath%20d%3D%22M480%20455%20L560%20290%20Q615%20330%20675%20170%20Q730%20330%20790%20290%20L875%20455Z%22%20fill%3D%22url%28%23roof%29%22%2F%3E%3Cpath%20d%3D%22M745%20455%20L815%20315%20Q860%20355%20905%20265%20Q950%20355%20995%20325%20L1050%20455Z%22%20fill%3D%22url%28%23roof%29%22%2F%3E%3Cpath%20d%3D%22M950%20465%20L1010%20355%20Q1050%20390%201085%20325%20Q1125%20390%201160%20360%20L1210%20465Z%22%20fill%3D%22url%28%23roof%29%22%2F%3E%3C%2Fg%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22url%28%23gold%29%22%20stroke-width%3D%223%22%20opacity%3D%22.9%22%3E%3Cpath%20d%3D%22M560%20290%20Q615%20330%20675%20170%20Q730%20330%20790%20290%20M365%20330%20Q410%20365%20455%20260%20Q500%20360%20550%20310%20M815%20315%20Q860%20355%20905%20265%20Q950%20355%20995%20325%22%2F%3E%3Cpath%20d%3D%22M610%20318%20L675%20203%20L740%20318%20M630%20325%20L675%20236%20L720%20325%20M398%20356%20L455%20286%20L512%20356%20M846%20342%20L905%20290%20L964%20342%22%2F%3E%3C%2Fg%3E%3Cg%3E%3Cpath%20d%3D%22M220%20455%20H1160%20V660%20H220Z%22%20fill%3D%22url%28%23wood%29%22%20stroke%3D%22url%28%23gold%29%22%20stroke-width%3D%225%22%2F%3E%3Cpath%20d%3D%22M190%20455%20H1190%20L1160%20480%20H220Z%22%20fill%3D%22%23180d0a%22%20stroke%3D%22url%28%23gold%29%22%20stroke-width%3D%224%22%2F%3E%3Cpath%20d%3D%22M250%20485%20H1130%20V650%20H250Z%22%20fill%3D%22%23160d0a%22%20stroke%3D%22%23b57b2d%22%20stroke-width%3D%223%22%2F%3E%3Cg%20stroke%3D%22%23c18a39%22%20stroke-width%3D%224%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M300%20490%20V650%20M390%20490%20V650%20M480%20490%20V650%20M570%20490%20V650%20M660%20490%20V650%20M750%20490%20V650%20M840%20490%20V650%20M930%20490%20V650%20M1020%20490%20V650%20M1110%20490%20V650%22%2F%3E%3Cpath%20d%3D%22M250%20535%20H1130%20M250%20590%20H1130%22%2F%3E%3C%2Fg%3E%3Cg%20fill%3D%22%23e7a24c%22%20opacity%3D%22.8%22%3E%3Crect%20x%3D%22325%22%20y%3D%22510%22%20width%3D%2235%22%20height%3D%2220%22%2F%3E%3Crect%20x%3D%22415%22%20y%3D%22510%22%20width%3D%2235%22%20height%3D%2220%22%2F%3E%3Crect%20x%3D%22505%22%20y%3D%22510%22%20width%3D%2235%22%20height%3D%2220%22%2F%3E%3Crect%20x%3D%22595%22%20y%3D%22510%22%20width%3D%2235%22%20height%3D%2220%22%2F%3E%3Crect%20x%3D%22685%22%20y%3D%22510%22%20width%3D%2235%22%20height%3D%2220%22%2F%3E%3Crect%20x%3D%22775%22%20y%3D%22510%22%20width%3D%2235%22%20height%3D%2220%22%2F%3E%3Crect%20x%3D%22865%22%20y%3D%22510%22%20width%3D%2235%22%20height%3D%2220%22%2F%3E%3Crect%20x%3D%22955%22%20y%3D%22510%22%20width%3D%2235%22%20height%3D%2220%22%2F%3E%3Crect%20x%3D%221045%22%20y%3D%22510%22%20width%3D%2235%22%20height%3D%2220%22%2F%3E%3C%2Fg%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22url%28%23gold%29%22%20stroke-width%3D%222%22%3E%3Cpath%20d%3D%22M270%20550%20q22%20-28%2044%200%20q-22%2028%20-44%200%20M360%20550%20q22%20-28%2044%200%20q-22%2028%20-44%200%20M450%20550%20q22%20-28%2044%200%20q-22%2028%20-44%200%20M540%20550%20q22%20-28%2044%200%20q-22%2028%20-44%200%20M630%20550%20q22%20-28%2044%200%20q-22%2028%20-44%200%20M720%20550%20q22%20-28%2044%200%20q-22%2028%20-44%200%20M810%20550%20q22%20-28%2044%200%20q-22%2028%20-44%200%20M900%20550%20q22%20-28%2044%200%20q-22%2028%20-44%200%20M990%20550%20q22%20-28%2044%200%20q-22%2028%20-44%200%20M1080%20550%20q22%20-28%2044%200%20q-22%2028%20-44%200%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3Cg%20fill%3D%22%23080a09%22%3E%3Cpath%20d%3D%22M0%20600%20Q90%20530%20170%20600%20L210%20760%20H0Z%20M1200%20610%20Q1290%20535%201400%20610%20V760%20H1180Z%22%2F%3E%3C%2Fg%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22url%28%23gold%29%22%20stroke-width%3D%223%22%20opacity%3D%22.8%22%3E%3Cpath%20d%3D%22M45%20710%20Q95%20620%20145%20710%20Q95%20750%2045%20710%20M55%20690%20Q95%20650%20135%20690%20M1250%20710%20Q1300%20620%201350%20710%20Q1300%20750%201250%20710%20M1260%20690%20Q1300%20650%201340%20690%22%2F%3E%3Cpath%20d%3D%22M0%20735%20H1400%22%2F%3E%3C%2Fg%3E%3Crect%20x%3D%2214%22%20y%3D%2214%22%20width%3D%221372%22%20height%3D%22732%22%20fill%3D%22none%22%20stroke%3D%22url%28%23gold%29%22%20stroke-width%3D%223%22%20opacity%3D%22.75%22%2F%3E%3C%2Fsvg%3E");background-position:center,center 48%;background-size:cover;background-repeat:no-repeat;overflow:hidden}.hero-art:before,.hero-art:after{content:"";position:absolute;inset:16px;border:1px solid var(--gold);opacity:.5;pointer-events:none}.hero-art:after{inset:23px;border:1px solid var(--pattern)}.roof{position:absolute;left:50%;transform:translateX(-50%);width:min(83%,900px);height:340px;top:48px;clip-path:polygon(0 53%,8% 45%,15% 15%,20% 45%,27% 23%,32% 42%,40% 4%,50% 0,60% 4%,68% 42%,73% 23%,80% 45%,85% 15%,92% 45%,100% 53%,100% 100%,0 100%);border:2px solid var(--gold);background:repeating-linear-gradient(100deg,transparent 0 16px,rgba(215,169,77,.2) 17px 18px),linear-gradient(145deg,#201710,#070707 70%);filter:drop-shadow(0 8px 16px #000);z-index:-1}.roof-back{top:22px;width:min(90%,1000px);height:380px;opacity:.6;transform:translateX(-50%) scale(.98)}.roof-front{top:120px;width:min(72%,760px);height:290px;opacity:.95}.hero-copy{width:min(90%,720px);padding:65px 20px 50px;text-align:center;z-index:1;text-shadow:0 3px 20px #000}.eyebrow{font-size:10px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin:0 0 12px}.mini-crown{color:var(--gold);font-size:29px;letter-spacing:8px;margin:8px 0}h1,h2,h3,.quote{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500}h1{font-size:clamp(54px,9vw,100px);line-height:.9;margin:8px 0 25px;color:var(--gold);display:flex;align-items:center;justify-content:center;gap:15px;flex-wrap:wrap}h1 span{font-family:'Great Vibes',cursive}h1 i{font-family:'Great Vibes',cursive;font-size:.65em;color:var(--ivory)}.date-line{font-size:12px;letter-spacing:3px;color:var(--ivory)}.hero-desc{max-width:420px;margin:20px auto 28px;font-family:'Cormorant Garamond',serif;font-size:18px;line-height:1.45}.gold-button,.outline-button{display:inline-flex;align-items:center;justify-content:center;gap:20px;min-height:46px;padding:11px 25px;border:1px solid var(--gold);background:linear-gradient(120deg,var(--red),#31070d);color:#fff5d8;letter-spacing:1.4px;font-size:10px;box-shadow:inset 0 0 0 3px rgba(215,169,77,.13),0 7px 22px rgba(0,0,0,.22);transition:transform .2s,filter .2s}.gold-button:hover,.outline-button:hover{transform:translateY(-2px);filter:brightness(1.15)}.gold-button span{color:var(--gold);font-size:18px}.section-pattern{position:relative;padding:76px clamp(20px,8vw,110px);text-align:center;background-color:var(--panel);background-image:radial-gradient(ellipse at 10% 20%,var(--pattern),transparent 30%),radial-gradient(ellipse at 90% 80%,var(--pattern),transparent 30%)}.section-pattern:before{content:"❧";position:absolute;top:12px;left:15px;color:var(--gold);font-size:44px;opacity:.65;transform:rotate(-25deg)}.section-pattern:after{content:"❧";position:absolute;right:15px;bottom:12px;color:var(--gold);font-size:44px;opacity:.65;transform:rotate(155deg)}h2{font-size:clamp(36px,5vw,58px);line-height:1.05;color:var(--gold);margin:0 0 18px}.intro-text{max-width:610px;margin:0 auto 32px;color:var(--muted);font-family:'Cormorant Garamond',serif;font-size:18px}.couple-grid{display:grid;grid-template-columns:1fr 90px 1fr;align-items:center;gap:24px;max-width:850px;margin:35px auto 25px}.person h3{font-family:'Great Vibes',cursive;color:var(--gold);font-size:43px;margin:18px 0 0}.person p{margin:2px;color:var(--muted);font-size:12px}.person .parents{color:var(--ivory);font-family:'Cormorant Garamond',serif;font-size:17px;line-height:1.35}.portrait{height:230px;max-width:230px;margin:auto;border:1px solid var(--gold);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;position:relative;background:linear-gradient(145deg,var(--red),#16090a 60%,#302315);box-shadow:inset 0 0 0 6px rgba(215,169,77,.12),var(--shadow)}.portrait:before{content:"";position:absolute;inset:9px;border:1px solid var(--gold);clip-path:polygon(0 12%,12% 12%,12% 0,88% 0,88% 12%,100% 12%,100% 88%,88% 88%,88% 100%,12% 100%,12% 88%,0 88%)}.portrait span{font-size:42px;color:var(--gold)}.portrait small{font-size:9px;letter-spacing:1.4px;color:var(--ivory)}.between{font-family:serif;color:var(--gold);font-size:40px;display:flex;flex-direction:column;align-items:center}.between span{font-family:'Great Vibes',cursive;font-size:35px}.quote{font-size:25px;font-style:italic;color:var(--gold);margin:22px 0 0}.event{background:linear-gradient(120deg,var(--red),var(--bg) 58%,var(--red));border-block:1px solid var(--gold)}.event-lead{color:var(--muted);margin-bottom:30px}.event-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;max-width:720px;margin:0 auto 28px}.event-card{border:1px solid var(--gold);padding:24px 14px;background:rgba(0,0,0,.28);box-shadow:inset 0 0 0 4px rgba(215,169,77,.07)}.event-icon{color:var(--gold);font-size:34px}.event-card h3{font-size:29px;color:var(--gold);margin:6px 0}.event-card p{font-size:12px;margin:4px;color:var(--muted)}.event-card .time{font-family:'Cormorant Garamond',serif;font-size:23px;color:var(--ivory)}.outline-button{background:transparent}.countdown{padding:50px clamp(20px,8vw,100px);display:flex;align-items:center;justify-content:space-between;gap:28px;background:linear-gradient(100deg,var(--bg),var(--panel));border-bottom:1px solid var(--gold)}.countdown h2{margin-bottom:5px}.count-caption{color:var(--muted);font-size:12px}.timer{display:grid;grid-template-columns:repeat(4,minmax(62px,90px));gap:10px}.timer div{border:1px solid var(--gold);padding:12px 5px;text-align:center;background:var(--pattern)}.timer strong,.timer span{display:block}.timer strong{font-family:'Cormorant Garamond',serif;font-size:32px;color:var(--gold);line-height:1.1}.timer span{font-size:8px;letter-spacing:1.5px;margin-top:6px}.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:900px;margin:30px auto 12px}.gallery-tile{height:220px;border:1px solid var(--gold);display:flex;align-items:end;justify-content:center;padding:15px;background:radial-gradient(ellipse at 50% 25%,rgba(215,169,77,.3),transparent 30%),linear-gradient(145deg,#2b2015,#070707 70%);position:relative;overflow:hidden}.gallery-tile:before{content:"⌂";position:absolute;top:22px;left:0;right:0;text-align:center;font-family:serif;font-size:95px;color:var(--gold);opacity:.35}.tile-two:before{content:"❦"}.tile-three:before{content:"❖"}.gallery-tile span{font-size:10px;letter-spacing:1px;color:var(--ivory);position:relative}.gallery-note{font-size:10px;color:var(--muted)}.rsvp{display:grid;grid-template-columns:.85fr 1.15fr;gap:40px;padding:65px clamp(20px,8vw,100px);background:linear-gradient(110deg,var(--red),var(--bg));border-top:1px solid var(--gold)}.rsvp h2{font-size:42px}.rsvp-copy p{color:var(--muted)}.contact-label{margin-top:28px;font-size:11px;letter-spacing:1px}.contact-number{color:var(--gold)!important;font-size:13px}form{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:24px;border:1px solid var(--gold);background:rgba(0,0,0,.25)}label{display:flex;flex-direction:column;gap:7px;font-size:10px;letter-spacing:.6px;color:var(--gold)}label:nth-of-type(3),label:nth-of-type(4),.submit-button,.form-note{grid-column:1/-1}input,select,textarea{width:100%;background:var(--bg);border:1px solid var(--pattern);color:var(--ivory);padding:12px;outline:none;border-radius:0}input:focus,select:focus,textarea:focus{border-color:var(--gold)}textarea{resize:vertical}.submit-button{width:100%}.form-note{font-size:9px;color:var(--muted);margin:0}code{color:var(--gold)}footer{text-align:center;padding:48px 20px 28px;background:var(--bg);border-top:1px solid var(--gold)}footer p{font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--muted)}footer h2{font-family:'Great Vibes',cursive;font-size:38px;display:inline-block;margin:0 6px}.footer-ornament,.footer-amp,.footer-date{color:var(--gold)}.footer-ornament{font-size:25px}.footer-amp{font-family:'Great Vibes',cursive;font-size:22px}footer small{display:block;margin-top:24px;font-size:9px;color:var(--muted)}.toast{position:fixed;left:50%;bottom:20px;transform:translate(-50%,20px);background:var(--gold);color:#130d08;padding:10px 18px;font-size:12px;opacity:0;pointer-events:none;transition:.2s;z-index:9}.toast.show{opacity:1;transform:translate(-50%,0)}.curtain{position:absolute;top:0;width:24%;height:180px;background:repeating-linear-gradient(100deg,rgba(120,9,22,.9) 0 18px,rgba(38,5,10,.95) 19px 27px);border-bottom:2px solid var(--gold);z-index:0;clip-path:polygon(0 0,100% 0,88% 100%,10% 82%)}.curtain-left{left:0}.curtain-right{right:0;transform:scaleX(-1)}
+@media(max-width:700px){.topbar{height:58px}nav{gap:10px;font-size:8px;letter-spacing:.7px}.sound-toggle{display:none}.hero-art{min-height:580px}.roof{width:110%;top:70px}.roof-front{width:95%;top:150px}.hero-copy{padding-top:80px}h1{font-size:clamp(48px,13vw,72px);gap:8px}.date-line{font-size:10px;letter-spacing:1.5px}.section-pattern{padding:58px 20px}.couple-grid{grid-template-columns:1fr 40px 1fr;gap:8px}.portrait{height:170px;width:100%}.person h3{font-size:34px}.person .parents{font-size:14px}.person p{font-size:10px}.between{font-size:24px}.between span{font-size:25px}.event-cards{gap:10px}.event-card{padding:18px 8px}.event-card h3{font-size:24px}.event-card p{font-size:10px}.countdown{flex-direction:column;text-align:center;padding:42px 14px}.timer{width:100%;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}.timer strong{font-size:26px}.timer span{font-size:7px}.gallery-grid{gap:7px}.gallery-tile{height:150px;padding:7px}.gallery-tile span{font-size:8px}.gallery-tile:before{font-size:65px}.rsvp{grid-template-columns:1fr;gap:20px;padding:48px 20px}.rsvp h2{font-size:38px}form{padding:15px;gap:10px}}@media(max-width:380px){nav a:nth-child(3){display:none}.couple-grid{grid-template-columns:1fr 24px 1fr}.portrait{height:145px}.person h3{font-size:30px}.gallery-tile{height:125px}}
 
-@media(max-width:750px){nav .links{display:none}.cards,.story-grid,.gallery-grid{grid-template-columns:1fr}.hero{background-attachment:scroll}.story{background-attachment:scroll}section{padding:70px 6%}.title{font-size:43px}.names{font-size:64px}}
+/* Ornamen khas Minangkabau: motif ukiran SVG buatan khusus untuk template ini. */
+.section-pattern{background-image:linear-gradient(rgba(0,0,0,.06),rgba(0,0,0,.06)),url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22220%22%20height%3D%22220%22%20viewBox%3D%220%200%20220%20220%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23d7a94d%22%20stroke-width%3D%221.5%22%20opacity%3D%22.8%22%3E%3Cpath%20d%3D%22M110%208%20C75%2040%2075%2065%20110%2092%20C145%2065%20145%2040%20110%208Z%22%2F%3E%3Cpath%20d%3D%22M110%2028%20C92%2048%2092%2062%20110%2075%20C128%2062%20128%2048%20110%2028Z%22%2F%3E%3Cpath%20d%3D%22M110%2092%20C75%20115%2070%20145%20110%20174%20C150%20145%20145%20115%20110%2092Z%22%2F%3E%3Cpath%20d%3D%22M110%20110%20C91%20128%2092%20146%20110%20158%20C128%20146%20129%20128%20110%20110Z%22%2F%3E%3Cpath%20d%3D%22M8%20110%20C40%2075%2065%2075%2092%20110%20C65%20145%2040%20145%208%20110Z%22%2F%3E%3Cpath%20d%3D%22M28%20110%20C48%2092%2062%2092%2075%20110%20C62%20128%2048%20128%2028%20110Z%22%2F%3E%3Cpath%20d%3D%22M92%20110%20C115%2075%20145%2070%20174%20110%20C145%20150%20115%20145%2092%20110Z%22%2F%3E%3Cpath%20d%3D%22M110%20110%20L110%20212%20M8%20110%20H212%22%2F%3E%3Cpath%20d%3D%22M15%2015%20Q50%2025%2060%2060%20Q25%2050%2015%2015%20M205%2015%20Q170%2025%20160%2060%20Q195%2050%20205%2015%20M15%20205%20Q50%20195%2060%20160%20Q25%20170%2015%20205%20M205%20205%20Q170%20195%20160%20160%20Q195%20170%20205%20205Z%22%2F%3E%3Ccircle%20cx%3D%22110%22%20cy%3D%22110%22%20r%3D%2214%22%2F%3E%3Cpath%20d%3D%22M110%200%20V220%20M0%20110%20H220%22%20opacity%3D%22.4%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E"),radial-gradient(ellipse at 10% 20%,var(--pattern),transparent 30%),radial-gradient(ellipse at 90% 80%,var(--pattern),transparent 30%);background-size:220px 220px,auto,auto,auto;background-blend-mode:screen,soft-light,normal,normal}
+.gallery-tile{background-image:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.72)),url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201400%20760%22%20role%3D%22img%22%20aria-label%3D%22Ilustrasi%20Rumah%20Gadang%20Minangkabau%20saat%20senja%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22sky%22%20x2%3D%220%22%20y2%3D%221%22%3E%3Cstop%20stop-color%3D%22%23171216%22%2F%3E%3Cstop%20offset%3D%22.55%22%20stop-color%3D%22%237b3020%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23d28b45%22%2F%3E%3C%2FlinearGradient%3E%3ClinearGradient%20id%3D%22roof%22%20x2%3D%220.2%22%20y2%3D%221%22%3E%3Cstop%20stop-color%3D%22%23171719%22%2F%3E%3Cstop%20offset%3D%22.5%22%20stop-color%3D%22%233b1716%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2308090a%22%2F%3E%3C%2FlinearGradient%3E%3ClinearGradient%20id%3D%22wood%22%20x2%3D%220%22%20y2%3D%221%22%3E%3Cstop%20stop-color%3D%22%238b421e%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2325100c%22%2F%3E%3C%2FlinearGradient%3E%3ClinearGradient%20id%3D%22gold%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20stop-color%3D%22%23fff0a5%22%2F%3E%3Cstop%20offset%3D%22.5%22%20stop-color%3D%22%23d8a33e%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%238d5818%22%2F%3E%3C%2FlinearGradient%3E%3Cfilter%20id%3D%22glow%22%3E%3CfeGaussianBlur%20stdDeviation%3D%2218%22%2F%3E%3C%2Ffilter%3E%3C%2Fdefs%3E%3Crect%20width%3D%221400%22%20height%3D%22760%22%20fill%3D%22url%28%23sky%29%22%2F%3E%3Ccircle%20cx%3D%221020%22%20cy%3D%22230%22%20r%3D%2295%22%20fill%3D%22%23ffb45d%22%20opacity%3D%22.23%22%20filter%3D%22url%28%23glow%29%22%2F%3E%3Cpath%20d%3D%22M0%20420%20Q180%20300%20340%20405%20T690%20390%20T1050%20405%20T1400%20360%20V760%20H0Z%22%20fill%3D%22%23100f10%22%20opacity%3D%22.7%22%2F%3E%3Cpath%20d%3D%22M0%20515%20Q250%20440%20480%20500%20T950%20490%20T1400%20470%20V760%20H0Z%22%20fill%3D%22%23080909%22%2F%3E%3Cg%20stroke%3D%22%23d5a34d%22%20stroke-width%3D%224%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M170%20465%20L215%20370%20Q250%20395%20280%20330%20Q315%20390%20350%20355%20L390%20465Z%22%20fill%3D%22url%28%23roof%29%22%2F%3E%3Cpath%20d%3D%22M305%20465%20L365%20330%20Q410%20365%20455%20260%20Q500%20360%20550%20310%20L610%20465Z%22%20fill%3D%22url%28%23roof%29%22%2F%3E%3Cpath%20d%3D%22M480%20455%20L560%20290%20Q615%20330%20675%20170%20Q730%20330%20790%20290%20L875%20455Z%22%20fill%3D%22url%28%23roof%29%22%2F%3E%3Cpath%20d%3D%22M745%20455%20L815%20315%20Q860%20355%20905%20265%20Q950%20355%20995%20325%20L1050%20455Z%22%20fill%3D%22url%28%23roof%29%22%2F%3E%3Cpath%20d%3D%22M950%20465%20L1010%20355%20Q1050%20390%201085%20325%20Q1125%20390%201160%20360%20L1210%20465Z%22%20fill%3D%22url%28%23roof%29%22%2F%3E%3C%2Fg%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22url%28%23gold%29%22%20stroke-width%3D%223%22%20opacity%3D%22.9%22%3E%3Cpath%20d%3D%22M560%20290%20Q615%20330%20675%20170%20Q730%20330%20790%20290%20M365%20330%20Q410%20365%20455%20260%20Q500%20360%20550%20310%20M815%20315%20Q860%20355%20905%20265%20Q950%20355%20995%20325%22%2F%3E%3Cpath%20d%3D%22M610%20318%20L675%20203%20L740%20318%20M630%20325%20L675%20236%20L720%20325%20M398%20356%20L455%20286%20L512%20356%20M846%20342%20L905%20290%20L964%20342%22%2F%3E%3C%2Fg%3E%3Cg%3E%3Cpath%20d%3D%22M220%20455%20H1160%20V660%20H220Z%22%20fill%3D%22url%28%23wood%29%22%20stroke%3D%22url%28%23gold%29%22%20stroke-width%3D%225%22%2F%3E%3Cpath%20d%3D%22M190%20455%20H1190%20L1160%20480%20H220Z%22%20fill%3D%22%23180d0a%22%20stroke%3D%22url%28%23gold%29%22%20stroke-width%3D%224%22%2F%3E%3Cpath%20d%3D%22M250%20485%20H1130%20V650%20H250Z%22%20fill%3D%22%23160d0a%22%20stroke%3D%22%23b57b2d%22%20stroke-width%3D%223%22%2F%3E%3Cg%20stroke%3D%22%23c18a39%22%20stroke-width%3D%224%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M300%20490%20V650%20M390%20490%20V650%20M480%20490%20V650%20M570%20490%20V650%20M660%20490%20V650%20M750%20490%20V650%20M840%20490%20V650%20M930%20490%20V650%20M1020%20490%20V650%20M1110%20490%20V650%22%2F%3E%3Cpath%20d%3D%22M250%20535%20H1130%20M250%20590%20H1130%22%2F%3E%3C%2Fg%3E%3Cg%20fill%3D%22%23e7a24c%22%20opacity%3D%22.8%22%3E%3Crect%20x%3D%22325%22%20y%3D%22510%22%20width%3D%2235%22%20height%3D%2220%22%2F%3E%3Crect%20x%3D%22415%22%20y%3D%22510%22%20width%3D%2235%22%20height%3D%2220%22%2F%3E%3Crect%20x%3D%22505%22%20y%3D%22510%22%20width%3D%2235%22%20height%3D%2220%22%2F%3E%3Crect%20x%3D%22595%22%20y%3D%22510%22%20width%3D%2235%22%20height%3D%2220%22%2F%3E%3Crect%20x%3D%22685%22%20y%3D%22510%22%20width%3D%2235%22%20height%3D%2220%22%2F%3E%3Crect%20x%3D%22775%22%20y%3D%22510%22%20width%3D%2235%22%20height%3D%2220%22%2F%3E%3Crect%20x%3D%22865%22%20y%3D%22510%22%20width%3D%2235%22%20height%3D%2220%22%2F%3E%3Crect%20x%3D%22955%22%20y%3D%22510%22%20width%3D%2235%22%20height%3D%2220%22%2F%3E%3Crect%20x%3D%221045%22%20y%3D%22510%22%20width%3D%2235%22%20height%3D%2220%22%2F%3E%3C%2Fg%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22url%28%23gold%29%22%20stroke-width%3D%222%22%3E%3Cpath%20d%3D%22M270%20550%20q22%20-28%2044%200%20q-22%2028%20-44%200%20M360%20550%20q22%20-28%2044%200%20q-22%2028%20-44%200%20M450%20550%20q22%20-28%2044%200%20q-22%2028%20-44%200%20M540%20550%20q22%20-28%2044%200%20q-22%2028%20-44%200%20M630%20550%20q22%20-28%2044%200%20q-22%2028%20-44%200%20M720%20550%20q22%20-28%2044%200%20q-22%2028%20-44%200%20M810%20550%20q22%20-28%2044%200%20q-22%2028%20-44%200%20M900%20550%20q22%20-28%2044%200%20q-22%2028%20-44%200%20M990%20550%20q22%20-28%2044%200%20q-22%2028%20-44%200%20M1080%20550%20q22%20-28%2044%200%20q-22%2028%20-44%200%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3Cg%20fill%3D%22%23080a09%22%3E%3Cpath%20d%3D%22M0%20600%20Q90%20530%20170%20600%20L210%20760%20H0Z%20M1200%20610%20Q1290%20535%201400%20610%20V760%20H1180Z%22%2F%3E%3C%2Fg%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22url%28%23gold%29%22%20stroke-width%3D%223%22%20opacity%3D%22.8%22%3E%3Cpath%20d%3D%22M45%20710%20Q95%20620%20145%20710%20Q95%20750%2045%20710%20M55%20690%20Q95%20650%20135%20690%20M1250%20710%20Q1300%20620%201350%20710%20Q1300%20750%201250%20710%20M1260%20690%20Q1300%20650%201340%20690%22%2F%3E%3Cpath%20d%3D%22M0%20735%20H1400%22%2F%3E%3C%2Fg%3E%3Crect%20x%3D%2214%22%20y%3D%2214%22%20width%3D%221372%22%20height%3D%22732%22%20fill%3D%22none%22%20stroke%3D%22url%28%23gold%29%22%20stroke-width%3D%223%22%20opacity%3D%22.75%22%2F%3E%3C%2Fsvg%3E");background-size:cover;background-position:center}
+.tile-two{background-image:linear-gradient(180deg,rgba(0,0,0,.12),rgba(0,0,0,.75)),url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22220%22%20height%3D%22220%22%20viewBox%3D%220%200%20220%20220%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23d7a94d%22%20stroke-width%3D%221.5%22%20opacity%3D%22.8%22%3E%3Cpath%20d%3D%22M110%208%20C75%2040%2075%2065%20110%2092%20C145%2065%20145%2040%20110%208Z%22%2F%3E%3Cpath%20d%3D%22M110%2028%20C92%2048%2092%2062%20110%2075%20C128%2062%20128%2048%20110%2028Z%22%2F%3E%3Cpath%20d%3D%22M110%2092%20C75%20115%2070%20145%20110%20174%20C150%20145%20145%20115%20110%2092Z%22%2F%3E%3Cpath%20d%3D%22M110%20110%20C91%20128%2092%20146%20110%20158%20C128%20146%20129%20128%20110%20110Z%22%2F%3E%3Cpath%20d%3D%22M8%20110%20C40%2075%2065%2075%2092%20110%20C65%20145%2040%20145%208%20110Z%22%2F%3E%3Cpath%20d%3D%22M28%20110%20C48%2092%2062%2092%2075%20110%20C62%20128%2048%20128%2028%20110Z%22%2F%3E%3Cpath%20d%3D%22M92%20110%20C115%2075%20145%2070%20174%20110%20C145%20150%20115%20145%2092%20110Z%22%2F%3E%3Cpath%20d%3D%22M110%20110%20L110%20212%20M8%20110%20H212%22%2F%3E%3Cpath%20d%3D%22M15%2015%20Q50%2025%2060%2060%20Q25%2050%2015%2015%20M205%2015%20Q170%2025%20160%2060%20Q195%2050%20205%2015%20M15%20205%20Q50%20195%2060%20160%20Q25%20170%2015%20205%20M205%20205%20Q170%20195%20160%20160%20Q195%20170%20205%20205Z%22%2F%3E%3Ccircle%20cx%3D%22110%22%20cy%3D%22110%22%20r%3D%2214%22%2F%3E%3Cpath%20d%3D%22M110%200%20V220%20M0%20110%20H220%22%20opacity%3D%22.4%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E"),linear-gradient(145deg,#2b2015,#070707)}
+.roof{display:none}
 
-.couple{background:#fffaf0}.couple-grid{max-width:1000px;margin:auto;display:grid;grid-template-columns:1fr 90px 1fr;align-items:center;gap:20px}.person{text-align:center}.person-photo{width:min(330px,100%);aspect-ratio:3/4;margin:auto;border:5px solid #d6ad55;padding:5px;background:#fff}.person-photo img{width:100%;height:100%;object-fit:cover}.person-label{font-size:11px;letter-spacing:4px;color:#a17a31;margin-top:24px}.person h3{font:600 50px "Cormorant Garamond";color:var(--maroon);margin:5px}.person p{font-size:13px;line-height:1.8}.and-symbol{font:50px "Cormorant Garamond";color:var(--gold);text-align:center}
+@media(max-width:700px){.hero-art{background-position:center,center;background-size:cover}.hero-art:before{inset:9px}.hero-art:after{inset:15px}}
 
-
-.family{background:linear-gradient(135deg,#f9f0dd,#fffaf1);text-align:center}.family-grid{max-width:950px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:25px}.family-card{background:#fff;border:1px solid #d6ad5566;padding:35px 25px;box-shadow:0 12px 35px #4b10100d}.family-card h3{font:600 29px "Cormorant Garamond";color:var(--maroon);margin:8px}.family-card ul{list-style:none;padding:0;margin:25px 0 0}.family-card li{padding:9px;border-bottom:1px solid #d6ad5525;font-size:13px}.family-ornament{color:var(--gold);font-size:24px}.family-note{margin:35px auto 0;color:#74503f;font:italic 20px "Cormorant Garamond"}.album-title{text-align:center;margin:55px auto 25px}.album-title span{font-size:10px;letter-spacing:5px;color:var(--gold)}.album-title h3{font:500 35px "Cormorant Garamond";margin:5px;color:#fff}
-@media(max-width:750px){.couple-grid,.family-grid{grid-template-columns:1fr}.and-symbol{padding:5px}.person-photo{max-width:280px}}
-</style>
-</head>
-<body class="locked">
-<div class="cover" id="cover">
-  <div class="cover-inner">
-    <div class="eyebrow">✦ THE WEDDING OF ✦</div>
-    <h4 class="names">Ilham <span class="amp">&</span> Qonita</h4>
-</br> </br> </br> </br> </br> </br> </br> </br> </br> </br> </br> </br> </br> </br> </br> </br> </br> </br> </br>
-    <div class="guest-greeting" style="margin:0 auto 18px;font-size:13px;line-height:1.8;letter-spacing:1px">
-      <div>Kepada Yth. Bapak/Ibu/Saudara/i : </div>
-      <strong id="nama-tamu" style="display:block;color:var(--gold);font:600 25px 'Cormorant Garamond',serif;letter-spacing:.5px">Tamu Undangan</strong>
-    </div>
-    <p style="font-size:13px;line-height:1.8;max-width:500px;margin:0 auto 25px">Dengan memohon rahmat dan ridho Allah SWT, kami mengundang Anda untuk menjadi bagian dari hari bahagia kami.</p>
-    <button class="btn" id="openBtn">Buka Undangan</button>
-  </div>
-</div>
-
-<audio id="music" loop preload="auto">
-  <!-- GANTI FILE INI dengan musik Anda -->
-  <source src="assets/music/music.mp3" type="audio/mpeg">
-</audio>`x
-<button class="music-note" id="musicBtn" title="Musik">♫</button>
-
-<nav>
-  <div class="brand">Ilham & Qonita</div>
-  <div class="links"><a href="#home">HOME</a><a href="#couple">MEMPELAI</a><a href="#story">OUR STORY</a><a href="#gallery">PREWED</a><a href="#family">KELUARGA</a><a href="#rekening">REKENING</a><a href="#rsvp">RSVP</a></div>
-</nav>
-
-<main>
-<section class="hero" id="home"><div class="hero-content">
-  <p>THE WEDDING OF</p><h1>Ilham & Qonita</h1><p>Two hearts, one journey, forever.</p>
-  <div style="margin-top:30px"><button class="btn" onclick="document.querySelector('#couple').scrollIntoView()">MEMPELAI</button></div>
-</div></section>
-
-
-<section class="couple" id="couple">
-  <h2 class="title">The Bride & The Groom</h2>
-  <p class="subtitle">Dua insan, dua keluarga, satu perjalanan menuju kehidupan baru.</p>
-  <div class="couple-grid">
-    <div class="person">
-      <div class="person-photo"><img src="assets/images/groom.jpg" onerror="this.src='assets/images/cover.jpg'" alt="Calon Mempelai Pria"></div>
-      <div class="person-label">THE GROOM</div>
-      <h4>Ilham, A.Md.Kom</h4>
-      <p>Putra dari<br><b>Bapak [Arham]</b> & <b>Ibu [Hajimar]</b></p>
-    </div>
-    <div class="and-symbol">&</div>
-    <div class="person">
-      <div class="person-photo"><img src="assets/images/bride.jpg" onerror="this.src='assets/images/cover.jpg'" alt="Calon Mempelai Wanita"></div>
-      <div class="person-label">THE BRIDE</div>
-      <h4>Qonita Izzati Zahra, S.Stat</h4>
-      <p>Putri dari<br><b>Bapak [Defrizal]</b> & <b>Ibu [Rasmit Yulita]</b></p>
-    </div>
-  </div>
-</section>
-
-<section class="story" id="story">
-  <div class="story-grid">
-    <img class="story-img" src="assets/images/story.jpg" onerror="this.src='assets/images/cover.jpg'" alt="Ilham dan Qonita">
-    <div>
-      <h2 class="title" style="text-align:left">Our Story</h2>
-      <p class="story-text">Dari sebuah pertemuan sederhana di tempat kerja yang sama, perjalanan kami terus tumbuh menjadi cerita yang penuh makna. Kini, kami siap melangkah ke jenjang yang lebih serius dengan restu dan doa dari orang-orang tercinta.</p>
-      <div class="timeline">
-        <div><strong>4 Desember 2022</strong><br>Pertemuan pertama</div>
-        <div><strong>18 Desember 2022</strong><br>Hari Jadian</div>
-        <div><strong>10 Agustus 2026</strong><br>Pertemuan keluarga</div>
-	<div><strong>27 Desember 2026</strong><br>Menikah</div>
-        <div><strong>Hari Bahagia</strong><br>Menuju kehidupan baru</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-
-<section class="details">
-  <!-- Siluet Rumah Gadang dan ukiran Minangkabau dekoratif -->
-  <div class="rumah-gadang-art" aria-hidden="true">
-    <svg viewBox="0 0 900 260" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#b88932" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M85 224H815M130 224V164L178 132L226 164V224M674 224V164L722 132L770 164V224"/>
-      <path d="M160 164L178 76L196 164M704 164L722 76L740 164"/>
-      <path d="M70 158Q112 148 130 112Q146 80 178 18Q210 80 226 112Q244 148 286 158"/>
-      <path d="M614 158Q656 148 674 112Q690 80 722 18Q754 80 770 112Q788 148 830 158"/>
-      <path d="M260 224V174Q450 98 640 174V224"/>
-      <path d="M260 174Q450 135 640 174M290 224V184M330 224V174M370 224V163M410 224V154M450 224V151M490 224V154M530 224V163M570 224V174M610 224V184"/>
-      <path d="M235 160Q450 46 665 160M280 145Q450 58 620 145"/>
-      <path d="M430 125L450 105L470 125L450 145Z M438 125L450 113L462 125L450 137Z"/>
-      <path d="M140 205q14-20 28 0t28 0t28 0M678 205q14-20 28 0t28 0t28 0"/>
-      <path d="M90 240q18-28 36 0t36 0t36 0t36 0M666 240q18-28 36 0t36 0t36 0t36 0"/>
-      <path d="M340 224v-18q10-12 20 0v18m180 0v-18q10-12 20 0v18"/>
-      <path d="M395 224v-30q10-14 20 0v30m70 0v-30q10-14 20 0v30"/>
-      <circle cx="450" cy="176" r="8"/><path d="M450 160v32M434 176h32"/>
-    </svg>
-  </div>
-  <div class="minang-corner left" aria-hidden="true">
-    <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#b88932" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M4 116V4H116M4 72Q35 72 35 42Q35 20 57 20Q78 20 78 42Q78 58 61 58Q48 58 48 45Q48 36 57 36"/>
-      <path d="M4 91Q25 91 25 70Q25 54 41 54Q56 54 56 70Q56 81 45 81Q37 81 37 72"/>
-      <path d="M17 116Q17 96 37 96Q57 96 57 116M69 4Q69 24 89 24Q109 24 109 4"/>
-      <path d="M4 28Q24 28 24 8M4 48Q44 48 44 8M4 104Q24 104 24 84"/>
-      <path d="M18 18l8 8-8 8-8-8zM84 40l8 8-8 8-8-8zM70 80l8 8-8 8-8-8z"/>
-      <circle cx="18" cy="26" r="3"/><circle cx="84" cy="48" r="3"/>
-    </svg>
-  </div>
-  <div class="minang-corner right" aria-hidden="true">
-    <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#b88932" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M4 116V4H116M4 72Q35 72 35 42Q35 20 57 20Q78 20 78 42Q78 58 61 58Q48 58 48 45Q48 36 57 36"/>
-      <path d="M4 91Q25 91 25 70Q25 54 41 54Q56 54 56 70Q56 81 45 81Q37 81 37 72"/>
-      <path d="M17 116Q17 96 37 96Q57 96 57 116M69 4Q69 24 89 24Q109 24 109 4"/>
-      <path d="M4 28Q24 28 24 8M4 48Q44 48 44 8M4 104Q24 104 24 84"/>
-      <path d="M18 18l8 8-8 8-8-8zM84 40l8 8-8 8-8-8zM70 80l8 8-8 8-8-8z"/>
-      <circle cx="18" cy="26" r="3"/><circle cx="84" cy="48" r="3"/>
-    </svg>
-  </div>
-
-  <h2 class="title">The Wedding</h2>
-  <p class="subtitle">Sebuah perayaan cinta, keluarga, dan perjalanan baru yang kami mulai bersama.</p>
-  <div class="cards">
-    <div class="card"><div class="icon">◈</div><h3>Akad Nikah</h3><p>• MINGGU •<br> 27 DESEMBER 2026 <br>10.00 WIB<br><h3>Lokasi</h3><p> Politeknik Negeri Batam, Batam<br>Indonesia</p><button class="btn" onclick="window.open('https://maps.app.goo.gl/359M7ikWihoYgTGQ7')">Buka Maps</button></div>
-
-    <div class="card"><div class="icon">◈</div><h3>Resepsi Nikah</h3><p>• MINGGU •<br> 27 DESEMBER 2026 <br>15.00-21.00 WIB<br><h3>Lokasi</h3><p>Politeknik Negeri Batam, Batam<br>Indonesia</p><button class="btn" onclick="window.open('https://maps.app.goo.gl/359M7ikWihoYgTGQ7')">Buka Maps</button></div>
- </div>   
-</section>
-
-<section class="gallery" id="gallery">
-  <h2 class="title">Prewedding</h2>
-  <p class="subtitle" style="color:#eee">Cerita dan kenangan calon mempelai sebelum menuju hari bahagia.</p>
-
-  <div class="album-title"><span>OUR MOMENTS</span><h3>Ilham & Qonita</h3></div>
-  <div class="gallery-grid">
-    <img src="assets/images/prewed1.jpg" onerror="this.src='assets/images/cover.jpg'" alt="Ilham & Qonita 1" onclick="openImg(this.src)">
-    <img src="assets/images/prewed2.jpg" onerror="this.src='assets/images/cover.jpg'" alt="Ilham & Qonita 2" onclick="openImg(this.src)">
-    <img src="assets/images/prewed3.jpg" onerror="this.src='assets/images/cover.jpg'" alt="Ilham & Qonita 3" onclick="openImg(this.src)">
-    <img src="assets/images/prewed1.jpg" onerror="this.src='assets/images/cover.jpg'" alt="Ilham & Qonita 1" onclick="openImg(this.src)">
-    <img src="assets/images/prewed2.jpg" onerror="this.src='assets/images/cover.jpg'" alt="Ilham & Qonita 2" onclick="openImg(this.src)">
-    <img src="assets/images/prewed3.jpg" onerror="this.src='assets/images/cover.jpg'" alt="Ilham & Qonita 3" onclick="openImg(this.src)">
-    <img src="assets/images/prewed1.jpg" onerror="this.src='assets/images/cover.jpg'" alt="Ilham & Qonita 1" onclick="openImg(this.src)">
-    <img src="assets/images/prewed2.jpg" onerror="this.src='assets/images/cover.jpg'" alt="Ilham & Qonita 2" onclick="openImg(this.src)">
-    <img src="assets/images/prewed3.jpg" onerror="this.src='assets/images/cover.jpg'" alt="Ilham & Qonita 3" onclick="openImg(this.src)">
-  </div>
-</section>
-
-<section id="video">
-  <h2 class="title">Video Prewedding</h2>
-  <p class="caption">Kenangan kecil yang ingin kami simpan dan bagikan, sebagai bagian dari cerita kami.</p> </br>
-  <div class="video-wrap">
-    <video
-        id="preweddingVideo"
-        controls
-        playsinline
-        muted
-        preload="metadata"
-        poster="assets/images/cover.jpg">
-
-        <source src="assets/video/prewedding.mp4" type="video/mp4">
-
-        Browser Anda tidak mendukung video.
-    </video>
-</div>
-  
-</section>
-
-<section class="family" id="family">
-  <h2 class="title">Turut Mengundang</h2>
-  <p class="subtitle">Dengan penuh hormat, kami turut mengundang keluarga dan kerabat untuk hadir dan memberikan doa restu.</p>
-  <div class="family-grid">
-    <div class="family-card">
-      <div class="family-ornament">✦</div>
-      <h3>Keluarga Mempelai Pria</h3>
-      <ul>
-        <li>Ihram [Pak Oncu]</li>
-        <li>Fariani [Etek]</li>
-        <li>Taufiqurrahim [Pak Etek]</li>
-        <li>Suryati Yunita [Etek]</li>
-        <li>Ismail Harun [Abang Sepupu]</li>
-        <li>Sefni Kamis [Kakak Ipar]</li>
-	<li>Nova Aditya [Abang Ipar]</li>
-        <li>Marini Srianti [Kakak]</li>
-      </ul>
-    </div>
-    <div class="family-card">
-      <div class="family-ornament">✦</div>
-      <h3>Keluarga Mempelai Wanita</h3>
-      <ul>
-        <li>Muchrizal [Pak Odang]</li>
-        <li>Efdi Netty [Mak Odang]</li>
-	<li>Yon Efendi [Pak Odang]</li>
-        <li>Wetty Heriany [Odang]</li>
-        <li>Dwi Eka Putra [Pak etek]</li>
-        <li>Lili Gustiana [Etek]</li>
-        <li>Tinnof Delfi [Ociak]</li>
-        <li>Azza Nur Mecca [Adek]</li>
-	<li>M. Zafran Jabir [Adek]</li>
-      </ul>
-    </div>
-  </div>
-  <div class="family-note">Keluarga besar, ninik mamak, sanak saudara, sahabat dan seluruh kerabat</div>
-</section>
-
-<section id="rekening" style="background:#fffaf0;text-align:center">
-  <h2 class="title">Wedding Gift</h2>
-  <p class="subtitle">Doa restu Anda merupakan hadiah terindah bagi kami. Jika ingin berbagi tanda kasih, dapat melalui rekening berikut.</p>
-  <div class="cards" style="max-width:760px;margin:auto;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))">
-    <div class="card" style="border-radius:8px">
-      <div class="icon">▤</div><h3>CIMB NIAGA</h3>
-      <p style="line-height:1.9">Nomor Rekening<br><strong id="account-number">706658827200</strong><br>Atas Nama<br><strong id="account-name">ILHAM</strong></p>
-      <button class="btn" type="button" onclick="copyAccount()">Salin Nomor Rekening</button>
-	</div>
-      <div class="card" style="border-radius:8px">
-      <div class="icon">▤</div><h3>CIMB NIAGA</h3>
-      <p style="line-height:1.9">Nomor Rekening<br><strong id="account-number">707087145100</strong><br>Atas Nama<br><strong id="account-name">QONITA IZZATI ZAHRA</strong></p>
-      <button class="btn" type="button" onclick="copyAccount()">Salin Nomor Rekening</button>
-	</div>
-
-    </div>
-  </div>
-  <p id="copy-status" style="font-size:12px;margin-top:15px" aria-live="polite"></p>
-</section>
-
-<section class="rsvp" id="rsvp">
-  <h2 class="title">Konfirmasi Kehadiran</h2>
-  <p>Kehadiran dan doa restu Anda adalah kebahagiaan bagi kami.</p>
-  <form class="guest-form" onsubmit="sendRSVP(event)">
-    <input id="guest" placeholder="Nama Anda" required>
-    <select id="attendance" required><option value="">Konfirmasi Kehadiran</option><option>Hadir</option><option>Tidak dapat hadir</option></select>
-    <textarea id="message" rows="4" placeholder="Ucapan & doa"></textarea>
-    <button type="submit">Kirim Konfirmasi</button>
-  </form>
-</section>
-
-</main>
-<footer>Ilham & Qonita<small>Thank you for being part of our story ♡</small></footer>
-
-<div class="modal" id="modal" onclick="this.classList.remove('show')"><span class="close">×</span><img id="modalImg" alt=""></div>
-
-<script>
-const cover=document.getElementById('cover'), music=document.getElementById('music'), musicBtn=document.getElementById('musicBtn');
-
-// Nama penerima diambil dari parameter link, contoh: ?to=Ridwan atau ?to=Ridwan%20%26%20Pasangan
-
-document.getElementById('openBtn').addEventListener('click', async()=>{
-  cover.style.opacity='0'; cover.style.transition='opacity .8s ease';
-  setTimeout(()=>cover.style.display='none',800);
-  document.body.classList.remove('locked');
-  musicBtn.style.display='flex';
-  try{await music.play(); musicBtn.classList.add('playing')}catch(e){}
-});
-musicBtn.addEventListener('click',()=>{
-  if(music.paused){music.play();musicBtn.classList.add('playing')}else{music.pause();musicBtn.classList.remove('playing')}
-});
-function openImg(src){document.getElementById('modalImg').src=src;document.getElementById('modal').classList.add('show')}
-function sendRSVP(e){
-  e.preventDefault();
-  const name=document.getElementById('guest').value;
-  const att=document.getElementById('attendance').value;
-  const msg=document.getElementById('message').value;
-  // GANTI nomor ini jika nomor WhatsApp konfirmasi Anda berbeda. Format: 62xxxxxxxxxx tanpa + atau spasi.
-  const phone='6287798932442';
-  const text=`Halo Ilham & Qonita,\n\nNama: ${name}\nKehadiran: ${att}\nUcapan: ${msg}`;
-  window.open(`https://wa.me/${phone}?text=${encodeURIComponent(text)}`,'_blank','noopener');
+/* Responsive layout: HP kecil, HP besar, tablet, dan desktop */
+img, video, iframe, canvas, svg { max-width:100%; }
+img, video { height:auto; }
+html, body { width:100%; max-width:100%; overflow-x:hidden; }
+.page-frame { width:100%; }
+button, a, input, select, textarea { max-width:100%; }
+.hero-art { min-height:clamp(560px,92svh,820px); }
+.hero-copy { width:min(92%,720px); }
+h1 { font-size:clamp(42px,8vw,100px); gap:clamp(6px,2vw,15px); }
+@media (max-width:760px) {
+  .page-frame { border-inline:0; }
+  .topbar { min-height:60px; height:auto; padding:12px 14px; gap:10px; flex-wrap:wrap; }
+  .monogram { font-size:21px; flex-shrink:0; }
+  nav { order:3; width:100%; justify-content:center; flex-wrap:wrap; gap:8px 16px; font-size:9px; letter-spacing:1px; }
+  .sound-toggle { flex-shrink:0; }
+  .hero-art { min-height:max(600px,92svh); padding:36px 0; background-position:center,center; }
+  .hero-art:before { inset:9px; }
+  .hero-art:after { inset:15px; }
+  .roof { top:36px; height:240px; width:94%; }
+  .roof-back { top:20px; height:270px; width:98%; }
+  .roof-front { top:88px; height:210px; width:82%; }
+  .hero-copy { width:100%; padding:55px 25px 35px; }
+  .eyebrow { font-size:9px; letter-spacing:2px; line-height:1.6; }
+  .mini-crown { font-size:23px; letter-spacing:5px; }
+  h1 { font-size:clamp(42px,12vw,68px); line-height:1; margin:10px 0 18px; gap:5px 10px; }
+  .date-line { font-size:10px; letter-spacing:1.5px; line-height:1.7; }
+  .hero-desc { max-width:360px; font-size:17px; margin:16px auto 22px; }
+  .gold-button,.outline-button { min-height:44px; padding:10px 18px; gap:12px; font-size:10px; }
+  .section-pattern { padding:58px 18px; }
+  h2 { font-size:clamp(31px,8vw,44px); overflow-wrap:anywhere; }
+  .intro-text { font-size:17px; }
+  .couple-grid { grid-template-columns:minmax(0,1fr); gap:22px; }
+  .between { line-height:1; }
+  .portrait { width:min(100%,260px); height:clamp(220px,70vw,300px); }
+  .person h3 { font-size:clamp(35px,10vw,43px); overflow-wrap:anywhere; }
+  .gallery,.gallery-grid,.schedule-grid,.rsvp-grid,.form-row,.gallery-location { grid-template-columns:minmax(0,1fr) !important; }
+  .location-art { min-height:240px; }
+  .count-box { min-width:0; padding:10px 8px; }
+  .count-box strong { font-size:clamp(22px,6vw,29px); }
+  .closing { padding:42px 18px; overflow-wrap:anywhere; }
+}
+@media (max-width:380px) {
+  body { font-size:13px; }
+  .topbar { padding-inline:10px; }
+  nav { gap:7px 11px; font-size:8px; }
+  .hero-copy { padding-inline:18px; }
+  h1 { font-size:clamp(37px,11vw,48px); }
+  .date-line { letter-spacing:1px; }
+  .section-pattern { padding-inline:14px; }
+  .gold-button,.outline-button { padding-inline:13px; }
 }
 
-function copyAccount(){
-  const number=document.getElementById('account-number').textContent.trim();
-  if(!number || number==='ISI_NOMOR_REKENING'){
-    document.getElementById('copy-status').textContent='Silakan isi nomor rekening terlebih dahulu di kode HTML.';
-    return;
-  }
-  if(navigator.clipboard && window.isSecureContext){
-    navigator.clipboard.writeText(number).then(()=>{document.getElementById('copy-status').textContent='Nomor rekening berhasil disalin.';}).catch(()=>{document.getElementById('copy-status').textContent='Nomor rekening: '+number;});
-  }else{
-    document.getElementById('copy-status').textContent='Nomor rekening: '+number;
-  }
-}
-const preweddingVideo = document.getElementById("preweddingVideo");
+</style></head>
+<body>
+<!-- Undangan Ilham & Qonita: versi satu file. Edit nomor WhatsApp pada objek WEDDING di bagian JavaScript paling bawah. --><div class="page-frame"><header class="topbar"><a class="monogram" href="#home">I <span>✦</span> Q</a><nav><a href="#mempelai">Mempelai</a><a href="#acara">Acara</a><a href="#galeri">Galeri</a><a href="#rsvp">RSVP</a></nav><button class="sound-toggle" aria-label="Musik latar" title="Musik latar belum ditambahkan">♪</button></header>
+<main id="home"><div class="hero-art"><div class="roof roof-back"></div><div class="roof roof-front"></div><div class="hero-copy"><p class="eyebrow">UNDANGAN PERNIKAHAN</p><div class="mini-crown">✦ ❖ ✦</div><h1><span data-groom>Ilham</span><i>&</i><span data-bride>Qonita</span></h1><p class="date-line">MINGGU · 27 DESEMBER 2026</p><p class="hero-desc">Dengan penuh rasa syukur, kami mengundang Bapak/Ibu/Saudara/i untuk hadir dan memberikan doa restu pada hari bahagia kami.</p><button class="gold-button" data-open>BUKA UNDANGAN <span>↘</span></button></div></div>
+<section class="intro section-pattern" id="mempelai"><p class="eyebrow">ASSALAMUALAIKUM WARAHMATULLAHI WABARAKATUH</p><h2>Dengan memohon rahmat dan ridha Allah SWT</h2><p class="intro-text">Kami bermaksud menyelenggarakan pernikahan putra-putri kami. Merupakan kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu.</p><div class="couple-grid"><article class="person"><div class="portrait portrait-groom"><span>✦</span><small>FOTO MEMPELAI PRIA</small></div><h3 data-groom>Ilham</h3><p>Putra dari</p><p class="parents">Bapak [Nama Ayah]<br>& Ibu [Nama Ibu]</p></article><div class="between">❦<span>&</span>❦</div><article class="person"><div class="portrait portrait-bride"><span>✦</span><small>FOTO MEMPELAI WANITA</small></div><h3 data-bride>Qonita</h3><p>Putri dari</p><p class="parents">Bapak [Nama Ayah]<br>& Ibu [Nama Ibu]</p></article></div><p class="quote">“Satu hati, satu tujuan, dalam ridha-Nya.”</p></section>
+<section class="event section-pattern" id="acara"><p class="eyebrow">SAVE THE DATE</p><h2>Waktu & Tempat</h2><p class="event-lead">InsyaAllah akan diselenggarakan pada:</p><div class="event-cards"><article class="event-card"><div class="event-icon">♛</div><h3>Akad Nikah</h3><p class="time">08.00 WIB</p><p>Minggu, 27 Desember 2026</p><p>Politeknik Negeri Batam</p></article><article class="event-card"><div class="event-icon">❖</div><h3>Resepsi</h3><p class="time">11.00 WIB</p><p>Minggu, 27 Desember 2026</p><p>Politeknik Negeri Batam</p></article></div><a class="outline-button" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Politeknik+Negeri+Batam">⌖ BUKA GOOGLE MAPS</a></section>
+<section class="countdown"><div><p class="eyebrow">MENUJU HARI BAHAGIA</p><h2>Hitung Mundur</h2><p class="count-caption">Hari istimewa kami semakin dekat</p></div><div class="timer" data-countdown><div><strong data-days>--</strong><span>HARI</span></div><div><strong data-hours>--</strong><span>JAM</span></div><div><strong data-minutes>--</strong><span>MENIT</span></div><div><strong data-seconds>--</strong><span>DETIK</span></div></div></section>
+<section class="gallery section-pattern" id="galeri"><p class="eyebrow">CERITA KAMI</p><h2>Momen Kebersamaan</h2><p class="intro-text">Setiap perjalanan memiliki cerita indah untuk dikenang.</p><div class="gallery-grid"><div class="gallery-tile tile-one"><span>Rumah Gadang</span></div><div class="gallery-tile tile-two"><span>Ukiran Minangkabau</span></div><div class="gallery-tile tile-three"><span>Adat & Tradisi</span></div></div><p class="gallery-note">Ganti panel galeri ini dengan foto prewedding atau foto keluarga Anda.</p></section>
+<section class="rsvp" id="rsvp"><div class="rsvp-copy"><p class="eyebrow">RSVP & UCAPAN</p><h2>Konfirmasi Kehadiran</h2><p>Kehadiran dan doa restu Anda merupakan kebahagiaan bagi kami.</p><p class="contact-label">Konfirmasi melalui WhatsApp</p><p class="contact-number">Nomor: <span data-phone-label>GANTI_NOMOR_WA</span></p></div><form id="rsvp-form"><label>Nama lengkap<input name="nama" required placeholder="Nama Anda"></label><label>Jumlah tamu<select name="jumlah"><option>1 orang</option><option>2 orang</option><option>3 orang</option><option>4 orang</option></select></label><label>Konfirmasi kehadiran<select name="status"><option>InsyaAllah hadir</option><option>Mohon maaf, belum bisa hadir</option></select></label><label>Ucapan & doa<textarea name="ucapan" rows="3" placeholder="Tuliskan doa terbaik..."></textarea></label><button class="gold-button submit-button" type="submit">☏ KIRIM MELALUI WHATSAPP</button><p class="form-note">Sebelum digunakan, ganti nomor WhatsApp di file <code>script.js</code>.</p></form></section>
+<footer><div class="footer-ornament">❧ ❖ ❧</div><p>Merupakan kebahagiaan bagi kami atas doa dan kehadiran Anda.</p><h2 data-groom>Ilham</h2><span class="footer-amp">&</span><h2 data-bride>Qonita</h2><p class="footer-date">27 · 12 · 2026</p><small>Dibuat dengan cinta • Unsur visual terinspirasi budaya Minangkabau</small></footer></main></div><div class="toast" role="status" aria-live="polite"></div><script>
+// Pengaturan utama undangan — silakan edit bagian ini.
+const WEDDING = {
+  groom: 'Ilham',
+  bride: 'Qonita',
+  date: '2026-12-27T08:00:00+07:00',
+  whatsapp: '6287798932442 // GANTI dengan nomor WhatsApp penerima RSVP, gunakan kode negara tanpa tanda +
+};
 
-const videoObserver = new IntersectionObserver((entries) => {
-
-    entries.forEach((entry) => {
-
-        if (entry.isIntersecting) {
-
-            preweddingVideo.play().catch((error) => {
-                console.log("Video autoplay diblokir browser:", error);
-            });
-
-        } else {
-
-            preweddingVideo.pause();
-
-        }
-
-    });
-
-}, {
-    threshold: 0.5
+document.querySelectorAll('[data-groom]').forEach(el => el.textContent = WEDDING.groom);
+document.querySelectorAll('[data-bride]').forEach(el => el.textContent = WEDDING.bride);
+const phoneLabel = document.querySelector('[data-phone-label]');
+if (phoneLabel) phoneLabel.textContent = WEDDING.whatsapp === '6281234567890' ? 'Ganti nomor WhatsApp di script.js' : '+' + WEDDING.whatsapp;
+const toast = document.querySelector('.toast');
+function notify(message) { toast.textContent = message; toast.classList.add('show'); setTimeout(() => toast.classList.remove('show'), 3000); }
+document.querySelector('[data-open]')?.addEventListener('click', () => {
+  document.querySelector('#mempelai')?.scrollIntoView({behavior:'smooth'});
 });
+function updateCountdown() {
+  const diff = new Date(WEDDING.date).getTime() - Date.now();
+  const values = diff > 0 ? {
+    days: Math.floor(diff / 86400000), hours: Math.floor(diff % 86400000 / 3600000),
+    minutes: Math.floor(diff % 3600000 / 60000), seconds: Math.floor(diff % 60000 / 1000)
+  } : {days:0,hours:0,minutes:0,seconds:0};
+  Object.entries(values).forEach(([key,value]) => { const el = document.querySelector('[data-' + key + ']'); if(el) el.textContent = String(value).padStart(2,'0'); });
+}
+updateCountdown(); setInterval(updateCountdown, 1000);
+document.querySelector('#rsvp-form')?.addEventListener('submit', event => {
+  event.preventDefault();
+  if (WEDDING.whatsapp === '6281234567890') { notify('Silakan ganti nomor WhatsApp contoh di file script.js terlebih dahulu.'); return; }
+  const data = new FormData(event.currentTarget);
+  const message = `Assalamu'alaikum, saya ${data.get('nama')}.\nKonfirmasi: ${data.get('status')}\nJumlah tamu: ${data.get('jumlah')}\nUcapan: ${data.get('ucapan') || '-'}\nUntuk pernikahan ${WEDDING.groom} & ${WEDDING.bride}, Minggu 27 Desember 2026.`;
+  window.open('https://wa.me/' + WEDDING.whatsapp + '?text=' + encodeURIComponent(message), '_blank', 'noopener');
+});
+document.querySelector('.sound-toggle')?.addEventListener('click', () => notify('Musik latar belum ditambahkan. Anda dapat menambahkan audio milik sendiri.'));
 
-videoObserver.observe(preweddingVideo);
-
-
-const params = new URLSearchParams(window.location.search);
-
-const namaTamu = (params.get('to') || 'Tamu Undangan')
-  .replace(/\+/g, ' ')
-  .trim();
-
-document.getElementById('nama-tamu').textContent =
-  namaTamu || 'Tamu Undangan';
-
-
-</script>
-</body>
-</html>
+</script></body></html>
