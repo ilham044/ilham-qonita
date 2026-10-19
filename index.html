@@ -14,7 +14,7 @@
 body.locked{overflow:hidden}.cover{position:fixed;inset:0;z-index:50;display:flex;align-items:center;justify-content:center;text-align:center;background:#21070c;overflow:hidden}
 .cover:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,5,7,.25),rgba(20,5,7,.78)),url("assets/images/cover.jpg") center/cover no-repeat;transform:scale(1.03);animation:ken 14s ease-in-out infinite alternate}
 @keyframes ken{to{transform:scale(1.09)}} .cover-inner{position:relative;z-index:1;color:#fff;padding:25px;max-width:650px}
-.monogram{font-family:"Cormorant Garamond";font-size:28px;color:var(--gold);letter-spacing:5px}.eyebrow{letter-spacing:5px;font-size:12px;margin:25px 0 8px}.names{font:600 clamp(52px,10vw,92px)/.82 "Cormorant Garamond";margin:0;text-shadow:0 5px 30px #000}.amp{font-size:.62em;color:var(--gold)}.date{margin:25px 0;font:500 18px "Cormorant Garamond";letter-spacing:3px}.btn{border:1px solid var(--gold);background:linear-gradient(135deg,#f1cf7d,#b98932);color:#2b090d;border-radius:999px;padding:14px 30px;font-weight:600;cursor:pointer;box-shadow:0 8px 25px #0005}.music-note{position:fixed;right:20px;top:20px;z-index:20;width:45px;height:45px;border-radius:50%;border:1px solid var(--gold);background:#4d0712cc;color:#fff;display:none;align-items:center;justify-content:center}.music-note.playing{animation:spin 3s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
+.monogram{font-family:"Cormorant Garamond";font-size:28px;color:var(--gold);letter-spacing:1px}.eyebrow{letter-spacing:1px;font-size:12px;margin:25px 0 8px}.names{font:500 clamp(52px,10vw,92px)/.82 "Cormorant Garamond";margin:0;text-shadow:0 5px 30px #000}.amp{font-size:.62em;color:var(--gold)}.date{margin:25px 0;font:500 18px "Cormorant Garamond";letter-spacing:3px}.btn{border:1px solid var(--gold);background:linear-gradient(135deg,#f1cf7d,#b98932);color:#2b090d;border-radius:999px;padding:14px 30px;font-weight:600;cursor:pointer;box-shadow:0 8px 25px #0005}.music-note{position:fixed;right:20px;top:20px;z-index:20;width:45px;height:45px;border-radius:50%;border:1px solid var(--gold);background:#4d0712cc;color:#fff;display:none;align-items:center;justify-content:center}.music-note.playing{animation:spin 3s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
 nav{position:fixed;top:0;left:0;right:0;z-index:15;padding:18px 5%;display:flex;justify-content:space-between;align-items:center;color:#fff;background:linear-gradient(#180407aa,transparent);mix-blend-mode:normal}nav .brand{font-family:"Cormorant Garamond";font-size:22px}nav .links{display:flex;gap:24px;font-size:11px;letter-spacing:1px}nav a{color:#fff;text-decoration:none}
 section{padding:90px 7%;max-width:1200px;margin:auto}.hero{min-height:100vh;display:flex;align-items:flex-end;padding-bottom:100px;color:#fff;background:linear-gradient(180deg,#0002,#170409aa),url("assets/images/cover.jpg") center/cover fixed no-repeat;max-width:none}.hero-content{max-width:900px;margin:auto;text-align:center}.hero h1{font:600 clamp(55px,10vw,120px)/.85 "Cormorant Garamond";margin:10px}.hero p{font:300 14px Montserrat;letter-spacing:3px}
 .title{font:600 52px "Cormorant Garamond";color:var(--maroon);text-align:center;margin:0}.subtitle{text-align:center;max-width:650px;margin:15px auto 45px;line-height:1.8;font-size:14px}
@@ -55,12 +55,12 @@ footer{background:#180408;color:#d8bd7b;text-align:center;padding:45px 20px;font
   <div class="cover-inner">
     <div class="eyebrow">✦ THE WEDDING OF ✦</div>
     <h4 class="names">Ilham <span class="amp">&</span> Qonita</h4>
-</br> </br> </br> </br> </br> </br> </br> </br> </br> </br> </br> </br> </br>
+</br> </br> </br> </br> </br> </br> </br> </br> </br> </br> </br> </br> </br> </br> </br> </br> </br> </br> </br>
     <div class="guest-greeting" style="margin:0 auto 18px;font-size:13px;line-height:1.8;letter-spacing:1px">
       <div>Kepada Yth. Bapak/Ibu/Saudara/i : </div>
       <strong id="nama-tamu" style="display:block;color:var(--gold);font:600 25px 'Cormorant Garamond',serif;letter-spacing:.5px">Tamu Undangan</strong>
     </div>
-    <p style="font-size:13px;line-height:1.8;max-width:500px;margin:0 auto 25px">Kami mengundang Anda untuk menjadi bagian dari hari bahagia kami.</p>
+    <p style="font-size:13px;line-height:1.8;max-width:500px;margin:0 auto 25px">Dengan memohon rahmat dan ridho Allah SWT, kami mengundang Anda untuk menjadi bagian dari hari bahagia kami.</p>
     <button class="btn" id="openBtn">Buka Undangan</button>
   </div>
 </div>
@@ -252,9 +252,16 @@ footer{background:#180408;color:#d8bd7b;text-align:center;padding:45px 20px;font
   <p class="subtitle">Doa restu Anda merupakan hadiah terindah bagi kami. Jika ingin berbagi tanda kasih, dapat melalui rekening berikut.</p>
   <div class="cards" style="max-width:760px;margin:auto;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))">
     <div class="card" style="border-radius:8px">
-      <div class="icon">▤</div><h3>Bank Anda</h3>
-      <p style="line-height:1.9">Nomor Rekening<br><strong id="account-number">ISI_NOMOR_REKENING</strong><br>Atas Nama<br><strong id="account-name">ISI_NAMA_PEMILIK</strong></p>
+      <div class="icon">▤</div><h3>CIMB NIAGA</h3>
+      <p style="line-height:1.9">Nomor Rekening<br><strong id="account-number">706658827200</strong><br>Atas Nama<br><strong id="account-name">ILHAM</strong></p>
       <button class="btn" type="button" onclick="copyAccount()">Salin Nomor Rekening</button>
+	</div>
+      <div class="card" style="border-radius:8px">
+      <div class="icon">▤</div><h3>CIMB NIAGA</h3>
+      <p style="line-height:1.9">Nomor Rekening<br><strong id="account-number">707087145100</strong><br>Atas Nama<br><strong id="account-name">QONITA IZZATI ZAHRA</strong></p>
+      <button class="btn" type="button" onclick="copyAccount()">Salin Nomor Rekening</button>
+	</div>
+
     </div>
   </div>
   <p id="copy-status" style="font-size:12px;margin-top:15px" aria-live="polite"></p>
