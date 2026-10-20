@@ -316,6 +316,22 @@ section>*{position:relative;z-index:1}
 #page-menu-panel a:hover{background:var(--mrcard)}
 @media(max-width:600px){section::before,section::after{height:25px;background-size:135px 25px}#page-menu-toggle{top:76px!important;right:82px!important;min-height:38px;padding:7px 9px;font-size:11px}#page-menu-panel{top:120px!important}}
 
+
+/* FINAL OVERRIDE: solid maroon backgrounds, white/cream text, centered page menu */
+:root{--minang-red:#581322;--minang-red-deep:#3d0b16;--minang-red-card:#681b2c;--minang-cream:#fff4e5;--minang-white:#fff;--minang-gold:#e0bd68}
+html,body{background:var(--minang-red)!important;background-color:var(--minang-red)!important;color:var(--minang-white)!important}
+body,main,section,article,footer,header,.hero,.cover,.home,.couple,.story,.details,.family,.gallery,.prewedding,.gift,.rsvp,#home,#hero,#cover,#couple,#mempelai,#story,#details,#family,#gallery,#prewedding,#gift,#rsvp,#closing{background:var(--minang-red)!important;background-color:var(--minang-red)!important;color:var(--minang-white)!important}
+.card,.family-card,.details .card,.gift-card,.rsvp-card,.modal,.popup,.countdown-item{background:var(--minang-red-card)!important;background-color:var(--minang-red-card)!important;color:var(--minang-cream)!important;border-color:var(--minang-gold)!important;opacity:1!important}
+h1,h2,h3,h4,h5,h6,p,li,label,small,strong,b,em,span,figcaption,.title,.subtitle,.story-text,.person-label,.and-symbol,.card *, .family-card *, .details .card *, .gift-card *, .rsvp-card *, .modal *, .popup *{color:var(--minang-cream)!important;opacity:1!important;text-shadow:none!important}
+a,nav a,.navbar a,.nav a{color:var(--minang-cream)!important;opacity:1!important}
+nav,.navbar,.nav,header{background:var(--minang-red-deep)!important;background-color:var(--minang-red-deep)!important;color:var(--minang-white)!important}
+button,.btn,.music-note,.music-button,#page-menu-toggle,.page-menu-toggle{background:var(--minang-red-card)!important;background-color:var(--minang-red-card)!important;color:var(--minang-white)!important;border:1px solid var(--minang-gold)!important;opacity:1!important}
+input,textarea,select{background:#fffaf2!important;color:#301019!important;opacity:1!important;border:1px solid var(--minang-gold)!important}input::placeholder,textarea::placeholder{color:#655056!important;opacity:1!important}
+section::before,section::after{opacity:1!important}section::before,section::after{z-index:0!important}section>*{position:relative;z-index:1}
+#page-menu-toggle,.page-menu-toggle{position:fixed!important;top:14px!important;left:50%!important;right:auto!important;transform:translateX(-50%)!important;z-index:10060!important;display:inline-flex!important;align-items:center;justify-content:center;min-width:118px;min-height:40px;padding:8px 16px!important;border-radius:24px!important;font-size:12px!important;font-weight:700!important;letter-spacing:.04em;box-shadow:0 3px 14px rgba(0,0,0,.28)}
+#page-menu-panel,.page-menu-panel{position:fixed!important;top:62px!important;left:50%!important;right:auto!important;transform:translateX(-50%)!important;z-index:10059!important;display:none;width:min(260px,calc(100vw - 28px));max-height:70vh;overflow-y:auto;padding:10px!important;border:1px solid var(--minang-gold)!important;border-radius:14px!important;background:var(--minang-red-deep)!important;box-shadow:0 8px 28px rgba(0,0,0,.35)}
+#page-menu-panel.is-open,.page-menu-panel.is-open{display:grid!important;gap:5px}#page-menu-panel a,.page-menu-panel a{display:block;padding:10px 12px;border-radius:8px;color:var(--minang-cream)!important;text-decoration:none;font-size:14px;opacity:1!important}#page-menu-panel a:hover,.page-menu-panel a:hover{background:var(--minang-red-card)!important}
+@media(max-width:600px){#page-menu-toggle,.page-menu-toggle{top:10px!important;left:50%!important;right:auto!important;transform:translateX(-50%)!important;min-height:36px;min-width:108px;padding:7px 12px!important;font-size:11px!important}#page-menu-panel,.page-menu-panel{top:54px!important}}
 </style>
 </head>
 <body class="locked">
