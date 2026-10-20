@@ -158,6 +158,24 @@ input,textarea,select{background:var(--wedding-ivory)!important;color:#32151b!im
 @media(max-width:600px){h1,h2,h3,h4,.title,.subtitle{letter-spacing:-.045em;line-height:1.08}p,li,.story-text{letter-spacing:-.025em;line-height:1.38}.person h3,.person h4{font-size:clamp(24px,6.2vw,32px);letter-spacing:-.05em}.person p{font-size:14px;line-height:1.38}}
 @media(prefers-reduced-motion:reduce){.fade-on-scroll{opacity:1;transform:none;transition:none}}
 
+
+/* Peningkatan kontras dan keterbacaan; palet maroon-emas tetap dipertahankan */
+:root { --wedding-maroon:#4b101d; --wedding-maroon-card:#641c2b; --wedding-gold:#e4c36f; --wedding-ivory:#fffaf2; }
+body, main, section, .hero, .couple, .story, .details, .family, .gallery, .gift, .rsvp, footer { color:var(--wedding-ivory) !important; }
+h1,h2,h3,h4,.title,.subtitle,.person h3,.person h4,.person p,.person b,.story-text,.card,.family-card,.details .card,.gift-card,.rsvp-card { color:var(--wedding-ivory) !important; text-shadow:none !important; }
+.person-label,.and-symbol,nav a,nav .brand,a { color:var(--wedding-gold) !important; }
+nav { background:#3a0b15 !important; }
+.card,.family-card,.details .card,.gift-card,.rsvp-card { background:#5b1423 !important; border-color:var(--wedding-gold) !important; }
+.btn,button,.music-note { background:#741f31 !important; color:#fffaf2 !important; border:1px solid var(--wedding-gold) !important; font-weight:600; }
+input,textarea,select { background:#fffaf2 !important; color:#321019 !important; border:1px solid #d8b65e !important; }
+input::placeholder,textarea::placeholder { color:#6a5356 !important; opacity:1; }
+@media(max-width:600px) {
+ body { font-size:16px; }
+ .title,h1,h2 { font-weight:600; text-shadow:none !important; }
+ .subtitle,.story-text,.person p,.card p,.family-card p,.details p,.rsvp p,footer p { font-size:15px; line-height:1.55; }
+ .person-label { font-size:12px; letter-spacing:.14em; }
+}
+
 </style>
 </head>
 <body class="locked">
