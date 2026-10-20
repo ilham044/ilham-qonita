@@ -243,6 +243,36 @@ nav .brand, nav a { color: var(--page-ink) !important; }
   .gallery .title { color:var(--page-ink)!important; }
 }
 
+
+/* Alternating maroon/cream sections with subtle Minangkabau-inspired line ornaments */
+:root{--page-cream:#fff5e3;--page-ink:#351019;--page-maroon:#581322;--page-gold:#d8b45f;--ornament-maroon:#7b2635;--ornament-cream:#f3dfb5}
+body{background:var(--page-cream)!important;color:var(--page-ink)!important}
+main>section{position:relative;isolation:isolate;overflow:hidden}
+main>section::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.12;background-repeat:repeat;background-size:260px 180px;background-position:center;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='180' viewBox='0 0 260 180'%3E%3Cg fill='none' stroke='%237b2635' stroke-width='2'%3E%3Cpath d='M12 65 Q45 48 65 65 Q85 82 110 65 Q130 48 150 65 Q175 84 198 65 Q220 48 248 65 M12 76 Q45 59 65 76 Q85 93 110 76 Q130 59 150 76 Q175 95 198 76 Q220 59 248 76'/%3E%3Cpath d='M38 125 L58 105 L78 125 L98 105 L118 125 L138 105 L158 125 L178 105 L198 125 L218 105'/%3E%3Cpath d='M80 42 L100 18 L120 42 L140 18 L160 42 M88 42 V54 H152 V42'/%3E%3C/g%3E%3C/svg%3E")}
+main>section:nth-of-type(odd){background-color:var(--page-maroon)!important;color:var(--page-cream)!important}
+main>section:nth-of-type(even){background-color:var(--page-cream)!important;color:var(--page-ink)!important}
+main>section:nth-of-type(odd)::before{opacity:.17;filter:brightness(0) invert(1)}
+main>section:nth-of-type(even)::before{opacity:.13}
+main>section:nth-of-type(odd) .title,main>section:nth-of-type(odd) h1,main>section:nth-of-type(odd) h2,main>section:nth-of-type(odd) h3,main>section:nth-of-type(odd) p,main>section:nth-of-type(odd) li{color:var(--page-cream)!important}
+main>section:nth-of-type(even) .title,main>section:nth-of-type(even) h1,main>section:nth-of-type(even) h2,main>section:nth-of-type(even) h3,main>section:nth-of-type(even) p,main>section:nth-of-type(even) li{color:var(--page-ink)!important}
+#couple,.couple{background-color:var(--page-cream)!important;color:var(--page-ink)!important}
+#gallery,.gallery{background-color:var(--page-cream)!important;color:var(--page-ink)!important}
+#gallery .title{color:var(--page-ink)!important}
+.family-card,.card,.details .card{background:var(--page-maroon)!important;color:var(--page-cream)!important;border:1px solid var(--page-gold)!important}
+.family-card h3,.family-card li,.card h3,.card p,.details .card *{color:var(--page-cream)!important}
+.person-photo img,.gallery-grid img,.story-img{opacity:0;transform:translateY(16px);transition:opacity .8s ease,transform .8s ease}
+.person-photo img.photo-fade-visible,.gallery-grid img.photo-fade-visible,.story-img.photo-fade-visible{opacity:1;transform:translateY(0)}
+.gallery-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.gallery-grid img{cursor:zoom-in}
+#modal{display:none;position:fixed;inset:0;z-index:1000;background:rgba(28,4,10,.94);align-items:center;justify-content:center;padding:55px 54px}
+#modal.show{display:flex}
+#modal img{max-width:100%;max-height:82vh;object-fit:contain;border:2px solid var(--page-gold);box-shadow:0 10px 35px #0008}
+#modal .close{position:absolute;top:14px;right:20px;color:#fff;font-size:38px;cursor:pointer;line-height:1}
+#modal .slide-arrow{position:absolute;top:50%;transform:translateY(-50%);border:1px solid var(--page-gold);border-radius:50%;width:42px;height:42px;background:var(--page-maroon);color:var(--page-cream);font-size:28px;display:flex;align-items:center;justify-content:center;cursor:pointer}
+#modal .slide-prev{left:9px}#modal .slide-next{right:9px}
+@media(max-width:600px){.gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px}#modal{padding:55px 48px}#modal img{max-height:78vh}.gallery-grid img{aspect-ratio:3/4}}
+@media(prefers-reduced-motion:reduce){.person-photo img,.gallery-grid img,.story-img{transition:none}}
+
 </style>
 </head>
 <body class="locked">
@@ -473,7 +503,7 @@ nav .brand, nav a { color: var(--page-ink) !important; }
 </main>
 <footer>Ilham & Qonita<small>Thank you for being part of our story ♡</small></footer>
 
-<div class="modal" id="modal" onclick="this.classList.remove('show')"><span class="close">×</span><img id="modalImg" alt=""></div>
+<div class="modal" id="modal" aria-label="Galeri foto" onclick="if(event.target===this)closeGallery()"><button class="close" aria-label="Tutup" onclick="closeGallery()">×</button><button class="slide-arrow slide-prev" aria-label="Foto sebelumnya" onclick="event.stopPropagation();slideGallery(-1)">‹</button><img id="modalImg" alt="Foto prewedding"><button class="slide-arrow slide-next" aria-label="Foto berikutnya" onclick="event.stopPropagation();slideGallery(1)">›</button></div>
 
 <script>
 const cover=document.getElementById('cover'), music=document.getElementById('music'), musicBtn=document.getElementById('musicBtn');
@@ -614,5 +644,18 @@ document.addEventListener('DOMContentLoaded', function(){
  }
 });
 </script>
+<script>
+/* Galeri prewedding: klik foto untuk membuka, panah/keyboard untuk berpindah */
+(function(){
+ const galleryImages=Array.from(document.querySelectorAll('.gallery-grid img'));
+ let current=0; const modal=document.getElementById('modal'), modalImg=document.getElementById('modalImg');
+ window.openImg=function(src){current=Math.max(0,galleryImages.findIndex(img=>img.currentSrc===src||img.src===src));show();};
+ function show(){if(!galleryImages.length)return;modalImg.src=galleryImages[current].currentSrc||galleryImages[current].src;modalImg.alt=galleryImages[current].alt||'Foto prewedding';modal.classList.add('show');document.body.style.overflow='hidden';}
+ window.slideGallery=function(step){if(!galleryImages.length)return;current=(current+step+galleryImages.length)%galleryImages.length;show();};
+ window.closeGallery=function(){modal.classList.remove('show');document.body.style.overflow='';};
+ document.addEventListener('keydown',function(e){if(!modal.classList.contains('show'))return;if(e.key==='Escape')closeGallery();if(e.key==='ArrowLeft')slideGallery(-1);if(e.key==='ArrowRight')slideGallery(1);});
+})();
+</script>
+
 </body>
 </html>
