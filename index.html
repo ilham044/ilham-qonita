@@ -360,6 +360,39 @@ body.locked #page-menu-panel,
 body.locked #musicBtn {
   display: none !important;
 }
+
+
+/* PALET KONSISTEN: teks krem di bidang maroon, teks maroon di bidang krem */
+:root{--palette-maroon:#581322;--palette-maroon-deep:#3d0b16;--palette-maroon-card:#681b2c;--palette-cream:#fff4e5;--palette-gold:#e0bd68}
+/* Bagian yang memakai latar krem */
+section.couple, #couple, section.details, section.family, #family, #rekening{
+  background:var(--palette-cream)!important;background-color:var(--palette-cream)!important;color:var(--palette-maroon)!important;
+}
+section.couple *, #couple *, section.details *, section.family *, #family *, #rekening *{
+  color:var(--palette-maroon)!important;text-shadow:none!important;
+}
+section.couple a, #couple a, section.details a, section.family a, #family a, #rekening a{color:var(--palette-maroon)!important}
+section.couple .card, #couple .card, section.details .card, section.family .family-card, #family .family-card{
+  background:#fffaf2!important;background-color:#fffaf2!important;color:var(--palette-maroon)!important;border:1px solid var(--palette-gold)!important;
+}
+section.couple .card *, #couple .card *, section.details .card *, section.family .family-card *, #family .family-card *{color:var(--palette-maroon)!important}
+/* Semua bagian lain berlatar maroon menggunakan teks krem */
+section:not(.couple):not(.details):not(.family):not(#rekening){color:var(--palette-cream)!important}
+section:not(.couple):not(.details):not(.family):not(#rekening) h1,
+section:not(.couple):not(.details):not(.family):not(#rekening) h2,
+section:not(.couple):not(.details):not(.family):not(#rekening) h3,
+section:not(.couple):not(.details):not(.family):not(#rekening) h4,
+section:not(.couple):not(.details):not(.family):not(#rekening) p,
+section:not(.couple):not(.details):not(.family):not(#rekening) li,
+section:not(.couple):not(.details):not(.family):not(#rekening) label,
+section:not(.couple):not(.details):not(.family):not(#rekening) small,
+section:not(.couple):not(.details):not(.family):not(#rekening) span,
+section:not(.couple):not(.details):not(.family):not(#rekening) strong,
+footer,footer *{color:var(--palette-cream)!important}
+/* Input tetap kontras dan mudah dibaca */
+input,textarea,select{background:#fffaf2!important;color:var(--palette-maroon)!important;border:1px solid var(--palette-gold)!important}
+input::placeholder,textarea::placeholder{color:#655056!important}
+
 </style>
 </head>
 <body class="locked">
