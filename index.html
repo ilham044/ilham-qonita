@@ -176,6 +176,41 @@ input::placeholder,textarea::placeholder { color:#6a5356 !important; opacity:1; 
  .person-label { font-size:12px; letter-spacing:.14em; }
 }
 
+
+/* Ornamen latar terinspirasi siluet Rumah Gadang dan ukiran Minangkabau */
+body { position: relative; }
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: .13;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='300' viewBox='0 0 360 300'%3E%3Cg fill='none' stroke='%23e4c36f' stroke-width='2'%3E%3Cpath d='M18 90 Q42 84 56 48 Q70 84 94 90 Q118 84 132 48 Q146 84 170 90 L170 104 L18 104Z'/%3E%3Cpath d='M190 90 Q214 84 228 48 Q242 84 266 90 Q290 84 304 48 Q318 84 342 90 L342 104 L190 104Z'/%3E%3Cpath d='M32 104 V140 H156 V104 M204 104 V140 H328 V104'/%3E%3Cpath d='M54 140 Q94 118 94 152 Q94 178 70 174 Q52 170 66 154 Q78 145 86 159 M116 140 Q76 118 76 152 Q76 178 100 174 Q118 170 104 154 Q92 145 84 159'/%3E%3Cpath d='M226 140 Q266 118 266 152 Q266 178 242 174 Q224 170 238 154 Q250 145 258 159 M288 140 Q248 118 248 152 Q248 178 272 174 Q290 170 276 154 Q264 145 256 159'/%3E%3Cpath d='M180 188 C150 160 130 196 160 212 C178 222 180 240 180 252 C180 240 182 222 200 212 C230 196 210 160 180 188Z'/%3E%3Cpath d='M180 198 C164 182 151 200 169 211 M180 198 C196 182 209 200 191 211 M180 215 V245 M166 225 Q180 214 194 225'/%3E%3Ccircle cx='180' cy='272' r='12'/%3E%3Cpath d='M180 256 V288 M164 272 H196 M169 261 L191 283 M191 261 L169 283'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 360px 300px;
+  background-repeat: repeat;
+}
+body > * { position: relative; z-index: 1; }
+/* Pastikan foto pengantin dan seluruh foto prewedding ikut fade-in */
+.person-photo img, .gallery-grid img, .story-img, .prewedding img, img.prewed {
+  opacity: 0;
+  transform: translateY(18px) scale(.985);
+  transition: opacity .9s ease, transform .9s ease;
+}
+.person-photo img.photo-fade-visible,
+.gallery-grid img.photo-fade-visible,
+.story-img.photo-fade-visible,
+.prewedding img.photo-fade-visible,
+img.prewed.photo-fade-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .person-photo img, .gallery-grid img, .story-img, .prewedding img, img.prewed {
+    opacity: 1; transform: none; transition: none;
+  }
+}
+
 </style>
 </head>
 <body class="locked">
@@ -496,6 +531,39 @@ const namaTamu = (params.get('to') || 'Tamu Undangan')
 document.getElementById('nama-tamu').textContent =
   namaTamu || 'Tamu Undangan';
 
+
+
+/* Fade-in khusus foto saat masuk ke area layar */
+(function () {
+  function setupPhotoFade() {
+    const photos = document.querySelectorAll(
+      '.person-photo img, .gallery-grid img, .story-img, .prewedding img, img.prewed'
+    );
+    if (!('IntersectionObserver' in window)) {
+      photos.forEach(img => img.classList.add('photo-fade-visible'));
+      return;
+    }
+    const photoObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('photo-fade-visible');
+          photoObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -25px 0px' });
+    photos.forEach(img => {
+      if (img.complete && img.naturalWidth > 0) {
+        /* tetap amati agar transisi berjalan ketika foto masuk layar */
+      }
+      photoObserver.observe(img);
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupPhotoFade);
+  } else {
+    setupPhotoFade();
+  }
+})();
 
 </script>
 </body>
