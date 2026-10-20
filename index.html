@@ -16,7 +16,7 @@ body.locked{overflow:hidden}.cover{position:fixed;inset:0;z-index:50;display:fle
 @keyframes ken{to{transform:scale(1.09)}} .cover-inner{position:relative;z-index:1;color:#fff;padding:25px;max-width:650px}
 .monogram{font-family:"Cormorant Garamond";font-size:28px;color:var(--gold);letter-spacing:1px}.eyebrow{letter-spacing:1px;font-size:12px;margin:25px 0 8px}.names{font:500 clamp(52px,10vw,92px)/.82 "Cormorant Garamond";margin:0;text-shadow:0 5px 30px #000}.amp{font-size:.62em;color:var(--gold)}.date{margin:25px 0;font:500 18px "Cormorant Garamond";letter-spacing:3px}.btn{border:1px solid var(--gold);background:linear-gradient(135deg,#f1cf7d,#b98932);color:#2b090d;border-radius:999px;padding:14px 30px;font-weight:600;cursor:pointer;box-shadow:0 8px 25px #0005}.music-note{position:fixed;right:20px;top:20px;z-index:20;width:45px;height:45px;border-radius:50%;border:1px solid var(--gold);background:#4d0712cc;color:#fff;display:none;align-items:center;justify-content:center}.music-note.playing{animation:spin 3s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
 nav{position:fixed;top:0;left:0;right:0;z-index:15;padding:18px 5%;display:flex;justify-content:space-between;align-items:center;color:#fff;background:linear-gradient(#180407aa,transparent);mix-blend-mode:normal}nav .brand{font-family:"Cormorant Garamond";font-size:22px}nav .links{display:flex;gap:24px;font-size:11px;letter-spacing:1px}nav a{color:#fff;text-decoration:none}
-section{padding:90px 7%;max-width:1200px;margin:auto}.hero{min-height:100vh;display:flex;align-items:flex-end;padding-bottom:100px;color:#fff;background:linear-gradient(180deg,#0002,#170409aa),url("assets/images/cover.jpg") center/cover fixed no-repeat;max-width:none}.hero-content{max-width:900px;margin:auto;text-align:center}.hero h1{font:600 clamp(55px,10vw,120px)/.85 "Cormorant Garamond";margin:10px}.hero p{font:300 14px Montserrat;letter-spacing:3px}
+section{padding:90px 7%;max-width:1200px;margin:auto}.hero{min-height:100vh;display:flex;align-items:flex-end;padding-bottom:100px;color:#fff;background:#581322!important;max-width:none;position:relative;isolation:isolate;overflow:hidden}.hero-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-1;opacity:1}.hero-content{max-width:900px;margin:auto;text-align:center;position:relative;z-index:1}.hero h1{font:600 clamp(55px,10vw,120px)/.85 "Cormorant Garamond";margin:10px}.hero p{font:300 14px Montserrat;letter-spacing:3px}
 .title{font:600 52px "Cormorant Garamond";color:var(--maroon);text-align:center;margin:0}.subtitle{text-align:center;max-width:650px;margin:15px auto 45px;line-height:1.8;font-size:14px}
 .details{background:#fff8ed}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.card{padding:30px;text-align:center;border:1px solid #d6ad5544;background:#fffdf8}.icon{font-size:30px;color:var(--gold)}.card h3{font:600 25px "Cormorant Garamond";color:var(--maroon);margin:12px}
 .story{background:linear-gradient(#f8f0dfdd,#f8f0dfdd),url("assets/images/cover.jpg") center/cover fixed}.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:center}.story-img{width:100%;border-radius:2px;box-shadow:0 20px 45px #4a151522}.story-text{line-height:2;font-size:14px}.timeline{border-left:1px solid var(--gold);padding-left:25px;margin-top:30px}.timeline div{margin:18px 0}.timeline strong{color:var(--maroon)}
@@ -332,6 +332,25 @@ section::before,section::after{opacity:1!important}section::before,section::afte
 #page-menu-panel,.page-menu-panel{position:fixed!important;top:62px!important;left:50%!important;right:auto!important;transform:translateX(-50%)!important;z-index:10059!important;display:none;width:min(260px,calc(100vw - 28px));max-height:70vh;overflow-y:auto;padding:10px!important;border:1px solid var(--minang-gold)!important;border-radius:14px!important;background:var(--minang-red-deep)!important;box-shadow:0 8px 28px rgba(0,0,0,.35)}
 #page-menu-panel.is-open,.page-menu-panel.is-open{display:grid!important;gap:5px}#page-menu-panel a,.page-menu-panel a{display:block;padding:10px 12px;border-radius:8px;color:var(--minang-cream)!important;text-decoration:none;font-size:14px;opacity:1!important}#page-menu-panel a:hover,.page-menu-panel a:hover{background:var(--minang-red-card)!important}
 @media(max-width:600px){#page-menu-toggle,.page-menu-toggle{top:10px!important;left:50%!important;right:auto!important;transform:translateX(-50%)!important;min-height:36px;min-width:108px;padding:7px 12px!important;font-size:11px!important}#page-menu-panel,.page-menu-panel{top:54px!important}}
+
+/* Permintaan terakhir: cover membuka ke Home berupa foto; judul besar berwarna krem */
+:root { --final-maroon:#581322; --final-cream:#fff4e5; --final-white:#ffffff; --final-gold:#e0bd68; }
+html, body, main, section, footer { background-color:var(--final-maroon) !important; }
+.hero { background-color:var(--final-maroon) !important; }
+.hero-photo { display:block; position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0; opacity:1 !important; }
+.hero::before { content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(40,5,12,.18),rgba(40,5,12,.72)); z-index:0; pointer-events:none; }
+.hero-content { position:relative; z-index:1; }
+.hero h1, .hero h2, .cover-top .names, .title, h1.title, section h1, section h2 {
+  color:var(--final-cream) !important; opacity:1 !important; text-shadow:0 2px 12px rgba(0,0,0,.45) !important;
+}
+.hero p, .cover-inner, .cover-inner p, .cover-bottom .guest-greeting, .cover-invitation {
+  color:var(--final-white) !important; opacity:1 !important;
+}
+.cover-top .names .amp, .cover-bottom .guest-greeting strong { color:var(--final-cream) !important; }
+/* Button label clearly invites guests into the photo-based Home page */
+#openBtn { color:var(--final-cream) !important; font-weight:700; opacity:1 !important; }
+@media(max-width:750px){ .hero-photo{object-position:center center;} }
+
 </style>
 </head>
 <body class="locked">
@@ -365,7 +384,7 @@ section::before,section::after{opacity:1!important}section::before,section::afte
 </nav>
 
 <main>
-<section class="hero" id="home"><div class="hero-content">
+<section class="hero" id="home"><img class="hero-photo" src="assets/images/cover.jpg" alt="Foto Ilham dan Qonita" onerror="this.style.display='none'"><div class="hero-content">
   <p>THE WEDDING OF</p><h1>Ilham & Qonita</h1><p>Two hearts, one journey, forever.</p>
   <div style="margin-top:30px"><button class="btn" onclick="document.querySelector('#couple').scrollIntoView()">MEMPELAI</button></div>
 </div></section>
@@ -571,7 +590,11 @@ const cover=document.getElementById('cover'), music=document.getElementById('mus
 
 document.getElementById('openBtn').addEventListener('click', async()=>{
   cover.style.opacity='0'; cover.style.transition='opacity .8s ease';
-  setTimeout(()=>cover.style.display='none',800);
+  setTimeout(()=>{
+    cover.style.display='none';
+    const home=document.getElementById('home');
+    if(home) home.scrollIntoView({behavior:'smooth', block:'start'});
+  },800);
   document.body.classList.remove('locked');
   musicBtn.style.display='flex';
   try{await music.play(); musicBtn.classList.add('playing')}catch(e){}
