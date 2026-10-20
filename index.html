@@ -394,6 +394,24 @@ input,textarea,select{background:#fffaf2!important;color:var(--palette-maroon)!i
 input::placeholder,textarea::placeholder{color:#655056!important}
 
 </style>
+
+<style id="fix-contrast-visibility-final">
+/* Perbaikan kontras: teks selalu mengikuti warna permukaan tempatnya berada */
+:root{--contrast-maroon:#581322;--contrast-maroon-card:#681b2c;--contrast-cream:#fff2dc;--contrast-gold:#d9b65f}
+/* Bagian berlatar cream: teks maroon */
+#rekening,.gift,.gift-section{background:var(--contrast-cream)!important;color:var(--contrast-maroon)!important}
+#rekening h1,#rekening h2,#rekening h3,#rekening h4,#rekening p,#rekening li,#rekening label,#rekening span,#rekening strong,#rekening em,#rekening small{color:var(--contrast-maroon)!important;opacity:1!important;text-shadow:none!important}
+/* Kartu rekening berlatar maroon: teks cream */
+#rekening .card,#rekening .gift-card,#rekening .bank-card,#rekening .account-card{background:var(--contrast-maroon-card)!important;color:var(--contrast-cream)!important;border:2px solid var(--contrast-gold)!important}
+#rekening .card *,#rekening .gift-card *,#rekening .bank-card *,#rekening .account-card *{color:var(--contrast-cream)!important;opacity:1!important;text-shadow:none!important}
+#rekening button,#rekening .btn{background:transparent!important;color:var(--contrast-cream)!important;border:2px solid var(--contrast-gold)!important}
+/* Teks umum pada section maroon dibuat cream; section cream dibuat maroon */
+section[style*="background:#fff"],section[style*="background: #fff"],section[style*="background-color: rgb(255"]{color:var(--contrast-maroon)!important}
+section[style*="background:#fff"] h1,section[style*="background:#fff"] h2,section[style*="background:#fff"] h3,section[style*="background:#fff"] p,section[style*="background:#fff"] li{color:var(--contrast-maroon)!important}
+#home,#cover,#story,#rsvp,#closing,footer{color:var(--contrast-cream)!important}
+#home h1,#home h2,#home h3,#home p,#story h1,#story h2,#story h3,#story p,#rsvp h1,#rsvp h2,#rsvp h3,#rsvp p,#closing h1,#closing h2,#closing h3,#closing p,footer *{color:var(--contrast-cream)!important;opacity:1!important}
+</style>
+
 </head>
 <body class="locked">
 <div class="cover" id="cover">
