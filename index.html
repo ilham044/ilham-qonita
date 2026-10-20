@@ -288,7 +288,7 @@ button,input,select,textarea{max-width:100%;font:inherit}
       <div class="card" style="border-radius:8px">
       <div class="icon">▤</div><h3>CIMB NIAGA</h3>
       <p style="line-height:1.9">Nomor Rekening<br><strong id="account-number">707087145100</strong><br>Atas Nama<br><strong id="account-name">QONITA IZZATI ZAHRA</strong></p>
-      <button class="btn" type="button" onclick="copyAccount()">Salin Nomor Rekening</button>
+      <button class="btn" type="button" onclick="copyAccountqoni()">Salin Nomor Rekening</button>
 	</div>
     </div>
   </div>
@@ -350,6 +350,20 @@ function copyAccount(){
     document.getElementById('copy-status').textContent='Nomor rekening: '+number;
   }
 }
+
+function copyAccountqoni(){
+  const number=document.getElementById('account-number').textContent.trim();
+  if(!number || number==='ISI_NOMOR_REKENING'){
+    document.getElementById('copy-status').textContent='Silakan isi nomor rekening terlebih dahulu di kode HTML.';
+    return;
+  }
+  if(navigator.clipboard && window.isSecureContext){
+    navigator.clipboard.writeText(number).then(()=>{document.getElementById('copy-status').textContent='Nomor rekening berhasil disalin.';}).catch(()=>{document.getElementById('copy-status').textContent='Nomor rekening: '+number;});
+  }else{
+    document.getElementById('copy-status').textContent='Nomor rekening: '+number;
+  }
+}
+
 const preweddingVideo = document.getElementById("preweddingVideo");
 
 const videoObserver = new IntersectionObserver((entries) => {
