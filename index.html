@@ -412,6 +412,20 @@ section[style*="background:#fff"] h1,section[style*="background:#fff"] h2,sectio
 #home h1,#home h2,#home h3,#home p,#story h1,#story h2,#story h3,#story p,#rsvp h1,#rsvp h2,#rsvp h3,#rsvp p,#closing h1,#closing h2,#closing h3,#closing p,footer *{color:var(--contrast-cream)!important;opacity:1!important}
 </style>
 
+
+<style id="video-prewedding-kontras-fix">
+/* Judul Video Prewedding harus jelas pada area berwarna cream */
+#video { color: #581322 !important; }
+#video .title, #video h1, #video h2, #video h3, #video p, #video .subtitle, #video .caption {
+  color: #581322 !important;
+  -webkit-text-fill-color: #581322 !important;
+  text-shadow: 0 1px 0 rgba(255,242,220,.65) !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+#video .title { font-weight: 600 !important; }
+</style>
+
 </head>
 <body class="locked">
 <div class="cover" id="cover">
@@ -804,3 +818,35 @@ document.addEventListener('DOMContentLoaded', function(){
 <nav id="page-menu-panel" aria-label="Menu halaman"><a href="#cover">Cover</a><a href="#home">Home</a><a href="#couple">Mempelai</a><a href="#story">Kisah Cinta</a><a href="#gallery">Galeri</a><a href="#family">Keluarga</a><a href="#rsvp">RSVP</a></nav>
 <script>document.addEventListener('DOMContentLoaded',function(){const b=document.getElementById('page-menu-toggle'),p=document.getElementById('page-menu-panel');if(!b||!p)return;b.addEventListener('click',function(){const o=p.classList.toggle('is-open');b.setAttribute('aria-expanded',String(o))});p.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{p.classList.remove('is-open');b.setAttribute('aria-expanded','false')}));document.addEventListener('click',e=>{if(!p.contains(e.target)&&!b.contains(e.target)){p.classList.remove('is-open');b.setAttribute('aria-expanded','false')}})});</script></body>
 </html>
+<style id="turut-mengundang-maroon-override">
+/* Bagian Turut Mengundang menggunakan latar maroon dengan kontras teks cream */
+#family.family {
+  background: #551b29 !important;
+  color: #fff1d8 !important;
+  background-image: none !important;
+}
+#family.family .title,
+#family.family .subtitle,
+#family.family > p,
+#family.family .family-ornament {
+  color: #fff1d8 !important;
+}
+#family.family .family-card {
+  background: #fff8ec !important;
+  color: #551b29 !important;
+  border-color: #d9b75e !important;
+}
+#family.family .family-card h3,
+#family.family .family-card li,
+#family.family .family-card p,
+#family.family .family-card span {
+  color: #551b29 !important;
+}
+#family.family .family-card li {
+  border-bottom-color: rgba(85, 27, 41, .12) !important;
+}
+#family.family .family-card::before,
+#family.family .family-card::after {
+  color: #d9b75e !important;
+}
+</style>
