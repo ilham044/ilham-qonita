@@ -167,6 +167,111 @@ button,input,select,textarea{max-width:100%;font:inherit}
   .family-card li{font-size:9px;padding:6px 1px}
 }
 
+	
+/* Maroon elegan dan tipografi lebih rapat */
+:root {
+  --maroon: #4b101d;
+  --maroon-card: #641c2b;
+  --gold: #d3ad58;
+  --ivory: #fff8ed;
+}
+
+body,
+section,
+.couple,
+.story,
+.details,
+.family,
+.gallery,
+footer {
+  background-color: var(--maroon) !important;
+  color: var(--ivory);
+}
+
+.title,
+h1, h2, h3, h4 {
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+}
+
+p, li, .subtitle, .story-text {
+  letter-spacing: -0.02em;
+  line-height: 1.4;
+}
+
+.person h3,
+.person h4 {
+  letter-spacing: -0.045em;
+  line-height: 1.08;
+}
+
+.person-label,
+.and-symbol,
+nav a {
+  color: var(--gold) !important;
+}
+
+.person-photo {
+  border-color: var(--gold) !important;
+}
+
+.card,
+.family-card,
+.details .card {
+  background: var(--maroon-card) !important;
+  color: var(--ivory) !important;
+  border-color: var(--gold) !important;
+}
+
+.btn,
+.music-note {
+  background: var(--maroon-card) !important;
+  color: var(--ivory) !important;
+  border-color: var(--gold) !important;
+}
+
+nav {
+  background: rgba(75, 16, 29, .95) !important;
+}
+
+.fade-on-scroll {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity .8s ease, transform .8s ease;
+}
+
+.fade-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 600px) {
+  .title {
+    letter-spacing: -0.045em;
+    line-height: 1.08;
+  }
+
+  .person h3,
+  .person h4 {
+    font-size: clamp(24px, 6.2vw, 32px);
+    letter-spacing: -0.05em;
+    overflow-wrap: anywhere;
+  }
+
+  .person p {
+    font-size: 14px;
+    line-height: 1.35;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-on-scroll {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
 </style>
 </head>
 <body class="locked">
@@ -487,115 +592,35 @@ const namaTamu = (params.get('to') || 'Tamu Undangan')
 document.getElementById('nama-tamu').textContent =
   namaTamu || 'Tamu Undangan';
 
-	
-/* Maroon elegan dan tipografi lebih rapat */
-:root {
-  --maroon: #4b101d;
-  --maroon-card: #641c2b;
-  --gold: #d3ad58;
-  --ivory: #fff8ed;
-}
-
-body,
-section,
-.couple,
-.story,
-.details,
-.family,
-.gallery,
-footer {
-  background-color: var(--maroon) !important;
-  color: var(--ivory);
-}
-
-.title,
-h1, h2, h3, h4 {
-  letter-spacing: -0.04em;
-  line-height: 1.1;
-}
-
-p, li, .subtitle, .story-text {
-  letter-spacing: -0.02em;
-  line-height: 1.4;
-}
-
-.person h3,
-.person h4 {
-  letter-spacing: -0.045em;
-  line-height: 1.08;
-}
-
-.person-label,
-.and-symbol,
-nav a {
-  color: var(--gold) !important;
-}
-
-.person-photo {
-  border-color: var(--gold) !important;
-}
-
-.card,
-.family-card,
-.details .card {
-  background: var(--maroon-card) !important;
-  color: var(--ivory) !important;
-  border-color: var(--gold) !important;
-}
-
-.btn,
-.music-note {
-  background: var(--maroon-card) !important;
-  color: var(--ivory) !important;
-  border-color: var(--gold) !important;
-}
-
-nav {
-  background: rgba(75, 16, 29, .95) !important;
-}
-
-.fade-on-scroll {
-  opacity: 0;
-  transform: translateY(16px);
-  transition: opacity .8s ease, transform .8s ease;
-}
-
-.fade-on-scroll.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-@media (max-width: 600px) {
-  .title {
-    letter-spacing: -0.045em;
-    line-height: 1.08;
-  }
-
-  .person h3,
-  .person h4 {
-    font-size: clamp(24px, 6.2vw, 32px);
-    letter-spacing: -0.05em;
-    overflow-wrap: anywhere;
-  }
-
-  .person p {
-    font-size: 14px;
-    line-height: 1.35;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .fade-on-scroll {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
-}
-
 
 
 </script>
 	
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const elements = document.querySelectorAll(
+    '.person-photo, .person-label, .person h3, .person h4, .person p, .story-img, .gallery-grid img'
+  );
+
+  elements.forEach(el => el.classList.add('fade-on-scroll'));
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    elements.forEach(el => observer.observe(el));
+  } else {
+    elements.forEach(el => el.classList.add('is-visible'));
+  }
+});
+</script>
 
 
 </body>
