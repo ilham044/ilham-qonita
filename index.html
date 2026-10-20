@@ -211,6 +211,38 @@ img.prewed.photo-fade-visible {
   }
 }
 
+
+/* Permintaan akhir: latar halaman konsisten krem, tulisan kontras, menu halaman di HP */
+:root { --page-cream: #fff8ed; --page-ink: #35151c; --page-maroon: #641c2b; --page-gold: #d3ad58; }
+html, body { background: var(--page-cream) !important; color: var(--page-ink); }
+main, section, .hero, .couple, .story, .details, .family, #video, #rekening, footer {
+  background-color: var(--page-cream) !important;
+  color: var(--page-ink) !important;
+}
+/* Keep maroon panels as accents, while the page around them stays cream */
+.card, .family-card, .details .card, .gift-card, .rsvp-card {
+  background: var(--page-maroon) !important; color: var(--page-cream) !important;
+  border-color: var(--page-gold) !important;
+}
+.card h3, .family-card h3, .family-card li, .card p { color: var(--page-cream) !important; }
+.title, h1, h2, h3, h4, .subtitle, .story-text, .person p, #video p, #rekening p {
+  color: var(--page-ink) !important; text-shadow: none !important;
+}
+.person-label, .and-symbol, .family-note { color: #8b6826 !important; }
+nav { background: rgba(255,248,237,.97) !important; color: var(--page-ink) !important; box-shadow: 0 2px 12px #35151c12; }
+nav .brand, nav a { color: var(--page-ink) !important; }
+.page-menu-toggle { display:none; border:1px solid var(--page-gold); border-radius:999px; background:var(--page-maroon); color:var(--page-cream); padding:10px 13px; font:600 11px Montserrat,sans-serif; letter-spacing:.5px; cursor:pointer; }
+@media(max-width:750px) {
+  nav { padding:14px 5%; }
+  nav .links { display:none; position:absolute; top:100%; right:14px; width:min(220px,70vw); padding:10px; background:var(--page-cream); border:1px solid var(--page-gold); border-radius:12px; box-shadow:0 12px 28px #35151c25; flex-direction:column; gap:0; }
+  nav .links.menu-open { display:flex; }
+  nav .links a { display:block; padding:12px 10px; border-bottom:1px solid #d3ad5844; color:var(--page-ink)!important; }
+  nav .links a:last-child { border-bottom:0; }
+  .page-menu-toggle { display:inline-flex; align-items:center; gap:7px; }
+  .gallery { background:var(--page-cream)!important; color:var(--page-ink)!important; }
+  .gallery .title { color:var(--page-ink)!important; }
+}
+
 </style>
 </head>
 <body class="locked">
@@ -239,7 +271,8 @@ img.prewed.photo-fade-visible {
 
 <nav>
   <div class="brand">Ilham & Qonita</div>
-  <div class="links"><a href="#home">HOME</a><a href="#couple">MEMPELAI</a><a href="#story">OUR STORY</a><a href="#gallery">PREWED</a><a href="#family">KELUARGA</a><a href="#rekening">REKENING</a><a href="#rsvp">RSVP</a></div>
+  <button class="page-menu-toggle" id="pageMenuToggle" aria-label="Buka menu halaman" aria-expanded="false">☰ <span>HALAMAN</span></button>
+  <div class="links" id="pageLinks"><a href="#home">HOME</a><a href="#couple">MEMPELAI</a><a href="#story">OUR STORY</a><a href="#gallery">PREWED</a><a href="#family">KELUARGA</a><a href="#rekening">REKENING</a><a href="#rsvp">RSVP</a></div>
 </nav>
 
 <main>
@@ -565,6 +598,21 @@ document.getElementById('nama-tamu').textContent =
   }
 })();
 
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+ const toggle=document.getElementById('pageMenuToggle');
+ const links=document.getElementById('pageLinks');
+ if(toggle && links){
+  toggle.addEventListener('click',function(){
+   const open=links.classList.toggle('menu-open');
+   toggle.setAttribute('aria-expanded',String(open));
+   toggle.innerHTML=open?'✕ <span>TUTUP</span>':'☰ <span>HALAMAN</span>';
+  });
+  links.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){links.classList.remove('menu-open');toggle.setAttribute('aria-expanded','false');toggle.innerHTML='☰ <span>HALAMAN</span>';});});
+ }
+});
 </script>
 </body>
 </html>
