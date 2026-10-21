@@ -629,12 +629,12 @@ section[style*="background:#fff"] h1,section[style*="background:#fff"] h2,sectio
     <div class="card" style="border-radius:8px">
       <div class="icon">▤</div><h3>CIMB NIAGA</h3>
       <p style="line-height:1.9">Nomor Rekening<br><strong id="account-number">706658827200</strong><br>Atas Nama<br><strong id="account-name">ILHAM</strong></p>
-      <button class="btn" type="button" onclick="copyAccount()">Salin Nomor Rekening</button>
+      <button class="btn" type="button" onclick="copyAccount(this)">Salin Nomor Rekening</button>
 	</div>
       <div class="card" style="border-radius:8px">
       <div class="icon">▤</div><h3>CIMB NIAGA</h3>
       <p style="line-height:1.9">Nomor Rekening<br><strong id="account-number">707087145100</strong><br>Atas Nama<br><strong id="account-name">QONITA IZZATI ZAHRA</strong></p>
-      <button class="btn" type="button" onclick="copyAccountqoni()">Salin Nomor Rekening</button>
+      <button class="btn" type="button" onclick="copyAccountqoni(this)">Salin Nomor Rekening</button>
 	</div>
     </div>
   </div>
@@ -688,8 +688,8 @@ function sendRSVP(e){
   window.open(`https://wa.me/${phone}?text=${encodeURIComponent(text)}`,'_blank','noopener');
 }
 
-function copyAccount(){
-  const number=document.getElementById('account-number').textContent.trim();
+function copyAccount(button){
+  const number=button.closest('.card').querySelector('#account-number').textContent.trim();
   if(!number || number==='ISI_NOMOR_REKENING'){
     document.getElementById('copy-status').textContent='Silakan isi nomor rekening terlebih dahulu di kode HTML.';
     return;
@@ -701,8 +701,8 @@ function copyAccount(){
   }
 }
 
-function copyAccountqoni(){
-  const number=document.getElementById('account-number').textContent.trim();
+function copyAccountqoni(button){
+  const number=button.closest('.card').querySelector('#account-number').textContent.trim();
   if(!number || number==='ISI_NOMOR_REKENING'){
     document.getElementById('copy-status').textContent='Silakan isi nomor rekening terlebih dahulu di kode HTML.';
     return;
