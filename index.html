@@ -652,6 +652,13 @@ section[style*="background:#fff"] h1,section[style*="background:#fff"] h2,sectio
   </form>
 </section>
 
+<section class="rsvp guestbook-section" id="ucapan-tamu">
+  <h2 class="title">Ucapan & Doa Tamu</h2>
+  <p>Doa dan ucapan hangat dari keluarga serta sahabat untuk Ilham & Qonita.</p>
+  <div id="guestbook-status" role="status" aria-live="polite" style="margin:0 auto 18px;max-width:650px;font-size:14px">Memuat ucapan tamu…</div>
+  <div id="guestbook-list" class="guestbook-list" style="max-width:760px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:14px;text-align:left"></div>
+</section>
+
 </main>
 <footer>Ilham & Qonita<small>Thank you for being part of our story ♡</small></footer>
 
@@ -677,16 +684,58 @@ musicBtn.addEventListener('click',()=>{
   if(music.paused){music.play();musicBtn.classList.add('playing')}else{music.pause();musicBtn.classList.remove('playing')}
 });
 function openImg(src){document.getElementById('modalImg').src=src;document.getElementById('modal').classList.add('show')}
+// Tempel URL Web App Google Apps Script setelah deploy.
+const GUESTBOOK_API_URL = 'TEMPELKAN_URL_WEB_APP_GOOGLE_APPS_SCRIPT_DI_SINI';
+function jsonpRequest(params, callback){
+  const cb='guestbookCallback_'+Date.now()+'_'+Math.floor(Math.random()*100000);
+  const script=document.createElement('script');
+  const timer=setTimeout(()=>{cleanup();callback({ok:false,error:'Waktu tunggu habis. Periksa koneksi atau URL Google Apps Script.'});},15000);
+  function cleanup(){clearTimeout(timer);delete window[cb];script.remove();}
+  window[cb]=data=>{cleanup();callback(data||{ok:false,error:'Respons kosong.'});};
+  const url=new URL(GUESTBOOK_API_URL);
+  Object.entries({...params,callback:cb}).forEach(([k,v])=>url.searchParams.set(k,v));
+  script.onerror=()=>{cleanup();callback({ok:false,error:'Tidak dapat menghubungi penyimpanan ucapan.'});};
+  script.src=url.toString();document.body.appendChild(script);
+}
+function loadGuestbook(){
+  const status=document.getElementById('guestbook-status');
+  if(GUESTBOOK_API_URL.startsWith('TEMPELKAN_')){status.textContent='Halaman ucapan siap. Hubungkan Google Apps Script agar ucapan tersimpan dan terlihat oleh semua tamu.';return;}
+  jsonpRequest({action:'list'},data=>{
+    const list=document.getElementById('guestbook-list');list.replaceChildren();
+    if(!data.ok){status.textContent=data.error||'Ucapan belum dapat dimuat.';return;}
+    if(!data.messages||!data.messages.length){status.textContent='Belum ada ucapan. Jadilah yang pertama mengirim doa!';return;}
+    status.textContent='Terima kasih atas doa dan ucapan yang telah dibagikan.';
+    data.messages.slice().reverse().forEach(item=>{
+      const card=document.createElement('article');
+      card.style.cssText='background:#fff2dc;color:#551322;border:1px solid #d9b65f;border-radius:10px;padding:18px;overflow-wrap:anywhere';
+      const name=document.createElement('h3');name.textContent=item.name||'Tamu';name.style.cssText='margin:0 0 5px;color:#551322!important;font-size:18px';
+      const attendance=document.createElement('div');attendance.textContent=item.attendance||'';attendance.style.cssText='font-size:12px;font-weight:700;color:#8a3448;margin-bottom:10px';
+      const message=document.createElement('p');message.textContent=item.message||'';message.style.cssText='margin:0;white-space:pre-wrap;line-height:1.6;color:#551322!important';
+      card.append(name,attendance,message);list.appendChild(card);
+    });
+  });
+}
 function sendRSVP(e){
   e.preventDefault();
-  const name=document.getElementById('guest').value;
+  const form=e.currentTarget, button=form.querySelector('button[type="submit"]');
+  const name=document.getElementById('guest').value.trim();
   const att=document.getElementById('attendance').value;
-  const msg=document.getElementById('message').value;
-  // GANTI nomor ini jika nomor WhatsApp konfirmasi Anda berbeda. Format: 62xxxxxxxxxx tanpa + atau spasi.
-  const phone='6287798932442';
-  const text=`Halo Ilham & Qonita,\n\nNama: ${name}\nKehadiran: ${att}\nUcapan: ${msg}`;
-  window.open(`https://wa.me/${phone}?text=${encodeURIComponent(text)}`,'_blank','noopener');
+  const msg=document.getElementById('message').value.trim();
+  if(!msg){document.getElementById('message').focus();alert('Silakan isi ucapan dan doa terlebih dahulu.');return;}
+  if(GUESTBOOK_API_URL.startsWith('TEMPELKAN_')){
+    alert('Form belum terhubung ke penyimpanan bersama. Silakan pasang URL Google Apps Script terlebih dahulu.');return;
+  }
+  button.disabled=true;button.textContent='Menyimpan…';
+  jsonpRequest({action:'save',name,attendance:att,message:msg},data=>{
+    button.disabled=false;button.textContent='Kirim Konfirmasi';
+    if(!data.ok){alert(data.error||'Ucapan belum berhasil disimpan. Silakan coba lagi.');return;}
+    form.reset();
+    document.getElementById('guestbook-status').textContent='Ucapan Anda berhasil disimpan. Terima kasih!';
+    loadGuestbook();
+    document.getElementById('ucapan-tamu').scrollIntoView({behavior:'smooth'});
+  });
 }
+document.addEventListener('DOMContentLoaded',loadGuestbook);
 
 function copyAccount(button){
   const number=button.closest('.card').querySelector('#account-number').textContent.trim();
@@ -815,7 +864,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
 <button type="button" id="page-menu-toggle" aria-expanded="false" aria-controls="page-menu-panel">☰ HALAMAN</button>
-<nav id="page-menu-panel" aria-label="Menu halaman"><a href="#cover">Cover</a><a href="#home">Home</a><a href="#couple">Mempelai</a><a href="#story">Kisah Cinta</a><a href="#gallery">Galeri</a><a href="#family">Keluarga</a><a href="#rsvp">RSVP</a></nav>
+<nav id="page-menu-panel" aria-label="Menu halaman"><a href="#cover">Cover</a><a href="#home">Home</a><a href="#couple">Mempelai</a><a href="#story">Kisah Cinta</a><a href="#gallery">Galeri</a><a href="#family">Keluarga</a><a href="#rsvp">RSVP</a><a href="#ucapan-tamu">Ucapan & Doa</a></nav>
 <script>document.addEventListener('DOMContentLoaded',function(){const b=document.getElementById('page-menu-toggle'),p=document.getElementById('page-menu-panel');if(!b||!p)return;b.addEventListener('click',function(){const o=p.classList.toggle('is-open');b.setAttribute('aria-expanded',String(o))});p.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{p.classList.remove('is-open');b.setAttribute('aria-expanded','false')}));document.addEventListener('click',e=>{if(!p.contains(e.target)&&!b.contains(e.target)){p.classList.remove('is-open');b.setAttribute('aria-expanded','false')}})});</script></body>
 </html>
 <style id="turut-mengundang-maroon-override">
@@ -849,4 +898,9 @@ document.addEventListener('DOMContentLoaded', function(){
 #family.family .family-card::after {
   color: #d9b75e !important;
 }
+</style>
+
+<style id="guestbook-styles">
+#ucapan-tamu{background:#551322!important;color:#fff2dc!important}#ucapan-tamu .title,#ucapan-tamu>p{color:#fff2dc!important}#guestbook-status{color:#fff2dc!important}.guestbook-list article *{opacity:1!important}
+@media(max-width:600px){#guestbook-list{grid-template-columns:1fr!important}}
 </style>
