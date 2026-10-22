@@ -685,7 +685,7 @@ musicBtn.addEventListener('click',()=>{
 });
 function openImg(src){document.getElementById('modalImg').src=src;document.getElementById('modal').classList.add('show')}
 // Tempel URL Web App Google Apps Script setelah deploy.
-https://script.google.com/macros/s/AKfycbx1_VfbHfQEp8u0gPeI0U3mlPlGzzWpmeKe8ek9A3Rc3EnRT9ffqFr97TZtyyGev7ybNA/exec
+const GUESTBOOK_API_URL = 'https://script.google.com/macros/s/AKfycbx1_VfbHfQEp8u0gPeI0U3mlPlGzzWpmeKe8ek9A3Rc3EnRT9ffqFr97TZtyyGev7ybNA/exec';
 function jsonpRequest(params, callback){
   const cb='guestbookCallback_'+Date.now()+'_'+Math.floor(Math.random()*100000);
   const script=document.createElement('script');
