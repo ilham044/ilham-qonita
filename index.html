@@ -865,7 +865,31 @@ document.addEventListener('DOMContentLoaded', function(){
 
 <button type="button" id="page-menu-toggle" aria-expanded="false" aria-controls="page-menu-panel">☰ HALAMAN</button>
 <nav id="page-menu-panel" aria-label="Menu halaman"><a href="#cover">Cover</a><a href="#home">Home</a><a href="#couple">Mempelai</a><a href="#story">Kisah Cinta</a><a href="#gallery">Galeri</a><a href="#family">Keluarga</a><a href="#rsvp">RSVP</a><a href="#ucapan-tamu">Ucapan & Doa</a></nav>
-<script>document.addEventListener('DOMContentLoaded',function(){const b=document.getElementById('page-menu-toggle'),p=document.getElementById('page-menu-panel');if(!b||!p)return;b.addEventListener('click',function(){const o=p.classList.toggle('is-open');b.setAttribute('aria-expanded',String(o))});p.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{p.classList.remove('is-open');b.setAttribute('aria-expanded','false')}));document.addEventListener('click',e=>{if(!p.contains(e.target)&&!b.contains(e.target)){p.classList.remove('is-open');b.setAttribute('aria-expanded','false')}})});</script></body>
+<script>document.addEventListener('DOMContentLoaded',function(){const b=document.getElementById('page-menu-toggle'),p=document.getElementById('page-menu-panel');if(!b||!p)return;b.addEventListener('click',function(){const o=p.classList.toggle('is-open');b.setAttribute('aria-expanded',String(o))});p.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{p.classList.remove('is-open');b.setAttribute('aria-expanded','false')}));document.addEventListener('click',e=>{if(!p.contains(e.target)&&!b.contains(e.target)){p.classList.remove('is-open');b.setAttribute('aria-expanded','false')}})});</script>
+<style id="readable-rsvp-fields">
+/* Kolom konfirmasi dan ucapan: latar terang dengan teks gelap agar terbaca di ponsel */
+#rsvp .guest-form { width: min(100%, 550px) !important; gap: 14px !important; }
+#rsvp .guest-form input,
+#rsvp .guest-form select,
+#rsvp .guest-form textarea {
+  display: block !important; box-sizing: border-box !important; width: 100% !important;
+  min-height: 54px !important; height: auto !important; padding: 15px 16px !important;
+  background: #fffaf0 !important; background-color: #fffaf0 !important;
+  color: #451321 !important; -webkit-text-fill-color: #451321 !important;
+  border: 2px solid #d9b65f !important; border-radius: 10px !important;
+  opacity: 1 !important; box-shadow: none !important; font-size: 16px !important;
+  line-height: 1.45 !important; text-align: left !important;
+}
+#rsvp .guest-form select { min-height: 58px !important; appearance: auto !important; -webkit-appearance: menulist !important; }
+#rsvp .guest-form select option { background: #fffaf0 !important; color: #451321 !important; }
+#rsvp .guest-form textarea { min-height: 125px !important; resize: vertical !important; }
+#rsvp .guest-form input::placeholder, #rsvp .guest-form textarea::placeholder {
+  color: #66545a !important; -webkit-text-fill-color: #66545a !important; opacity: 1 !important;
+}
+#rsvp .guest-form button { min-height: 54px !important; border-radius: 10px !important; }
+</style>
+
+</body>
 </html>
 <style id="turut-mengundang-maroon-override">
 /* Bagian Turut Mengundang menggunakan latar maroon dengan kontras teks cream */
