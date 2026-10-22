@@ -439,7 +439,7 @@ section[style*="background:#fff"] h1,section[style*="background:#fff"] h2,sectio
         <div>Kepada Yth. Bapak/Ibu/Saudara/i:</div>
         <strong id="nama-tamu">Tamu Undangan</strong>
       </div>
-
+      <p class="cover-invitation">Kami mengundang Anda untuk menjadi bagian dari hari bahagia kami.</p>
       <button class="btn" id="openBtn">Buka Undangan</button>
     </div>
   </div>
@@ -887,6 +887,42 @@ document.addEventListener('DOMContentLoaded', function(){
   color: #66545a !important; -webkit-text-fill-color: #66545a !important; opacity: 1 !important;
 }
 #rsvp .guest-form button { min-height: 54px !important; border-radius: 10px !important; }
+</style>
+
+
+<style id="high-contrast-guestbook-final">
+/* Kontras tinggi untuk formulir RSVP dan daftar ucapan di semua ukuran layar */
+html body #rsvp .guest-form input,
+html body #rsvp .guest-form select,
+html body #rsvp .guest-form textarea {
+  background: #fffaf0 !important; background-color: #fffaf0 !important;
+  color: #321019 !important; -webkit-text-fill-color: #321019 !important;
+  opacity: 1 !important; border: 2px solid #d9b65f !important;
+  box-shadow: none !important;
+}
+html body #rsvp .guest-form input::placeholder,
+html body #rsvp .guest-form textarea::placeholder {
+  color: #655056 !important; -webkit-text-fill-color: #655056 !important; opacity: 1 !important;
+}
+html body #rsvp .guest-form select option { background: #fffaf0 !important; color: #321019 !important; }
+html body #ucapan-tamu #guestbook-list article {
+  background: #fffaf0 !important; background-color: #fffaf0 !important;
+  color: #321019 !important; border: 2px solid #d9b65f !important;
+  border-radius: 12px !important; padding: 18px !important;
+}
+html body #ucapan-tamu #guestbook-list article h3,
+html body #ucapan-tamu #guestbook-list article div,
+html body #ucapan-tamu #guestbook-list article p,
+html body #ucapan-tamu #guestbook-list article span {
+  color: #321019 !important; -webkit-text-fill-color: #321019 !important;
+  opacity: 1 !important; text-shadow: none !important;
+}
+html body #ucapan-tamu #guestbook-list article div { color: #7b263b !important; -webkit-text-fill-color: #7b263b !important; }
+html body #ucapan-tamu #guestbook-status { color: #fff2dc !important; opacity: 1 !important; }
+@media (max-width: 600px) {
+  html body #ucapan-tamu #guestbook-list { grid-template-columns: 1fr !important; }
+  html body #ucapan-tamu #guestbook-list article { padding: 16px !important; }
+}
 </style>
 
 </body>
