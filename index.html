@@ -926,6 +926,32 @@ html body #ucapan-tamu #guestbook-status { color: #fff2dc !important; opacity: 1
 </style>
 
 </body>
+
+<style id="cream-fields-force-override">
+/* FINAL FIX: semua kolom input dibuat krem terang, termasuk iPhone/Safari */
+html body input, html body select, html body textarea,
+html body #rsvp input, html body #rsvp select, html body #rsvp textarea,
+html body .guest-form input, html body .guest-form select, html body .guest-form textarea,
+html body #guest, html body #attendance, html body #message {
+  background: #fff2dc !important;
+  background-color: #fff2dc !important;
+  color: #321019 !important;
+  -webkit-text-fill-color: #321019 !important;
+  border: 2px solid #d9b65f !important;
+  opacity: 1 !important;
+  box-shadow: none !important;
+  color-scheme: light !important;
+}
+html body select option { background: #fff2dc !important; color: #321019 !important; }
+html body input::placeholder, html body textarea::placeholder {
+  color: #655056 !important; -webkit-text-fill-color: #655056 !important; opacity: 1 !important;
+}
+html body #rsvp .guest-form input, html body #rsvp .guest-form select, html body #rsvp .guest-form textarea {
+  min-height: 58px !important; padding: 16px !important; font-size: 17px !important;
+}
+html body #rsvp .guest-form textarea { min-height: 130px !important; }
+</style>
+
 </html>
 <style id="turut-mengundang-maroon-override">
 /* Bagian Turut Mengundang menggunakan latar maroon dengan kontras teks cream */
