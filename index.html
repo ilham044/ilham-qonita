@@ -143,20 +143,166 @@ footer{background:#180408;color:#d8bd7b;text-align:center;padding:45px 20px;font
   }
 }
 
+
+/* ===== COVER: BINGKAI ATAS & BAWAH, FOTO TERLIHAT DI TENGAH ===== */
+.cover{
+  align-items:stretch;
+  justify-content:center;
+}
+.cover:before{
+  background:
+    linear-gradient(180deg,rgba(20,5,7,.18) 0%,rgba(20,5,7,.05) 48%,rgba(20,5,7,.28) 100%),
+    url("assets/images/cover.jpg") center center / cover no-repeat;
+}
+.cover-inner{
+  position:relative;
+  z-index:1;
+  width:100%;
+  max-width:none;
+  height:100%;
+  min-height:100vh;
+  min-height:100dvh;
+  padding:4vh 20px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  color:#fff;
+}
+.cover-top,
+.cover-bottom{
+  width:min(760px,95%);
+  border:3px solid #e0bd00;
+  background:rgba(31,5,11,.58);
+  text-align:center;
+  flex:0 0 auto;
+}
+.cover-top{padding:17px 20px 15px;}
+.cover-top .eyebrow{
+  margin:0 0 17px;
+  font-size:12px;
+  line-height:1.6;
+  letter-spacing:5px;
+}
+.cover-top .names{
+  margin:0;
+  font:600 clamp(42px,7vw,82px)/1.02 "Cormorant Garamond",serif;
+  letter-spacing:1px;
+  white-space:nowrap;
+  text-shadow:0 5px 30px #000;
+}
+.cover-top .amp{color:var(--gold);font-size:.65em;}
+.cover-top .date{
+  margin:12px 0 0;
+  font:500 17px "Cormorant Garamond",serif;
+  letter-spacing:3px;
+  line-height:1.5;
+}
+.cover-bottom{padding:17px 22px 19px;}
+.cover-bottom .guest-greeting{
+  margin:0 auto 13px!important;
+  font-size:13px;
+  line-height:1.8!important;
+  letter-spacing:1px;
+}
+.cover-bottom .guest-greeting strong{
+  display:block;
+  margin-top:3px;
+  color:var(--gold);
+  font:600 25px "Cormorant Garamond",serif;
+  line-height:1.25;
+}
+.cover-bottom p{
+  max-width:520px;
+  margin:0 auto 17px!important;
+  font-size:13px;
+  line-height:1.9!important;
+}
+.cover-bottom .btn{margin:0;letter-spacing:1px;}
+
+/* Love Story layout rapi */
+.story{padding-top:100px;padding-bottom:100px}
+.story-grid{grid-template-columns:1fr;gap:34px;max-width:850px}
+.story-img{max-height:480px;object-fit:cover}
+.story-grid > div{max-width:760px;margin:0 auto;width:100%}
+.story .title{text-align:center!important;margin-bottom:18px}
+.story-text{max-width:700px;margin:0 auto 34px;text-align:center;line-height:2.1;font-size:14px;color:#493536}
+.timeline{border-left:1px solid var(--gold);padding:4px 0 4px 28px;margin:0 auto;max-width:700px}
+.story-moment{position:relative;margin:0 0 30px;padding:0 0 2px}
+.story-moment:last-child{margin-bottom:0}
+.story-moment:before{content:"";position:absolute;left:-34px;top:6px;width:11px;height:11px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 5px #d6ad5526}
+.story-year{display:block;color:var(--maroon);font:600 25px "Cormorant Garamond";line-height:1.3;margin-bottom:9px}
+.story-moment p{margin:0 0 12px;font-size:13px;line-height:2.05;color:#493536;text-align:left}
+.story-moment .story-closing{font-style:italic;color:#74503f;margin-top:15px}
+@media(max-width:750px){
+  .cover-inner{padding:3vh 10px;gap:12px;}
+  .cover-top,.cover-bottom{width:96%;border-width:2px;}
+  .cover-top{padding:14px 8px 12px;}
+  .cover-top .eyebrow{font-size:9px;letter-spacing:3px;margin-bottom:12px;}
+  .cover-top .names{font-size:clamp(34px,9.2vw,58px);letter-spacing:0;}
+  .cover-top .date{font-size:12px;letter-spacing:1.5px;margin-top:9px;}
+  .cover-bottom{padding:14px 12px 15px;}
+  .cover-bottom .guest-greeting{font-size:11px;margin-bottom:9px!important;}
+  .cover-bottom .guest-greeting strong{font-size:21px;}
+  .cover-bottom p{font-size:10px;line-height:1.7!important;margin-bottom:12px!important;}
+  .cover-bottom .btn{padding:11px 24px;font-size:11px;}
+  .story{padding-top:75px;padding-bottom:75px}
+  .story-img{max-height:360px}
+  .story-year{font-size:23px}
+  .story-moment p{font-size:12px;line-height:1.95}
+  .timeline{padding-left:22px}
+  .story-moment:before{left:-28px}
+}
+@media(max-height:650px){
+  .cover-inner{padding-top:12px;padding-bottom:12px;gap:8px;}
+  .cover-top{padding-top:9px;padding-bottom:9px;}
+  .cover-top .eyebrow{margin-bottom:7px;}
+  .cover-top .date{margin-top:5px;}
+  .cover-bottom{padding-top:9px;padding-bottom:9px;}
+  .cover-bottom .guest-greeting{margin-bottom:6px!important;}
+  .cover-bottom p{margin-bottom:8px!important;}
+}
+
+/* ===== Love Story: tema maroon dan gold ===== */
+.story{
+  background:linear-gradient(145deg,#650b17 0%,#4b0711 55%,#2b050b 100%);
+  color:#fff8ed;
+}
+.story .title{color:#e2bd70;}
+.story .story-text{color:#f8eadb;}
+.story .story-year{color:#e2bd70;}
+.story .story-moment p{color:#f4e8dc;}
+.story .story-moment .story-closing{color:#e8c982;}
+.story .timeline{border-left-color:#d6ad55;}
+.story .story-moment:before{background:#e2bd70;box-shadow:0 0 0 5px #d6ad5530;}
+.story-img{border:3px solid #d6ad55;box-shadow:0 18px 45px #16020780;}
+
 </style>
 </head>
 <body class="locked">
 <div class="cover" id="cover">
   <div class="cover-inner">
-    <div class="eyebrow">✦ THE WEDDING OF ✦</div>
-    <h1 class="names">Ilham <span class="amp">&</span> Qonita</h1>
-    <div class="date">MINGGU • 27 DESEMBER 2026</div>
-    <div class="guest-greeting" style="margin:0 auto 18px;font-size:13px;line-height:1.8;letter-spacing:1px">
-      <div>Kepada Yth.</div>
-      <strong id="nama-tamu" style="display:block;color:var(--gold);font:600 25px 'Cormorant Garamond',serif;letter-spacing:.5px">Tamu Undangan</strong>
+
+    <!-- KOTAK ATAS: JUDUL, NAMA MEMPELAI, DAN TANGGAL -->
+    <div class="cover-top">
+      <div class="eyebrow">✦ THE WEDDING OF ✦</div>
+      <h1 class="names">Ilham <span class="amp">&</span> Qonita</h1>
+      <div class="date">MINGGU • 27 DESEMBER 2026</div>
     </div>
-    <p style="font-size:13px;line-height:1.8;max-width:500px;margin:0 auto 25px">Dengan memohon rahmat dan ridho Allah SWT, kami mengundang Anda untuk menjadi bagian dari hari bahagia kami.</p>
-    <button class="btn" id="openBtn">Buka Undangan</button>
+
+    <!-- AREA TENGAH DIBIARKAN KOSONG AGAR FOTO COVER TERLIHAT -->
+
+    <!-- KOTAK BAWAH: SAPAAN TAMU DAN TOMBOL -->
+    <div class="cover-bottom">
+      <div class="guest-greeting">
+        <div>Kepada Yth.</div>
+        <strong id="nama-tamu">Tamu Undangan</strong>
+      </div>
+      <p>Dengan memohon rahmat dan ridho Allah SWT, kami mengundang Anda untuk menjadi bagian dari hari bahagia kami.</p>
+      <button class="btn" id="openBtn">Buka Undangan</button>
+    </div>
+
   </div>
 </div>
 
@@ -205,22 +351,21 @@ footer{background:#180408;color:#d8bd7b;text-align:center;padding:45px 20px;font
       <h2 class="title" style="text-align:left">Love Story</h2>
       <p class="story-text">Dari sebuah pertemuan sederhana di tempat kerja yang sama, perjalanan kami terus tumbuh menjadi cerita yang penuh makna. Kini, kami siap melangkah ke jenjang yang lebih serius dengan restu dan doa dari orang-orang tercinta.</p>
       <div class="timeline">
-        <div>Berawal dari Pertemuan, Berlabuh dalam Pernikahan<br>
-			2022 — Awal Pertemuan<br>
-			Tak pernah terbayangkan bahwa sebuah pertemuan sederhana di tempat kerja akan menjadi awal dari kisah yang begitu istimewa. <br> 
-			Pada tahun 2022, semesta mempertemukan kami dalam satu perusahaan. Berawal dari pandangan pertama, perlahan tumbuh rasa yang <br>
-			membawa kami pada cerita yang tak pernah kami sangka sebelumnya.<br>
+        <article class="story-moment">
+          <span class="story-year">2022 — Awal Pertemuan</span>
+          <p>Tak pernah terbayangkan bahwa sebuah pertemuan sederhana di tempat kerja akan menjadi awal dari kisah yang begitu istimewa. Pada tahun 2022, semesta mempertemukan kami dalam satu perusahaan. Berawal dari pandangan pertama, perlahan tumbuh rasa yang membawa kami pada cerita yang tak pernah kami sangka sebelumnya.</p>
+        </article>
 
-			Agustus 2026 — Langkah Menuju Keseriusan<br>
-			Waktu membawa kami semakin yakin bahwa pertemuan ini bukan sekadar kebetulan. Dengan niat baik dan hati yang mantap, kedua keluarga <br>
-			dipertemukan untuk menyatukan harapan serta merestui langkah kami menuju masa depan bersama. <br>
+        <article class="story-moment">
+          <span class="story-year">Agustus 2026 — Langkah Menuju Keseriusan</span>
+          <p>Waktu membawa kami semakin yakin bahwa pertemuan ini bukan sekadar kebetulan. Dengan niat baik dan hati yang mantap, kedua keluarga dipertemukan untuk menyatukan harapan serta merestui langkah kami menuju masa depan bersama.</p>
+        </article>
 
-			Desember 2026 — Awal Selamanya
-			Kini, kami memilih untuk melangkah bersama dalam ikatan suci pernikahan. Bukan karena kisah kami sempurna, melainkan karena kami percaya <br>
-			bahwa cinta adalah tentang memilih satu sama lain, hari ini, esok, dan seterusnya.<br>
-			Dari satu tempat kerja menuju satu tujuan hidup. Dari sebuah pandangan menjadi janji seumur hidup.<br>
-			Dan sejak saat itu, selamanya dimulai. 🤍
- </div>
+        <article class="story-moment">
+          <span class="story-year">Desember 2026 — Awal Selamanya</span>
+          <p>Kini, kami memilih untuk melangkah bersama dalam ikatan suci pernikahan. Bukan karena kisah kami sempurna, melainkan karena kami percaya bahwa cinta adalah tentang memilih satu sama lain, hari ini, esok, dan seterusnya.</p>
+          <p class="story-closing">Dari satu tempat kerja menuju satu tujuan hidup. Dari sebuah pandangan menjadi janji seumur hidup. Dan sejak saat itu, selamanya dimulai. 🤍</p>
+        </article>
       </div>
     </div>
   </div>
