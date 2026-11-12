@@ -23,8 +23,26 @@ section{padding:90px 7%;max-width:1200px;margin:auto}.hero{min-height:100vh;disp
 .gallery{background:#21070c;color:white;max-width:none}.gallery .title{color:var(--gold)}.gallery-grid{max-width:1100px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.gallery-grid img{width:100%;aspect-ratio:1/1;object-fit:cover;cursor:pointer;transition:.3s}.gallery-grid img:hover{transform:scale(.98);opacity:.85}
 .video-wrap{max-width:950px;margin:25px auto 0;background:#000;box-shadow:0 20px 50px #0004}.video-wrap video{display:block;width:100%;max-height:650px}.video-album-title{margin:70px auto 18px}.caption{text-align:center;margin:20px auto 0;max-width:700px;line-height:1.8;font-size:13px}
 .rsvp{background:linear-gradient(135deg,#5f0915,#28050b);color:white;max-width:none;text-align:center}.rsvp .title{color:var(--gold)}.rsvp p{max-width:600px;margin:15px auto 30px;line-height:1.8;font-size:14px}.guest-form{max-width:550px;margin:auto;display:grid;gap:12px}.guest-form input,.guest-form select,.guest-form textarea{width:100%;padding:14px;border:0;border-radius:4px;font:14px Montserrat}.guest-form button{padding:14px;border:1px solid var(--gold);background:var(--gold);color:#2b090d;font-weight:700;border-radius:4px}
+
+/* ===== WEDDING GIFT ===== */
+.wedding-gift{max-width:none;text-align:center;color:#fff8ed;background:linear-gradient(135deg,#650b17,#30050c);position:relative;overflow:hidden}
+.wedding-gift .title{color:#e2bd70}
+.wedding-gift .subtitle{color:#f8eede}
+.gift-wrap{max-width:850px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.gift-card{position:relative;padding:34px 25px;background:linear-gradient(145deg,#fffaf0,#f1e3c8);border:1px solid #d6ad55;box-shadow:0 15px 40px #17030855;color:#3b1115}
+.gift-ornament{font-size:27px;color:#b88932;margin-bottom:10px}
+.gift-bank-logo{display:block;width:170px;max-width:78%;height:auto;margin:0 auto 22px;object-fit:contain}
+.gift-bank{font-size:11px;letter-spacing:3px;color:#8d672b;font-weight:600}
+.gift-card h3{font:600 31px 'Cormorant Garamond',serif;color:#650b17;margin:10px 0 18px}
+.gift-number{font:600 clamp(19px,3vw,25px) Montserrat;letter-spacing:1.5px;color:#351016;margin:12px 0;overflow-wrap:anywhere}
+.gift-holder{font-size:13px;color:#6d5550;margin-bottom:22px}
+.copy-gift{border:1px solid #b88932;background:#650b17;color:#fff4dc;border-radius:30px;padding:11px 24px;font:600 11px Montserrat;letter-spacing:1px;cursor:pointer}
+.copy-gift:hover{background:#8b1828}
+.gift-note{max-width:650px;margin:35px auto 0;color:#f8eede;font:italic 21px/1.7 'Cormorant Garamond',serif}
+@media(max-width:650px){.gift-wrap{grid-template-columns:1fr;max-width:430px}.gift-card{padding:29px 18px}}
+
 footer{background:#180408;color:#d8bd7b;text-align:center;padding:45px 20px;font:22px "Cormorant Garamond"}footer small{display:block;font:11px Montserrat;color:#fff8;margin-top:8px}
-.modal{display:none;position:fixed;z-index:60;inset:0;background:#000d;align-items:center;justify-content:center;padding:20px}.modal.show{display:flex}.modal img{max-width:95vw;max-height:90vh}.close{position:absolute;top:18px;right:25px;color:white;font-size:35px;cursor:pointer}
+.modal{display:none;position:fixed;z-index:100;inset:0;background:rgba(0,0,0,.94);align-items:center;justify-content:center;padding:55px 70px 65px}.modal.show{display:flex}.modal img{display:block;max-width: min(88vw,1200px);max-height:82vh;width:auto;height:auto;object-fit:contain;border:2px solid #d6ad55;box-shadow:0 15px 50px #0009}.modal-close{position:absolute;top:15px;right:24px;border:0;background:transparent;color:#fff;font-size:42px;line-height:1;cursor:pointer}.modal-arrow{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border:1px solid #d6ad55;border-radius:50%;background:#650b17;color:#f8e4b2;font-size:21px;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 5px 18px #0007}.modal-arrow:hover{background:#d6ad55;color:#31070e}.modal-prev{left:20px}.modal-next{right:20px}.modal-counter{position:absolute;bottom:20px;left:0;right:0;text-align:center;color:#f8e4b2;font:13px Montserrat;letter-spacing:2px}@media(max-width:600px){.modal{padding:55px 48px}.modal img{max-width:100%;max-height:75vh}.modal-arrow{width:36px;height:36px;font-size:16px}.modal-prev{left:7px}.modal-next{right:7px}.modal-close{right:12px;top:10px}}
 @media(max-width:750px){nav .links{display:none}.cards,.story-grid,.gallery-grid{grid-template-columns:1fr}.hero{background-attachment:scroll}.story{background-attachment:scroll}section{padding:70px 6%}.title{font-size:43px}.names{font-size:64px}}
 /* Ornamen Minangkabau untuk bagian jadwal acara */
 .details{position:relative;isolation:isolate;overflow:hidden}
@@ -172,9 +190,10 @@ footer{background:#180408;color:#d8bd7b;text-align:center;padding:45px 20px;font
 }
 .cover-top,
 .cover-bottom{
-  width:min(760px,95%);
-  border:3px solid #e0bd00;
-  background:rgba(31,5,11,.58);
+  width:min(900px,96%);
+  border:0;
+  background:transparent;
+  box-shadow:none;
   text-align:center;
   flex:0 0 auto;
 }
@@ -221,33 +240,57 @@ footer{background:#180408;color:#d8bd7b;text-align:center;padding:45px 20px;font
 }
 .cover-bottom .btn{margin:0;letter-spacing:1px;}
 
-/* Love Story layout rapi */
-.story{padding-top:100px;padding-bottom:100px}
-.story-grid{grid-template-columns:1fr;gap:34px;max-width:850px}
-.story-img{max-height:480px;object-fit:cover}
+/* LOVE STORY — MAROON, UKIRAN EMAS MINANGKABAU */
+.story{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  padding-top:100px;
+  padding-bottom:100px;
+  color:#f8f0df;
+  background:
+    radial-gradient(ellipse at 50% 0%,rgba(139,35,48,.42),transparent 58%),
+    linear-gradient(145deg,#25050b 0%,#650b17 48%,#31070e 100%);
+}
+.story:before,.story:after{
+  content:"❧  ❖  ❧";
+  position:absolute;
+  z-index:-1;
+  color:#d6ad55;
+  opacity:.42;
+  font:42px "Cormorant Garamond",serif;
+  letter-spacing:12px;
+  pointer-events:none;
+}
+.story:before{top:22px;left:22px;transform:rotate(-90deg);transform-origin:left top}
+.story:after{right:18px;bottom:24px;transform:rotate(90deg);transform-origin:right bottom}
+.story .minang-corner{z-index:0;opacity:.58}
+.story-grid{position:relative;z-index:1;grid-template-columns:1fr;gap:34px;max-width:850px}
+.story-img{max-height:480px;object-fit:cover;border:2px solid #d6ad55;box-shadow:0 20px 45px #0007}
 .story-grid > div{max-width:760px;margin:0 auto;width:100%}
-.story .title{text-align:center!important;margin-bottom:18px}
-.story-text{max-width:700px;margin:0 auto 34px;text-align:center;line-height:2.1;font-size:14px;color:#493536}
-.timeline{border-left:1px solid var(--gold);padding:4px 0 4px 28px;margin:0 auto;max-width:700px}
+.story .title{text-align:center!important;margin-bottom:18px;color:#e4c477}
+.story-text{max-width:700px;margin:0 auto 34px;text-align:center;line-height:2.1;font-size:14px;color:#f8f0df}
+.story .timeline{border-left:1px solid #d6ad55;padding:4px 0 4px 28px;margin:0 auto;max-width:700px}
 .story-moment{position:relative;margin:0 0 30px;padding:0 0 2px}
 .story-moment:last-child{margin-bottom:0}
-.story-moment:before{content:"";position:absolute;left:-34px;top:6px;width:11px;height:11px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 5px #d6ad5526}
-.story-year{display:block;color:var(--maroon);font:600 25px "Cormorant Garamond";line-height:1.3;margin-bottom:9px}
-.story-moment p{margin:0 0 12px;font-size:13px;line-height:2.05;color:#493536;text-align:left}
-.story-moment .story-closing{font-style:italic;color:#74503f;margin-top:15px}
+.story-moment:before{content:"";position:absolute;left:-34px;top:6px;width:11px;height:11px;border-radius:50%;background:#e4c477;box-shadow:0 0 0 5px #d6ad5530}
+.story-year{display:block;color:#e4c477;font:600 25px "Cormorant Garamond";line-height:1.3;margin-bottom:9px}
+.story-moment p{margin:0 0 12px;font-size:13px;line-height:2.05;color:#f8f0df;text-align:left}
+.story-moment .story-closing{font-style:italic;color:#e8d5aa;margin-top:15px}
 @media(max-width:750px){
   .cover-inner{padding:3vh 10px;gap:12px;}
-  .cover-top,.cover-bottom{width:96%;border-width:2px;}
-  .cover-top{padding:14px 8px 12px;}
+  .cover-top,.cover-bottom{width:96%;border:0;background:transparent;}
+  .cover-top{padding:8px 8px 12px;}
   .cover-top .eyebrow{font-size:9px;letter-spacing:3px;margin-bottom:12px;}
   .cover-top .names{font-size:clamp(34px,9.2vw,58px);letter-spacing:0;}
   .cover-top .date{font-size:12px;letter-spacing:1.5px;margin-top:9px;}
-  .cover-bottom{padding:14px 12px 15px;}
+  .cover-bottom{padding:12px 12px 8px;}
   .cover-bottom .guest-greeting{font-size:11px;margin-bottom:9px!important;}
   .cover-bottom .guest-greeting strong{font-size:21px;}
   .cover-bottom p{font-size:10px;line-height:1.7!important;margin-bottom:12px!important;}
   .cover-bottom .btn{padding:11px 24px;font-size:11px;}
   .story{padding-top:75px;padding-bottom:75px}
+  .story:before,.story:after{font-size:27px;letter-spacing:6px;opacity:.32}
   .story-img{max-height:360px}
   .story-year{font-size:23px}
   .story-moment p{font-size:12px;line-height:1.95}
@@ -277,6 +320,7 @@ footer{background:#180408;color:#d8bd7b;text-align:center;padding:45px 20px;font
 .story .timeline{border-left-color:#d6ad55;}
 .story .story-moment:before{background:#e2bd70;box-shadow:0 0 0 5px #d6ad5530;}
 .story-img{border:3px solid #d6ad55;box-shadow:0 18px 45px #16020780;}
+
 
 </style>
 </head>
@@ -314,7 +358,7 @@ footer{background:#180408;color:#d8bd7b;text-align:center;padding:45px 20px;font
 
 <nav>
   <div class="brand">Ilham & Qonita</div>
-  <div class="links"><a href="#home">HOME</a><a href="#couple">MEMPELAI</a><a href="#story">OUR STORY</a><a href="#gallery">GALERI</a><a href="#family">KELUARGA</a><a href="#rsvp">RSVP</a></div>
+  <div class="links"><a href="#home">HOME</a><a href="#couple">MEMPELAI</a><a href="#story">OUR STORY</a><a href="#gallery">GALERI</a><a href="#family">KELUARGA</a><a href="#wedding-gift">WEDDING GIFT</a><a href="#rsvp">RSVP</a></div>
 </nav>
 
 <main>
@@ -345,6 +389,28 @@ footer{background:#180408;color:#d8bd7b;text-align:center;padding:45px 20px;font
 </section>
 
 <section class="story" id="story">
+  <!-- Ornamen ukiran Minangkabau warna gold -->
+  <div class="minang-corner left" aria-hidden="true">
+    <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#b88932" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 116V4H116M4 72Q35 72 35 42Q35 20 57 20Q78 20 78 42Q78 58 61 58Q48 58 48 45Q48 36 57 36"/>
+      <path d="M4 91Q25 91 25 70Q25 54 41 54Q56 54 56 70Q56 81 45 81Q37 81 37 72"/>
+      <path d="M17 116Q17 96 37 96Q57 96 57 116M69 4Q69 24 89 24Q109 24 109 4"/>
+      <path d="M4 28Q24 28 24 8M4 48Q44 48 44 8M4 104Q24 104 24 84"/>
+      <path d="M18 18l8 8-8 8-8-8zM84 40l8 8-8 8-8-8zM70 80l8 8-8 8-8-8z"/>
+      <circle cx="18" cy="26" r="3"/><circle cx="84" cy="48" r="3"/>
+    </svg>
+  </div>
+  <div class="minang-corner right" aria-hidden="true">
+    <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#b88932" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 116V4H116M4 72Q35 72 35 42Q35 20 57 20Q78 20 78 42Q78 58 61 58Q48 58 48 45Q48 36 57 36"/>
+      <path d="M4 91Q25 91 25 70Q25 54 41 54Q56 54 56 70Q56 81 45 81Q37 81 37 72"/>
+      <path d="M17 116Q17 96 37 96Q57 96 57 116M69 4Q69 24 89 24Q109 24 109 4"/>
+      <path d="M4 28Q24 28 24 8M4 48Q44 48 44 8M4 104Q24 104 24 84"/>
+      <path d="M18 18l8 8-8 8-8-8zM84 40l8 8-8 8-8-8zM70 80l8 8-8 8-8-8z"/>
+      <circle cx="18" cy="26" r="3"/><circle cx="84" cy="48" r="3"/>
+    </svg>
+  </div>
+
   <div class="story-grid">
     <img class="story-img" src="assets/images/story.jpg" onerror="this.src='assets/images/cover.jpg'" alt="Ilham dan Qonita">
     <div>
@@ -417,9 +483,9 @@ footer{background:#180408;color:#d8bd7b;text-align:center;padding:45px 20px;font
   <h2 class="title">The Wedding</h2>
   <p class="subtitle">Sebuah perayaan cinta, keluarga, dan perjalanan baru yang kami mulai bersama.</p>
   <div class="cards">
-    <div class="card"><div class="icon">◈</div><h3>Akad Nikah</h3><p>• MINGGU •<br> 27 DESEMBER 2026 <br>10.00 WIB<br><h3>Lokasi</h3><p> Politeknik Negeri Batam, Batam<br>Indonesia</p><button class="btn" onclick="window.open('https://maps.app.goo.gl/359M7ikWihoYgTGQ7')">Buka Maps</button></div>
+    <div class="card"><div class="icon">◈</div><h3>Akad Nikah</h3><p>• MINGGU •<br> 27 DESEMBER 2026 <br>08.00 WIB<br><h3>Lokasi</h3><p> Politeknik Negeri Batam, Batam<br>Indonesia</p><button class="btn" onclick="window.open('https://maps.app.goo.gl/359M7ikWihoYgTGQ7')">Buka Maps</button></div>
 
-    <div class="card"><div class="icon">◈</div><h3>Resepsi Nikah</h3><p>• RABU •<br> 27 DESEMBER 2026 <br>15.00-21.00 WIB<br><h3>Lokasi</h3><p>Politeknik Negeri Batam, Batam<br>Indonesia</p><button class="btn" onclick="window.open('https://maps.app.goo.gl/359M7ikWihoYgTGQ7')">Buka Maps</button></div>
+    <div class="card"><div class="icon">◈</div><h3>Resepsi Nikah</h3><p>• MINGGU •<br> 27 DESEMBER 2026 <br>14.00-21.00 WIB<br><h3>Lokasi</h3><p>Politeknik Negeri Batam, Batam<br>Indonesia</p><button class="btn" onclick="window.open('https://maps.app.goo.gl/359M7ikWihoYgTGQ7')">Buka Maps</button></div>
  </div>   
 </section>
 
@@ -428,16 +494,16 @@ footer{background:#180408;color:#d8bd7b;text-align:center;padding:45px 20px;font
   <p class="subtitle" style="color:#eee">Cerita dan kenangan Ilham & Qonita sebelum menuju hari bahagia.</p>
 
   <div class="album-title"><span>OUR MOMENTS</span><h3>Ilham & Qonita</h3></div>
-  <div class="gallery-grid">
-    <img src="assets/images/prewed1.jpg" onerror="this.src='assets/images/cover.jpg'" alt="Ilham & Qonita 1" onclick="openImg(this.src)">
-    <img src="assets/images/prewed2.jpg" onerror="this.src='assets/images/cover.jpg'" alt="Ilham & Qonita 2" onclick="openImg(this.src)">
-    <img src="assets/images/prewed3.jpg" onerror="this.src='assets/images/cover.jpg'" alt="Ilham & Qonita 3" onclick="openImg(this.src)">
-    <img src="assets/images/prewed4.jpg" onerror="this.src='assets/images/cover.jpg'" alt="Ilham & Qonita 1" onclick="openImg(this.src)">
-    <img src="assets/images/prewed5.jpg" onerror="this.src='assets/images/cover.jpg'" alt="Ilham & Qonita 2" onclick="openImg(this.src)">
-    <img src="assets/images/prewed6.jpg" onerror="this.src='assets/images/cover.jpg'" alt="Ilham & Qonita 3" onclick="openImg(this.src)">
-    <img src="assets/images/prewed7.jpg" onerror="this.src='assets/images/cover.jpg'" alt="Ilham & Qonita 1" onclick="openImg(this.src)">
-    <img src="assets/images/prewed8.jpg" onerror="this.src='assets/images/cover.jpg'" alt="Ilham & Qonita 2" onclick="openImg(this.src)">
-    <img src="assets/images/prewed9.jpg" onerror="this.src='assets/images/cover.jpg'" alt="Ilham & Qonita 3" onclick="openImg(this.src)">
+  <div class="gallery-grid" id="prewedGallery">
+    <img src="assets/images/prewed1.jpg" onerror="this.src='assets/images/prewed1.jpg'" alt="Ilham & Qonita 1" onclick="openImg(0)">
+    <img src="assets/images/prewed2.jpg" onerror="this.src='assets/images/prewed2.jpg'" alt="Ilham & Qonita 2" onclick="openImg(1)">
+    <img src="assets/images/prewed3.jpg" onerror="this.src='assets/images/prewed3.jpg'" alt="Ilham & Qonita 3" onclick="openImg(2)">
+    <img src="assets/images/prewed4.jpg" onerror="this.src='assets/images/prewed4.jpg'" alt="Ilham & Qonita 4" onclick="openImg(3)">
+    <img src="assets/images/prewed5.jpg" onerror="this.src='assets/images/prewed5.jpg'" alt="Ilham & Qonita 5" onclick="openImg(4)">
+    <img src="assets/images/prewed6.jpg" onerror="this.src='assets/images/prewed6.jpg'" alt="Ilham & Qonita 6" onclick="openImg(5)">
+    <img src="assets/images/prewed7.jpg" onerror="this.src='assets/images/prewed7.jpg'" alt="Ilham & Qonita 7" onclick="openImg(6)">
+    <img src="assets/images/prewed8.jpg" onerror="this.src='assets/images/prewed8.jpg'" alt="Ilham & Qonita 8" onclick="openImg(7)">
+    <img src="assets/images/prewed9.jpg" onerror="this.src='assets/images/prewed9.jpg'" alt="Ilham & Qonita 9" onclick="openImg(8)">
   </div>
 
   <div class="album-title video-album-title">
@@ -496,6 +562,28 @@ footer{background:#180408;color:#d8bd7b;text-align:center;padding:45px 20px;font
   <div class="family-note">Keluarga besar, ninik mamak, sanak saudara, sahabat dan seluruh kerabat</div>
 </section>
 
+<section class="wedding-gift" id="wedding-gift">
+  <h2 class="title">Wedding Gift</h2>
+  <p class="subtitle">Doa restu Anda merupakan hadiah terindah bagi kami. Namun, jika ingin berbagi tanda kasih, dapat melalui rekening berikut.</p>
+  <div class="gift-wrap">
+    <div class="gift-card">
+      <img class="gift-bank-logo" src="https://upload.wikimedia.org/wikipedia/commons/3/38/CIMB_Niaga_logo.svg" alt="Logo resmi Bank CIMB Niaga">
+      <h3>Ilham</h3>
+      <div class="gift-number" id="rekening-ilham">706658827200</div>
+      <div class="gift-holder">Atas Nama: <strong>Ilham</strong></div>
+      <button class="copy-gift" type="button" onclick="copyGift('rekening-ilham', this)">SALIN NOMOR REKENING</button>
+    </div>
+    <div class="gift-card">
+      <img class="gift-bank-logo" src="https://upload.wikimedia.org/wikipedia/commons/3/38/CIMB_Niaga_logo.svg" alt="Logo resmi Bank CIMB Niaga">
+      <h3>Qonita Izzati Zahra</h3>
+      <div class="gift-number" id="rekening-qonita">707087145100</div>
+      <div class="gift-holder">Atas Nama: <strong>Qonita Izzati Zahra</strong></div>
+      <button class="copy-gift" type="button" onclick="copyGift('rekening-qonita', this)">SALIN NOMOR REKENING</button>
+    </div>
+  </div>
+  <p class="gift-note">Terima kasih atas doa, kasih sayang, dan tanda kasih yang diberikan. Semoga menjadi berkah bagi kita semua. 🤍</p>
+</section>
+
 <section class="rsvp" id="rsvp">
   <h2 class="title">Konfirmasi Kehadiran</h2>
   <p>Kehadiran dan doa restu Anda adalah kebahagiaan bagi kami.</p>
@@ -510,7 +598,13 @@ footer{background:#180408;color:#d8bd7b;text-align:center;padding:45px 20px;font
 </main>
 <footer>Ilham & Qonita<small>Thank you for being part of our story ♡</small></footer>
 
-<div class="modal" id="modal" onclick="this.classList.remove('show')"><span class="close">×</span><img id="modalImg" alt=""></div>
+<div class="modal" id="modal" onclick="closeImg()" aria-label="Pratinjau foto">
+  <button class="modal-close" type="button" aria-label="Tutup" onclick="event.stopPropagation();closeImg()">&times;</button>
+  <button class="modal-arrow modal-prev" type="button" aria-label="Foto sebelumnya" onclick="event.stopPropagation();changeModalImage(-1)">&#10094;</button>
+  <img id="modalImg" alt="Foto prewedding" onclick="event.stopPropagation()">
+  <button class="modal-arrow modal-next" type="button" aria-label="Foto berikutnya" onclick="event.stopPropagation();changeModalImage(1)">&#10095;</button>
+  <div class="modal-counter" id="modalCounter"></div>
+</div>
 
 <script>
 const cover=document.getElementById('cover'), music=document.getElementById('music'), musicBtn=document.getElementById('musicBtn');
@@ -529,7 +623,57 @@ document.getElementById('openBtn').addEventListener('click', async()=>{
 musicBtn.addEventListener('click',()=>{
   if(music.paused){music.play();musicBtn.classList.add('playing')}else{music.pause();musicBtn.classList.remove('playing')}
 });
-function openImg(src){document.getElementById('modalImg').src=src;document.getElementById('modal').classList.add('show')}
+let currentPhotoIndex = 0;
+const prewedPhotos = Array.from(document.querySelectorAll('#prewedGallery img'));
+function openImg(index){
+  currentPhotoIndex = Number(index) || 0;
+  showModalPhoto();
+  document.getElementById('modal').classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+function showModalPhoto(){
+  const photo = prewedPhotos[currentPhotoIndex];
+  if(!photo) return;
+  document.getElementById('modalImg').src = photo.src;
+  document.getElementById('modalImg').alt = photo.alt || 'Foto prewedding';
+  document.getElementById('modalCounter').textContent = `${currentPhotoIndex + 1} / ${prewedPhotos.length}`;
+}
+function changeModalImage(direction){
+  if(!prewedPhotos.length) return;
+  currentPhotoIndex = (currentPhotoIndex + direction + prewedPhotos.length) % prewedPhotos.length;
+  showModalPhoto();
+}
+function closeImg(){
+  document.getElementById('modal').classList.remove('show');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', (event) => {
+  const modal = document.getElementById('modal');
+  if(!modal.classList.contains('show')) return;
+  if(event.key === 'ArrowRight') changeModalImage(1);
+  if(event.key === 'ArrowLeft') changeModalImage(-1);
+  if(event.key === 'Escape') closeImg();
+});
+function copyGift(elementId, button){
+  const accountNumber = document.getElementById(elementId).textContent.trim();
+  const originalText = button.textContent;
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(accountNumber).then(() => {
+      button.textContent = 'BERHASIL DISALIN ✓';
+      setTimeout(() => button.textContent = originalText, 1800);
+    }).catch(() => fallbackCopyGift(accountNumber, button, originalText));
+  } else {
+    fallbackCopyGift(accountNumber, button, originalText);
+  }
+}
+function fallbackCopyGift(value, button, originalText){
+  const field=document.createElement('textarea');
+  field.value=value;document.body.appendChild(field);field.select();
+  try{document.execCommand('copy');button.textContent='BERHASIL DISALIN ✓';}
+  catch(e){button.textContent='SALIN MANUAL: '+value;}
+  field.remove();setTimeout(()=>button.textContent=originalText,2200);
+}
+
 function sendRSVP(e){
   e.preventDefault();
   const name=document.getElementById('guest').value;
@@ -540,6 +684,7 @@ function sendRSVP(e){
   const text=`Halo Ilham & Qonita,%0A%0ANama: ${encodeURIComponent(name)}%0AKehadiran: ${encodeURIComponent(att)}%0AUcapan: ${encodeURIComponent(msg)}`;
   window.open(`https://wa.me/${phone}?text=${text}`,'_blank');
 }
+
 const preweddingVideo = document.getElementById("preweddingVideo");
 
 const videoObserver = new IntersectionObserver((entries) => {
