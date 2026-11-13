@@ -146,20 +146,40 @@ footer{background:#180408;color:#d8bd7b;text-align:center;padding:45px 20px;font
 
 /* ===== Penyempurnaan cover dan Love Story ===== */
 .cover-inner{
-  width:min(100% - 36px,650px);
-  padding:clamp(28px,5vw,48px) 24px;
+  position:absolute;
+  inset:0;
+  width:100%;
+  max-width:none;
+  padding:clamp(34px,7vh,76px) 24px;
   display:flex;
   flex-direction:column;
   align-items:center;
-  gap:0;
+  justify-content:space-between;
+  gap:24px;
+  border:0!important;
+  outline:0!important;
+  box-shadow:none!important;
 }
+.cover-top,.cover-bottom{
+  width:min(100%,850px);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  border:0!important;
+  outline:0!important;
+  box-shadow:none!important;
+  background:transparent!important;
+}
+.cover-top{margin-top:0}
+.cover-bottom{margin-bottom:0}
 .cover .eyebrow{margin:0 0 24px;line-height:1.8;letter-spacing:5px}
 .cover .names{line-height:1.02;margin:0 0 20px;letter-spacing:1px}
-.cover .date{margin:0 0 28px;line-height:1.8}
-.cover .guest-greeting{margin:0 auto 24px!important;line-height:2!important}
+.cover .date{margin:0;line-height:1.8}
+.cover .guest-greeting{margin:0 auto 22px!important;line-height:2!important}
 .cover .guest-greeting strong{margin-top:5px;line-height:1.25}
-.cover-inner > p{margin:0 auto 30px!important;max-width:470px;line-height:2!important}
-.cover .btn{margin-top:2px;letter-spacing:1px}
+.cover .btn{margin-top:0;letter-spacing:1px}
+.cover-top,.cover-bottom{border-color:transparent!important}
 .story{padding-top:100px;padding-bottom:100px}
 .story-grid{grid-template-columns:1fr;gap:34px;max-width:850px}
 .story-img{max-height:480px;object-fit:cover}
@@ -174,11 +194,12 @@ footer{background:#180408;color:#d8bd7b;text-align:center;padding:45px 20px;font
 .story-moment p{margin:0 0 12px;font-size:13px;line-height:2.05;color:#493536;text-align:left}
 .story-moment .story-closing{font-style:italic;color:#74503f;margin-top:15px}
 @media(max-width:750px){
-  .cover-inner{padding:26px 18px}
-  .cover .eyebrow{font-size:10px;letter-spacing:3px;margin-bottom:20px}
-  .cover .names{font-size:clamp(48px,13vw,68px);line-height:1.08;margin-bottom:18px}
-  .cover .date{font-size:15px;letter-spacing:2px;margin-bottom:24px}
-  .cover-inner > p{font-size:12px!important;line-height:1.9!important;margin-bottom:26px!important}
+  .cover-inner{padding:30px 18px 34px;gap:20px}
+  .cover .eyebrow{font-size:10px;letter-spacing:3px;margin-bottom:16px}
+  .cover .names{font-size:clamp(48px,13vw,68px);line-height:1.08;margin-bottom:14px}
+  .cover .date{font-size:14px;letter-spacing:2px}
+  .cover .guest-greeting{margin-bottom:18px!important}
+  .cover .guest-greeting strong{font-size:23px!important}
   .story{padding-top:75px;padding-bottom:75px}
   .story-img{max-height:360px}
   .story-year{font-size:23px}
@@ -208,15 +229,18 @@ footer{background:#180408;color:#d8bd7b;text-align:center;padding:45px 20px;font
 <body class="locked">
 <div class="cover" id="cover">
   <div class="cover-inner">
-    <div class="eyebrow">✦ THE WEDDING OF ✦</div>
-    <h1 class="names">Ilham <span class="amp">&</span> Qonita</h1>
-    <div class="date">MINGGU • 27 DESEMBER 2026</div>
-    <div class="guest-greeting" style="margin:0 auto 18px;font-size:13px;line-height:1.8;letter-spacing:1px">
-      <div>Kepada Yth.</div>
-      <strong id="nama-tamu" style="display:block;color:var(--gold);font:600 25px 'Cormorant Garamond',serif;letter-spacing:.5px">Tamu Undangan</strong>
+    <div class="cover-top">
+      <div class="eyebrow">✦ THE WEDDING OF ✦</div>
+      <h1 class="names">Ilham <span class="amp">&</span> Qonita</h1>
+      <div class="date">MINGGU • 27 DESEMBER 2026</div>
     </div>
-    <p style="font-size:13px;line-height:1.8;max-width:500px;margin:0 auto 25px">Dengan memohon rahmat dan ridho Allah SWT, kami mengundang Anda untuk menjadi bagian dari hari bahagia kami.</p>
-    <button class="btn" id="openBtn">Buka Undangan</button>
+    <div class="cover-bottom">
+      <div class="guest-greeting" style="font-size:13px;line-height:1.8;letter-spacing:1px">
+        <div>Kepada Yth.</div>
+        <strong id="nama-tamu" style="display:block;color:var(--gold);font:600 25px 'Cormorant Garamond',serif;letter-spacing:.5px">Tamu Undangan</strong>
+      </div>
+      <button class="btn" id="openBtn">Buka Undangan</button>
+    </div>
   </div>
 </div>
 
