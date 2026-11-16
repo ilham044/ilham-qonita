@@ -25,7 +25,7 @@ section{padding:90px 7%;max-width:1200px;margin:auto}.hero{min-height:100vh;disp
 .rsvp{background:linear-gradient(135deg,#5f0915,#28050b);color:white;max-width:none;text-align:center}.rsvp .title{color:var(--gold)}.rsvp p{max-width:600px;margin:15px auto 30px;line-height:1.8;font-size:14px}.guest-form{max-width:550px;margin:auto;display:grid;gap:12px}.guest-form input,.guest-form select,.guest-form textarea{width:100%;padding:14px;border:0;border-radius:4px;font:14px Montserrat}.guest-form button{padding:14px;border:1px solid var(--gold);background:var(--gold);color:#2b090d;font-weight:700;border-radius:4px}
 footer{background:#180408;color:#d8bd7b;text-align:center;padding:45px 20px;font:22px "Cormorant Garamond"}footer small{display:block;font:11px Montserrat;color:#fff8;margin-top:8px}
 .modal{display:none;position:fixed;z-index:60;inset:0;background:#000d;align-items:center;justify-content:center;padding:20px}.modal.show{display:flex}.modal img{max-width:95vw;max-height:90vh}.close{position:absolute;top:18px;right:25px;color:white;font-size:35px;cursor:pointer}
-@media(max-width:750px){nav .links{display:none}.cards,.story-grid,.gallery-grid{grid-template-columns:1fr}.hero{background-attachment:scroll}.story{background-attachment:scroll}section{padding:70px 6%}.title{font-size:43px}.names{font-size:64px}}
+
 /* Ornamen Minangkabau untuk bagian jadwal acara */
 .details{position:relative;isolation:isolate;overflow:hidden}
 .details > *:not(.rumah-gadang-art):not(.minang-corner){position:relative;z-index:2}
@@ -41,7 +41,7 @@ footer{background:#180408;color:#d8bd7b;text-align:center;padding:45px 20px;font
 .details .cards{position:relative;z-index:2}
 @media(max-width:750px){.minang-corner{width:72px;height:72px;opacity:.5}.rumah-gadang-art{width:110%;height:160px;bottom:0}.details .cards{grid-template-columns:1fr;max-width:420px;margin:auto}}
 
-@media(max-width:750px){nav .links{display:none}.cards,.story-grid,.gallery-grid{grid-template-columns:1fr}.hero{background-attachment:scroll}.story{background-attachment:scroll}section{padding:70px 6%}.title{font-size:43px}.names{font-size:64px}}
+
 
 .couple{background:#fffaf0}.couple-grid{max-width:1000px;margin:auto;display:grid;grid-template-columns:1fr 90px 1fr;align-items:center;gap:20px}.person{text-align:center}.person-photo{width:min(330px,100%);aspect-ratio:3/4;margin:auto;border:5px solid #d6ad55;padding:5px;background:#fff}.person-photo img{width:100%;height:100%;object-fit:cover}.person-label{font-size:11px;letter-spacing:4px;color:#a17a31;margin-top:24px}.person h3{font:600 50px "Cormorant Garamond";color:var(--maroon);margin:5px}.person p{font-size:13px;line-height:1.8}.and-symbol{font:50px "Cormorant Garamond";color:var(--gold);text-align:center}
 
@@ -252,6 +252,81 @@ footer{background:#180408;color:#d8bd7b;text-align:center;padding:45px 20px;font
  #modal .slide-prev{left:8px}#modal .slide-next{right:8px}
 }
 
+
+/* Navigasi desktop tetap tersedia, tetapi disembunyikan pada layar HP */
+@media (max-width:750px){
+  body > nav{display:none !important}
+}
+
+/* Turut Mengundang: satu kolom gabungan untuk kedua keluarga */
+.family-grid-single{
+  grid-template-columns:1fr !important;
+  max-width:720px !important;
+}
+.family-grid-single .family-card{
+  width:100%;
+}
+.family-card li.family-divider{
+  margin-top:14px;
+  padding-top:18px;
+  border-top:1px solid #d6ad5580;
+  color:var(--maroon);
+}
+.family-card li strong{
+  font-family:"Cormorant Garamond",serif;
+  font-size:21px;
+  color:var(--maroon);
+}
+
+
+/* Navigasi tetap terlihat di HP: brand dan seluruh menu ditampilkan */
+@media (max-width:750px){
+  body > nav{
+    display:flex !important;
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:9px;
+    padding:10px 12px 11px;
+    background:rgba(43,5,11,.96);
+    mix-blend-mode:normal;
+    z-index:100;
+  }
+  nav .brand{
+    font-size:20px;
+    line-height:1.1;
+  }
+  nav .links{
+    display:flex !important;
+    width:100%;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:7px 13px;
+    font-size:9px;
+    letter-spacing:.6px;
+    line-height:1.3;
+  }
+  nav .links a{
+    display:inline-block;
+    white-space:nowrap;
+  }
+  body{
+    padding-top:66px;
+  }
+}
+@media (max-width:380px){
+  nav .links{
+    gap:6px 9px;
+    font-size:8px;
+  }
+  nav .brand{font-size:18px}
+}
+
 </style>
 </head>
 <body class="locked">
@@ -421,34 +496,30 @@ footer{background:#180408;color:#d8bd7b;text-align:center;padding:45px 20px;font
 <section class="family" id="family">
   <h2 class="title">Turut Mengundang</h2>
   <p class="subtitle">Dengan penuh hormat, kami turut mengundang keluarga dan kerabat untuk hadir dan memberikan doa restu.</p>
-  <div class="family-grid">
+  <div class="family-grid family-grid-single">
     <div class="family-card">
       <div class="family-ornament">✦</div>
-      <h3>Keluarga Mempelai Pria</h3>
+      <h3>Keluarga Besar</h3>
       <ul>
+        <li><strong>Keluarga Mempelai Pria</strong></li>
         <li>Ihram [Pak Oncu]</li>
-        <li>Ani[Etek]</li>
-        <li>Taufik[Pak Etek]</li>
-        <li>Suryati Yunita[Etek]</li>
+        <li>Ani [Etek]</li>
+        <li>Taufik [Pak Etek]</li>
+        <li>Suryati Yunita [Etek]</li>
         <li>Ismail Harun [Abang Sepupu]</li>
-        <li>Sefni Kamis[Kakak Ipar]</li>
-	<li>Aditya Nova [Abang Ipar]</li>
-        <li>Marini Srianti[Kakak]</li>
-      </ul>
-    </div>
-    <div class="family-card">
-      <div class="family-ornament">✦</div>
-      <h3>Keluarga Mempelai Wanita</h3>
-      <ul>
+        <li>Sefni Kamis [Kakak Ipar]</li>
+        <li>Aditya Nova [Abang Ipar]</li>
+        <li>Marini Srianti [Kakak]</li>
+        <li class="family-divider"><strong>Keluarga Mempelai Wanita</strong></li>
         <li>Muchrizal [Pak Odang]</li>
         <li>Efdi Netty [Mak Odang]</li>
-		<li>Yon Efendi [Pak Odang]</li>
+        <li>Yon Efendi [Pak Odang]</li>
         <li>Wetty Heriany [Odang]</li>
-        <li>Dwi Eka Putra [Pak etek]</li>
+        <li>Dwi Eka Putra [Pak Etek]</li>
         <li>Lili Gustiana [Etek]</li>
         <li>Tinnof Delfi [Ociak]</li>
         <li>Azza Nur Mecca [Adek]</li>
-		<li>M. Zafran Jabir [Adek]</li>
+        <li>M. Zafran Jabir [Adek]</li>
       </ul>
     </div>
   </div>
