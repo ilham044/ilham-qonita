@@ -224,6 +224,34 @@ footer{background:#180408;color:#d8bd7b;text-align:center;padding:45px 20px;font
 .story .story-moment:before{background:#e2bd70;box-shadow:0 0 0 5px #d6ad5530;}
 .story-img{border:3px solid #d6ad55;box-shadow:0 18px 45px #16020780;}
 
+
+/* ===== Galeri prewedding: 2 foto kecil per baris + slider ===== */
+.gallery-grid{
+  display:grid !important;
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  gap:12px !important;
+  max-width:760px !important;
+  margin:0 auto !important;
+}
+.gallery-grid img{
+  display:block; width:100%; aspect-ratio:4/3; object-fit:cover;
+  border:1px solid #d6ad5580; cursor:pointer; border-radius:3px;
+}
+.gallery-grid img:hover{opacity:.86;transform:scale(.985)}
+#modal{z-index:100;gap:12px}
+#modal .modal-image-wrap{position:relative;display:flex;align-items:center;justify-content:center;max-width:92vw;max-height:88vh}
+#modal img{display:block;max-width:82vw;max-height:82vh;object-fit:contain}
+#modal .slide-btn{position:fixed;top:50%;transform:translateY(-50%);width:46px;height:46px;border:1px solid #d6ad55;border-radius:50%;background:#fff0df;color:#650b17;font-size:28px;line-height:1;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:102;box-shadow:0 3px 15px #0005}
+#modal .slide-prev{left:16px}#modal .slide-next{right:16px}
+#modal .slide-count{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);color:#fff;background:#0009;padding:7px 13px;border-radius:20px;font:12px Montserrat;z-index:102}
+#modal .close{z-index:103;line-height:1}
+@media(max-width:600px){
+ .gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:8px !important}
+ #modal img{max-width:88vw;max-height:76vh}
+ #modal .slide-btn{width:40px;height:40px;font-size:24px}
+ #modal .slide-prev{left:8px}#modal .slide-next{right:8px}
+}
+
 </style>
 </head>
 <body class="locked">
@@ -448,7 +476,13 @@ footer{background:#180408;color:#d8bd7b;text-align:center;padding:45px 20px;font
 </main>
 <footer>Ilham & Qonita<small>Thank you for being part of our story ♡</small></footer>
 
-<div class="modal" id="modal" onclick="this.classList.remove('show')"><span class="close">×</span><img id="modalImg" alt=""></div>
+<div class="modal" id="modal" onclick="closeGallery(event)">
+  <span class="close" onclick="closeGallery(event)" aria-label="Tutup">×</span>
+  <button class="slide-btn slide-prev" type="button" onclick="changeGallery(-1,event)" aria-label="Foto sebelumnya">‹</button>
+  <div class="modal-image-wrap"><img id="modalImg" alt="Foto prewedding"></div>
+  <button class="slide-btn slide-next" type="button" onclick="changeGallery(1,event)" aria-label="Foto berikutnya">›</button>
+  <span class="slide-count" id="slideCount">1 / 9</span>
+</div>
 
 <script>
 const cover=document.getElementById('cover'), music=document.getElementById('music'), musicBtn=document.getElementById('musicBtn');
@@ -467,14 +501,41 @@ document.getElementById('openBtn').addEventListener('click', async()=>{
 musicBtn.addEventListener('click',()=>{
   if(music.paused){music.play();musicBtn.classList.add('playing')}else{music.pause();musicBtn.classList.remove('playing')}
 });
-function openImg(src){document.getElementById('modalImg').src=src;document.getElementById('modal').classList.add('show')}
+const galleryImages = Array.from(document.querySelectorAll('.gallery-grid img'));
+let currentGalleryIndex = 0;
+function showGalleryImage(index){
+  if(!galleryImages.length) return;
+  currentGalleryIndex = (index + galleryImages.length) % galleryImages.length;
+  document.getElementById('modalImg').src = galleryImages[currentGalleryIndex].src;
+  document.getElementById('slideCount').textContent = `${currentGalleryIndex + 1} / ${galleryImages.length}`;
+}
+function openImg(src){
+  const found = galleryImages.findIndex(img => img.src === src || img.getAttribute('src') === src);
+  showGalleryImage(found >= 0 ? found : 0);
+  document.getElementById('modal').classList.add('show');
+}
+function changeGallery(direction,event){
+  if(event) event.stopPropagation();
+  showGalleryImage(currentGalleryIndex + direction);
+}
+function closeGallery(event){
+  if(event && event.target && event.target.closest('.slide-btn, .modal-image-wrap')) return;
+  document.getElementById('modal').classList.remove('show');
+}
+document.addEventListener('keydown',event=>{
+  const modal=document.getElementById('modal');
+  if(!modal.classList.contains('show')) return;
+  if(event.key==='ArrowRight') changeGallery(1);
+  if(event.key==='ArrowLeft') changeGallery(-1);
+  if(event.key==='Escape') modal.classList.remove('show');
+});
 function sendRSVP(e){
   e.preventDefault();
   const name=document.getElementById('guest').value;
   const att=document.getElementById('attendance').value;
   const msg=document.getElementById('message').value;
   // GANTI NOMOR DI BAWAH DENGAN NOMOR WHATSAPP ANDA.
-  const phone='6281234567890';
+  const phone='6287798932442';
   const text=`Halo Ilham & Qonita,%0A%0ANama: ${encodeURIComponent(name)}%0AKehadiran: ${encodeURIComponent(att)}%0AUcapan: ${encodeURIComponent(msg)}`;
   window.open(`https://wa.me/${phone}?text=${text}`,'_blank');
 }
