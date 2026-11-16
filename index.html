@@ -354,6 +354,22 @@ body:not(.locked) > nav{display:flex !important}
   .gallery-grid img{aspect-ratio:1/1 !important;}
 }
 
+
+.guestbook{max-width:850px;margin:42px auto 0;text-align:left}
+.guestbook-heading{text-align:center;color:var(--gold);font:600 34px "Cormorant Garamond",serif;margin:0 0 8px}
+.guestbook-intro{text-align:center;color:#fff9;font-size:12px;margin:0 0 22px}
+.guestbook-list{display:grid;gap:12px}
+.guestbook-empty{text-align:center;color:#fff9;padding:22px 12px;border:1px solid #d6ad5544;border-radius:6px;font-size:13px}
+.guestbook-item{background:#fffaf0;color:#351016;border:1px solid #d6ad5577;border-radius:7px;padding:16px 18px;box-shadow:0 5px 16px #0002}
+.guestbook-item-top{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:8px;flex-wrap:wrap}
+.guestbook-name{font-weight:700;color:#650d1c;font-size:14px}
+.guestbook-status{font-size:10px;color:#8a6a2e;border:1px solid #d6ad55;border-radius:20px;padding:3px 8px}
+.guestbook-message{font-size:13px;line-height:1.75;white-space:pre-wrap;overflow-wrap:anywhere}
+.guestbook-date{font-size:10px;color:#8b7777;margin-top:9px}
+.guestbook-refresh{display:block;margin:18px auto 0;background:transparent;border:1px solid var(--gold);color:var(--gold);padding:9px 16px;border-radius:30px;font:11px Montserrat;cursor:pointer}
+.guestbook-note{text-align:center;color:#fff8;font-size:10px;margin-top:12px}
+@media(max-width:750px){.guestbook{margin-top:32px}.guestbook-heading{font-size:29px}.guestbook-item{padding:14px}}
+
 </style>
 </head>
 <body class="locked">
@@ -397,15 +413,15 @@ body:not(.locked) > nav{display:flex !important}
   <p class="subtitle">Dua insan, dua keluarga, satu perjalanan menuju kehidupan baru.</p>
   <div class="couple-grid">
     <div class="person">
-      <div class="person-photo"><img src="assets/images/groom.jpg" onerror="this.src='assets/images/cover.jpg'" alt="Calon Mempelai Pria"></div>
       <div class="person-label">Mempelai Pria</div>
+      <div class="person-photo"><img src="assets/images/groom.jpg" onerror="this.src='assets/images/cover.jpg'" alt="Calon Mempelai Pria"></div>
       <h4>Ilham, A.Md.Kom</h4>
       <p>Putra dari<br><b>Bapak Arham</b> & <b>Ibu Hajimar</b></p>
     </div>
     <div class="and-symbol">&</div>
     <div class="person">
-      <div class="person-photo"><img src="assets/images/bride.jpg" onerror="this.src='assets/images/cover.jpg'" alt="Calon Mempelai Wanita"></div>
       <div class="person-label">Mempelai Wanita</div>
+      <div class="person-photo"><img src="assets/images/bride.jpg" onerror="this.src='assets/images/cover.jpg'" alt="Calon Mempelai Wanita"></div>
       <h4>Qonita Izzati Zahra, S.Stat</h4>
       <p>Putri dari<br><b>Bapak Defrizal</b> & <b>Ibu Rasmit Yulita</b></p>
     </div>
@@ -509,13 +525,13 @@ body:not(.locked) > nav{display:flex !important}
     <img src="assets/images/prewed1.jpg" onerror="this.src='assets/images/cover.jpg'" alt="Ilham & Qonita 1" onclick="openImg(this.src)">
     <img src="assets/images/prewed2.jpg" onerror="this.src='assets/images/cover.jpg'" alt="Ilham & Qonita 2" onclick="openImg(this.src)">
     <img src="assets/images/prewed3.jpg" onerror="this.src='assets/images/cover.jpg'" alt="Ilham & Qonita 3" onclick="openImg(this.src)">
-    <img src="assets/images/prewed4.jpg" onerror="this.src='assets/images/cover.jpg'" alt="Ilham & Qonita 1" onclick="openImg(this.src)">
-    <img src="assets/images/prewed5.jpg" onerror="this.src='assets/images/cover.jpg'" alt="Ilham & Qonita 2" onclick="openImg(this.src)">
-    <img src="assets/images/prewed6.jpg" onerror="this.src='assets/images/cover.jpg'" alt="Ilham & Qonita 3" onclick="openImg(this.src)">
-    <img src="assets/images/prewed7.jpg" onerror="this.src='assets/images/cover.jpg'" alt="Ilham & Qonita 1" onclick="openImg(this.src)">
-    <img src="assets/images/prewed8.jpg" onerror="this.src='assets/images/cover.jpg'" alt="Ilham & Qonita 2" onclick="openImg(this.src)">
-    <img src="assets/images/prewed9.jpg" onerror="this.src='assets/images/cover.jpg'" alt="Ilham & Qonita 3" onclick="openImg(this.src)">
-    <img src="assets/images/prewed10.jpg" onerror="this.src='assets/images/cover.jpg'" alt="Ilham & Qonita 3" onclick="openImg(this.src)">
+    <img src="assets/images/prewed4.jpg" onerror="this.src='assets/images/cover.jpg'" alt="Ilham & Qonita 4" onclick="openImg(this.src)">
+    <img src="assets/images/prewed5.jpg" onerror="this.src='assets/images/cover.jpg'" alt="Ilham & Qonita 5" onclick="openImg(this.src)">
+    <img src="assets/images/prewed6.jpg" onerror="this.src='assets/images/cover.jpg'" alt="Ilham & Qonita 6" onclick="openImg(this.src)">
+    <img src="assets/images/prewed7.jpg" onerror="this.src='assets/images/cover.jpg'" alt="Ilham & Qonita 7" onclick="openImg(this.src)">
+    <img src="assets/images/prewed8.jpg" onerror="this.src='assets/images/cover.jpg'" alt="Ilham & Qonita 8" onclick="openImg(this.src)">
+    <img src="assets/images/prewed9.jpg" onerror="this.src='assets/images/cover.jpg'" alt="Ilham & Qonita 9" onclick="openImg(this.src)">
+    <img src="assets/images/prewed10.jpg" onerror="this.src='assets/images/cover.jpg'" alt="Ilham & Qonita 10" onclick="openImg(this.src)">
   </div>
 </section>
 
@@ -560,11 +576,22 @@ body:not(.locked) > nav{display:flex !important}
   <h2 class="title">Konfirmasi Kehadiran</h2>
   <p>Kehadiran dan doa restu Anda adalah kebahagiaan bagi kami.</p>
   <form class="guest-form" onsubmit="sendRSVP(event)">
-    <input id="guest" placeholder="Nama Anda" required>
+    <input id="guest" placeholder="Nama Anda" required maxlength="80">
     <select id="attendance" required><option value="">Konfirmasi Kehadiran</option><option>Hadir</option><option>Tidak dapat hadir</option></select>
-    <textarea id="message" rows="4" placeholder="Ucapan & doa"></textarea>
-    <button type="submit">Kirim Konfirmasi</button>
+    <textarea id="message" rows="4" placeholder="Ucapan & doa" maxlength="1000"></textarea>
+    <button id="rsvpSubmit" type="submit">Kirim Konfirmasi</button>
+    <p id="rsvpFeedback" role="status" aria-live="polite" style="margin:4px 0 0;font-size:12px"></p>
   </form>
+
+  <div class="guestbook" id="guestbook">
+    <h3 class="guestbook-heading">Buku Tamu</h3>
+    <p class="guestbook-intro">Ucapan dan doa dari keluarga serta sahabat</p>
+    <div class="guestbook-list" id="guestbookList">
+      <div class="guestbook-empty">Memuat ucapan dan doa...</div>
+    </div>
+    <button class="guestbook-refresh" type="button" onclick="loadGuestbook()">Muat ulang ucapan</button>
+    <p class="guestbook-note">Terima kasih atas doa dan restu yang diberikan ♡</p>
+  </div>
 </section>
 
 </main>
@@ -623,16 +650,102 @@ document.addEventListener('keydown',event=>{
   if(event.key==='ArrowLeft') changeGallery(-1);
   if(event.key==='Escape') modal.classList.remove('show');
 });
+// Hubungkan dengan Google Apps Script Web App setelah dipublikasikan.
+const GUESTBOOK_API = 'https://script.google.com/macros/s/AKfycbx8hbtTGecmWSnQlsOg3bSZ06E9xUI9eDkFsCZeIDt--O4SQVc6qwj2AVirSNZzdT9x3g/exec';
+
+function jsonpRequest(params, onSuccess, onError){
+  if(!GUESTBOOK_API || GUESTBOOK_API.includes('TEMPEL_URL_')){
+    onError(new Error('Buku tamu belum dihubungkan ke penyimpanan online.'));
+    return;
+  }
+  const callbackName='guestbookCallback_'+Date.now()+'_'+Math.floor(Math.random()*10000);
+  const script=document.createElement('script');
+  const query=new URLSearchParams({...params,callback:callbackName});
+  let finished=false;
+  const cleanup=()=>{
+    if(finished)return;
+    finished=true;
+    delete window[callbackName];
+    script.remove();
+  };
+  window[callbackName]=(data)=>{cleanup();onSuccess(data)};
+  script.onerror=()=>{cleanup();onError(new Error('Tidak dapat terhubung ke buku tamu.'))};
+  script.src=GUESTBOOK_API+'?'+query.toString();
+  document.body.appendChild(script);
+  setTimeout(()=>{if(!finished){cleanup();onError(new Error('Koneksi buku tamu terlalu lama.'))}},15000);
+}
+
+function escapeGuestbookText(value){
+  return String(value??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+}
+function renderGuestbook(items){
+  const list=document.getElementById('guestbookList');
+  if(!Array.isArray(items)||items.length===0){
+    list.innerHTML='<div class="guestbook-empty">Belum ada ucapan. Jadilah yang pertama mengirim doa ♡</div>';
+    return;
+  }
+  list.innerHTML=items.map(item=>{
+    const date=item.date?new Date(item.date).toLocaleDateString('id-ID',{day:'numeric',month:'long',year:'numeric'}):'';
+    return `<article class="guestbook-item">
+      <div class="guestbook-item-top">
+        <span class="guestbook-name">${escapeGuestbookText(item.name)}</span>
+        <span class="guestbook-status">${escapeGuestbookText(item.attendance)}</span>
+      </div>
+      <div class="guestbook-message">${escapeGuestbookText(item.message||'')}</div>
+      <div class="guestbook-date">${escapeGuestbookText(date)}</div>
+    </article>`;
+  }).join('');
+}
+function loadGuestbook(){
+  const list=document.getElementById('guestbookList');
+  if(!list)return;
+  jsonpRequest({action:'list'},data=>{
+    if(data&&data.ok)renderGuestbook(data.items||[]);
+    else list.innerHTML='<div class="guestbook-empty">Ucapan belum dapat dimuat. Silakan coba lagi.</div>';
+  },()=>{
+    list.innerHTML='<div class="guestbook-empty">Buku tamu belum terhubung. Pengelola perlu menyelesaikan pengaturan penyimpanan online.</div>';
+  });
+}
 function sendRSVP(e){
   e.preventDefault();
-  const name=document.getElementById('guest').value;
+  const name=document.getElementById('guest').value.trim();
   const att=document.getElementById('attendance').value;
-  const msg=document.getElementById('message').value;
-  // GANTI NOMOR DI BAWAH DENGAN NOMOR WHATSAPP ANDA.
+  const msg=document.getElementById('message').value.trim();
+  const feedback=document.getElementById('rsvpFeedback');
+  const button=document.getElementById('rsvpSubmit');
+  if(!name||!att){feedback.textContent='Mohon isi nama dan konfirmasi kehadiran.';return;}
+
+  // Tetap siapkan pesan WhatsApp seperti pada versi undangan sebelumnya.
   const phone='6287798932442';
-  const text=`Halo Ilham & Qonita,%0A%0ANama: ${encodeURIComponent(name)}%0AKehadiran: ${encodeURIComponent(att)}%0AUcapan: ${encodeURIComponent(msg)}`;
-  window.open(`https://wa.me/${phone}?text=${text}`,'_blank');
+  const waText=`Halo Ilham & Qonita,\n\nNama: ${name}\nKehadiran: ${att}\nUcapan: ${msg}`;
+  const waUrl=`https://wa.me/${phone}?text=${encodeURIComponent(waText)}`;
+
+  button.disabled=true;
+  button.textContent='Mengirim...';
+  feedback.textContent='Menyimpan ucapan dan doa...';
+
+  jsonpRequest({action:'add',name,attendance:att,message:msg},data=>{
+    button.disabled=false;
+    button.textContent='Kirim Konfirmasi';
+    if(data&&data.ok){
+      feedback.textContent='Terima kasih! Ucapan Anda sudah ditambahkan ke Buku Tamu.';
+      document.getElementById('guest').value='';
+      document.getElementById('attendance').value='';
+      document.getElementById('message').value='';
+      loadGuestbook();
+      window.open(waUrl,'_blank');
+      document.getElementById('guestbook').scrollIntoView({behavior:'smooth',block:'start'});
+    }else{
+      feedback.textContent='Ucapan belum berhasil disimpan. Silakan coba lagi.';
+    }
+  },()=>{
+    button.disabled=false;
+    button.textContent='Kirim Konfirmasi';
+    feedback.textContent='Gagal menyimpan ucapan. Periksa koneksi atau hubungi pengelola undangan.';
+  });
 }
+loadGuestbook();
+
 const preweddingVideo = document.getElementById("preweddingVideo");
 
 const videoObserver = new IntersectionObserver((entries) => {
