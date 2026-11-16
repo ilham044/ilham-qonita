@@ -253,9 +253,42 @@ footer{background:#180408;color:#d8bd7b;text-align:center;padding:45px 20px;font
 }
 
 
-/* Navigasi desktop tetap tersedia, tetapi disembunyikan pada layar HP */
+/* Navigasi hanya muncul setelah tombol Buka Undangan ditekan */
+body.locked > nav{display:none !important}
+body:not(.locked) > nav{display:flex !important}
+
+/* Navigasi HP: tetap terlihat di bagian atas setelah undangan dibuka */
 @media (max-width:750px){
-  body > nav{display:none !important}
+  body > nav{
+    position:fixed;
+    top:0;left:0;right:0;
+    z-index:40;
+    display:none;
+    padding:11px 12px;
+    min-height:48px;
+    background:rgba(75,7,17,.96);
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+    box-shadow:0 3px 14px #0003;
+  }
+  body:not(.locked) > nav{display:flex !important}
+  nav .brand{display:none}
+  nav .links{
+    display:flex !important;
+    width:100%;
+    gap:0;
+    justify-content:space-between;
+    align-items:center;
+    overflow-x:auto;
+    white-space:nowrap;
+    scrollbar-width:none;
+    -webkit-overflow-scrolling:touch;
+    font-size:9px;
+    letter-spacing:.35px;
+  }
+  nav .links::-webkit-scrollbar{display:none}
+  nav .links a{flex:0 0 auto;padding:5px 7px;color:#fff;text-decoration:none}
+  nav .links a:active{color:var(--gold)}
 }
 
 /* Turut Mengundang: satu kolom gabungan untuk kedua keluarga */
