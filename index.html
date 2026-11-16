@@ -293,8 +293,9 @@ body:not(.locked) > nav{display:flex !important}
 
 /* Turut Mengundang: satu kolom gabungan untuk kedua keluarga */
 .family-grid-single{
-  grid-template-columns:1fr !important;
-  max-width:720px !important;
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  max-width:950px !important;
+  align-items:stretch;
 }
 .family-grid-single .family-card{
   width:100%;
@@ -482,9 +483,8 @@ body:not(.locked) > nav{display:flex !important}
   <div class="family-grid family-grid-single">
     <div class="family-card">
       <div class="family-ornament">✦</div>
-      <h3>Keluarga Besar</h3>
+      <h3>Keluarga Mempelai Pria</h3>
       <ul>
-        <li><strong>Keluarga Mempelai Pria</strong></li>
         <li>Ihram [Pak Oncu]</li>
         <li>Ani [Etek]</li>
         <li>Taufik [Pak Etek]</li>
@@ -493,10 +493,12 @@ body:not(.locked) > nav{display:flex !important}
         <li>Sefni Kamis [Kakak Ipar]</li>
         <li>Aditya Nova [Abang Ipar]</li>
         <li>Marini Srianti [Kakak]</li>
-        <li class="family-divider"></li>
       </ul>
+    </div>
+    <div class="family-card">
+      <div class="family-ornament">✦</div>
+      <h3>Keluarga Mempelai Wanita</h3>
       <ul>
-        <li><strong>Keluarga Mempelai Wanita</strong></li>
         <li>Muchrizal [Pak Odang]</li>
         <li>Efdi Netty [Mak Odang]</li>
         <li>Yon Efendi [Pak Odang]</li>
