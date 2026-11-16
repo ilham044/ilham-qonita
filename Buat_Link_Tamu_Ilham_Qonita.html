@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pembuat Link Tamu — Ilham & Qonita</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:20px;background:linear-gradient(145deg,#650b17,#2b050b);font-family:Montserrat,sans-serif;color:#32171a}
+.panel{width:min(100%,540px);background:#fff8ed;border:1px solid #d6ad55;padding:30px;box-shadow:0 20px 70px #0007}
+h1{text-align:center;font:600 38px "Cormorant Garamond";color:#650b17;margin:0 0 6px}
+.sub{text-align:center;font-size:12px;line-height:1.8;color:#74503f;margin:0 0 25px}
+label{display:block;font-size:12px;font-weight:700;margin:15px 0 7px}
+input[type=url],input[type=text]{width:100%;padding:14px;border:1px solid #d6ad55;border-radius:4px;background:#fff;font:13px Montserrat}
+.check{display:flex;align-items:center;gap:9px;font-size:12px;margin:15px 0}.check input{width:17px;height:17px;accent-color:#650b17}
+button{width:100%;padding:14px;margin-top:12px;border:1px solid #d6ad55;border-radius:4px;background:#d6ad55;color:#2b090d;font-weight:700;cursor:pointer}
+.result{display:none;margin-top:20px;padding:15px;background:#fff;border:1px dashed #b88932;overflow-wrap:anywhere;font-size:12px;line-height:1.8}.result.show{display:block}
+.note{font-size:11px;color:#74503f;line-height:1.8;margin:18px 0 0}
+</style>
+</head>
+<body>
+<main class="panel">
+<h1>Pembuat Link Tamu</h1>
+<p class="sub">Ilham & Qonita Wedding Invitation<br>Buat link undangan personal tanpa mengedit kodingan.</p>
+<label for="base">Alamat website undangan</label>
+<input id="base" type="url" placeholder="https://namakamu.github.io/undangan/" required>
+<label for="name">Nama tamu undangan</label>
+<input id="name" type="text" placeholder="Contoh: Ridwan" autocomplete="off">
+<label class="check"><input type="checkbox" id="partner" checked> Tambahkan tulisan “& Pasangan”</label>
+<button type="button" onclick="createLink()">Buat Link Undangan</button>
+<div class="result" id="result"><b>Link undangan siap dibagikan:</b><div id="link"></div><button type="button" onclick="copyLink()">Salin Link</button></div>
+<p class="note">Cara pakai: masukkan alamat website undangan yang sudah online, ketik nama tamu, lalu klik Buat Link. File ini hanya alat bantu untuk membuat link dan tidak mengubah halaman undangan utama.</p>
+</main>
+<script>
+function createLink(){
+ const base=document.getElementById('base').value.trim();
+ const name=document.getElementById('name').value.trim();
+ if(!base){alert('Masukkan alamat website undangan terlebih dahulu.');return;}
+ if(!name){alert('Masukkan nama tamu terlebih dahulu.');return;}
+ try{
+  const url=new URL(base);
+  url.search='';
+  url.hash='';
+  url.searchParams.set('to',name);
+  if(!document.getElementById('partner').checked)url.searchParams.set('pasangan','0');
+  document.getElementById('link').textContent=url.toString();
+  document.getElementById('result').classList.add('show');
+ }catch(e){alert('Alamat website belum valid. Contoh: https://namakamu.github.io/undangan/');}
+}
+async function copyLink(){
+ const text=document.getElementById('link').textContent;
+ try{await navigator.clipboard.writeText(text);alert('Link berhasil disalin.');}
+ catch(e){const t=document.createElement('textarea');t.value=text;document.body.appendChild(t);t.select();document.execCommand('copy');t.remove();alert('Link berhasil disalin.');}
+}
+</script>
+</body>
+</html>
