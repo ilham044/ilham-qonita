@@ -28,7 +28,9 @@ button{width:100%;padding:14px;margin-top:12px;border:1px solid #d6ad55;border-r
 <input id="name" type="text" placeholder="Contoh: Ridwan" autocomplete="off">
 <label class="check"><input type="checkbox" id="partner" checked> Tambahkan tulisan “& Pasangan”</label>
 <button type="button" onclick="createLink()">Buat Link Undangan</button>
-<div class="result" id="result"><b>Link undangan siap dibagikan:</b><div id="link"></div><button type="button" onclick="copyLink()">Salin Link</button></div>
+<div class="result" id="result"><b>Link undangan siap dibagikan:</b><div id="link"></div><button type="button" onclick="sendWhatsApp()">
+  Kirim via WhatsApp
+</button></div>
 <p class="note">Cara pakai: masukkan alamat website undangan yang sudah online, ketik nama tamu, lalu klik Buat Link. File ini hanya alat bantu untuk membuat link dan tidak mengubah halaman undangan utama.</p>
 </main>
 <script>
@@ -53,5 +55,36 @@ async function copyLink(){
  catch(e){const t=document.createElement('textarea');t.value=text;document.body.appendChild(t);t.select();document.execCommand('copy');t.remove();alert('Link berhasil disalin.');}
 }
 </script>
+ function sendWhatsApp() {
+  const name = document.getElementById('name').value.trim();
+  const link = document.getElementById('link').textContent;
+
+  const partner = document.getElementById('partner').checked;
+  const guest = name + (partner ? ' & Pasangan' : '');
+
+  const message = `Assalamu'alaikum Warahmatullahi Wabarakatuh.
+
+Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud mengundang Bapak/Ibu/Saudara/i ${guest} untuk menghadiri acara pernikahan kami.
+
+Ilham & Qonita
+
+Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir serta memberikan doa restu.
+
+Untuk informasi lengkap mengenai acara, silakan buka undangan berikut:
+
+${link}
+
+Merupakan kebahagiaan bagi kami atas kehadiran dan doa restunya.
+
+Wassalamu'alaikum Warahmatullahi Wabarakatuh.
+
+Hormat kami,
+Ilham & Qonita`;
+
+  const whatsappURL =
+    'https://wa.me/?text=' + encodeURIComponent(message);
+
+  window.open(whatsappURL, '_blank');
+}
 </body>
 </html>
