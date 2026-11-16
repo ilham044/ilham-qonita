@@ -54,8 +54,8 @@ async function copyLink(){
  try{await navigator.clipboard.writeText(text);alert('Link berhasil disalin.');}
  catch(e){const t=document.createElement('textarea');t.value=text;document.body.appendChild(t);t.select();document.execCommand('copy');t.remove();alert('Link berhasil disalin.');}
 }
-</script>
- function sendWhatsApp() {
+
+   function sendWhatsApp() {
   const name = document.getElementById('name').value.trim();
   const link = document.getElementById('link').textContent;
 
@@ -86,5 +86,7 @@ Ilham & Qonita`;
 
   window.open(whatsappURL, '_blank');
 }
+</script>
+
 </body>
 </html>
