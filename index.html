@@ -370,9 +370,171 @@ body:not(.locked) > nav{display:flex !important}
 .guestbook-note{text-align:center;color:#fff8;font-size:10px;margin-top:12px}
 @media(max-width:750px){.guestbook{margin-top:32px}.guestbook-heading{font-size:29px}.guestbook-item{padding:14px}}
 
+
+/* ===== Opening cinematic: kawanan burung 3D ===== */
+#bird-intro{
+  position:fixed;inset:0;z-index:9999;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+  background:
+    radial-gradient(ellipse at 50% 48%,rgba(214,173,85,.20),transparent 48%),
+    linear-gradient(155deg,#170409 0%,#4c0814 48%,#1b050a 100%);
+  opacity:1;visibility:visible;
+}
+#bird-intro:before,#bird-intro:after{
+  content:"";position:absolute;width:70vmax;height:70vmax;border:1px solid #d6ad5526;
+  border-radius:50%;left:50%;top:50%;transform:translate(-50%,-50%);
+  animation:introHalo 3.8s ease-out forwards;
+}
+#bird-intro:after{width:48vmax;height:48vmax;animation-delay:.18s}
+@keyframes introHalo{0%{opacity:0;transform:translate(-50%,-50%) scale(.45)}25%{opacity:.8}100%{opacity:0;transform:translate(-50%,-50%) scale(1.5)}}
+.bird-scene{position:absolute;inset:0;perspective:900px;overflow:hidden}
+.bird{
+  position:absolute;width:54px;height:30px;left:-12%;top:var(--top);
+  transform-style:preserve-3d;animation:birdFlight var(--duration) linear var(--delay) forwards;
+  filter:drop-shadow(0 7px 5px #0007);opacity:0;
+}
+.bird:after{
+  content:"";position:absolute;left:22px;top:12px;width:13px;height:7px;
+  background:linear-gradient(90deg,#d7b66e,#fff0bd 48%,#a8752d);
+  border-radius:80% 20% 70% 30%;transform:rotate(-8deg) translateZ(8px);
+}
+.bird-wing{
+  position:absolute;top:7px;width:29px;height:17px;
+  background:linear-gradient(145deg,#fff0c2 0%,#d6ad55 48%,#80531e 100%);
+  border-radius:100% 8% 85% 12%;transform-origin:100% 100%;
+  box-shadow:inset 0 1px 2px #fff8;
+}
+.bird-wing.left{left:1px;transform:rotate(18deg) rotateY(18deg);animation:wingLeft .42s ease-in-out infinite alternate}
+.bird-wing.right{right:1px;transform:scaleX(-1) rotate(18deg) rotateY(18deg);transform-origin:0 100%;animation:wingRight .42s ease-in-out infinite alternate}
+@keyframes wingLeft{from{transform:rotate(20deg) rotateX(-12deg) rotateY(15deg)}to{transform:rotate(-62deg) rotateX(28deg) rotateY(-20deg)}}
+@keyframes wingRight{from{transform:scaleX(-1) rotate(20deg) rotateX(-12deg) rotateY(15deg)}to{transform:scaleX(-1) rotate(-62deg) rotateX(28deg) rotateY(-20deg)}}
+@keyframes birdFlight{
+  0%{opacity:0;transform:translate3d(0,30px,-150px) scale(.45) rotate(-8deg)}
+  10%{opacity:1}
+  55%{opacity:1;transform:translate3d(55vw,-12vh,80px) scale(1.15) rotate(4deg)}
+  100%{opacity:0;transform:translate3d(125vw,-26vh,220px) scale(1.55) rotate(9deg)}
+}
+.intro-title{
+  position:relative;z-index:2;text-align:center;color:#e7c77e;
+  font:500 clamp(22px,5vw,42px) "Cormorant Garamond",serif;
+  letter-spacing:5px;text-shadow:0 4px 25px #0009;opacity:0;
+  animation:introTitle 2.5s ease .65s forwards;
+}
+.intro-title small{display:block;font:10px Montserrat,sans-serif;letter-spacing:5px;color:#fff9;margin-top:13px}
+@keyframes introTitle{0%{opacity:0;transform:translateY(15px);letter-spacing:12px}35%,75%{opacity:1;transform:translateY(0);letter-spacing:5px}100%{opacity:0;transform:translateY(-10px)}}
+#bird-intro.leaving{opacity:0;visibility:hidden;transition:opacity .9s ease,visibility .9s}
+#cover{opacity:0;transition:opacity 1.1s ease}
+#cover.cover-ready{opacity:1}
+@media(prefers-reduced-motion:reduce){
+  .bird,.intro-title,#bird-intro:before,#bird-intro:after{animation:none!important}
+}
+
+
+/* ===== Rumah Gadang 3D cinematic reveal ===== */
+#bird-intro{background:radial-gradient(ellipse at 50% 64%,rgba(214,173,85,.24),transparent 43%),linear-gradient(160deg,#170409 0%,#4c0814 48%,#1b050a 100%)}
+#bird-intro .intro-title{position:absolute;top:10%;left:0;right:0;animation:introTitleHouse 4.5s ease .75s forwards}
+@keyframes introTitleHouse{
+  0%{opacity:0;transform:translateY(14px);letter-spacing:12px}
+  22%,76%{opacity:1;transform:translateY(0);letter-spacing:5px}
+  100%{opacity:0;transform:translateY(-12px);letter-spacing:3px}
+}
+.gadang-stage{
+  position:absolute;z-index:3;left:50%;top:58%;width:min(88vw,720px);
+  transform:translate(-50%,-50%);perspective:1100px;opacity:0;
+  animation:houseReveal 4.9s cubic-bezier(.2,.75,.2,1) .65s forwards;
+}
+.gadang-3d{
+  width:100%;height:auto;overflow:visible;
+  transform-origin:50% 70%;transform-style:preserve-3d;
+  filter:drop-shadow(0 28px 24px #0009);
+  animation:houseFloat 4.8s ease-in-out 1.2s infinite alternate;
+}
+@keyframes houseReveal{
+  0%{opacity:0;transform:translate(-50%,-43%) scale(.58) rotateX(18deg)}
+  22%{opacity:1;transform:translate(-50%,-50%) scale(1.02) rotateX(0)}
+  72%{opacity:1;transform:translate(-50%,-50%) scale(1) rotateX(0)}
+  100%{opacity:0;transform:translate(-50%,-55%) scale(1.08) rotateX(-4deg)}
+}
+@keyframes houseFloat{
+  from{transform:rotateY(-5deg) rotateX(1deg) translateY(0)}
+  to{transform:rotateY(5deg) rotateX(-1deg) translateY(-7px)}
+}
+.gadang-ground{animation:groundGlow 2.8s ease-in-out infinite alternate}
+@keyframes groundGlow{to{opacity:.55}}
+@media(max-width:600px){.gadang-stage{top:58%;width:96vw}.intro-title{letter-spacing:3px!important}}
+@media(prefers-reduced-motion:reduce){
+ .gadang-stage,.gadang-3d{animation:none!important;opacity:1;transform:translate(-50%,-50%)}
+}
+
 </style>
 </head>
 <body class="locked">
+
+<div id="bird-intro" aria-label="Animasi pembuka undangan">
+  <div class="bird-scene" aria-hidden="true">
+    <div class="bird" style="--top:24%;--duration:3.0s;--delay:.05s"><i class="bird-wing left"></i><i class="bird-wing right"></i></div>
+    <div class="bird" style="--top:43%;--duration:3.3s;--delay:.22s;transform:scale(.72)"><i class="bird-wing left"></i><i class="bird-wing right"></i></div>
+    <div class="bird" style="--top:61%;--duration:3.1s;--delay:.42s;transform:scale(1.2)"><i class="bird-wing left"></i><i class="bird-wing right"></i></div>
+    <div class="bird" style="--top:33%;--duration:2.8s;--delay:.72s;transform:scale(.58)"><i class="bird-wing left"></i><i class="bird-wing right"></i></div>
+    <div class="bird" style="--top:72%;--duration:3.0s;--delay:.9s;transform:scale(.82)"><i class="bird-wing left"></i><i class="bird-wing right"></i></div>
+    <div class="bird" style="--top:15%;--duration:3.2s;--delay:1.05s;transform:scale(1.05)"><i class="bird-wing left"></i><i class="bird-wing right"></i></div>
+  </div>
+
+  <div class="gadang-stage" aria-hidden="true">
+    <svg class="gadang-3d" viewBox="0 0 760 470" role="img" aria-label="Ilustrasi tiga dimensi Rumah Gadang Minangkabau">
+      <defs>
+        <linearGradient id="roofFront" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#8d1b27"/><stop offset=".48" stop-color="#4b0712"/><stop offset="1" stop-color="#21050b"/></linearGradient>
+        <linearGradient id="roofSide" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#5c101b"/><stop offset="1" stop-color="#17050a"/></linearGradient>
+        <linearGradient id="woodFront" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#9b4827"/><stop offset="1" stop-color="#4b1b16"/></linearGradient>
+        <linearGradient id="woodSide"><stop stop-color="#542019"/><stop offset="1" stop-color="#210b0c"/></linearGradient>
+        <linearGradient id="goldTrim"><stop stop-color="#fff0b0"/><stop offset=".5" stop-color="#d6ad55"/><stop offset="1" stop-color="#8c5b22"/></linearGradient>
+        <pattern id="wallPattern" width="34" height="28" patternUnits="userSpaceOnUse"><path d="M0 0H34M0 14H34" stroke="#e2b45b" stroke-width="2" opacity=".55"/><path d="M17 0L8 7 17 14 26 7Z" fill="none" stroke="#e2b45b" stroke-width="1.4" opacity=".55"/></pattern>
+      </defs>
+      <ellipse class="gadang-ground" cx="390" cy="411" rx="300" ry="29" fill="#d6ad55" opacity=".2"/>
+      <!-- stilobat / kolong rumah -->
+      <path d="M170 290L550 290 642 255 260 255Z" fill="#d6ad55" opacity=".55"/>
+      <path d="M170 290L550 290 550 365 170 365Z" fill="#341015"/>
+      <path d="M550 290L642 255 642 327 550 365Z" fill="#1d090d"/>
+      <g stroke="#d6ad55" stroke-width="7"><path d="M198 300V382M270 300V382M345 300V382M420 300V382M495 300V382M570 286V354"/></g>
+      <g stroke="#8d5528" stroke-width="3"><path d="M198 300V382M270 300V382M345 300V382M420 300V382M495 300V382"/></g>
+      <path d="M160 366L558 366 646 329 646 345 558 386 160 386Z" fill="#7c351f" stroke="#d6ad55" stroke-width="3"/>
+      <!-- badan utama dan sisi perspektif -->
+      <path d="M145 190L535 190 630 154 630 276 535 315 145 315Z" fill="url(#woodFront)" stroke="#d6ad55" stroke-width="4"/>
+      <path d="M535 190L630 154 630 276 535 315Z" fill="url(#woodSide)" stroke="#b98743" stroke-width="3"/>
+      <path d="M145 190L535 190 535 315 145 315Z" fill="url(#wallPattern)" opacity=".78"/>
+      <g fill="#25090e" stroke="#e4bd70" stroke-width="4">
+        <rect x="188" y="220" width="58" height="61" rx="2"/><rect x="282" y="220" width="58" height="61" rx="2"/>
+        <rect x="376" y="220" width="58" height="61" rx="2"/><rect x="470" y="220" width="42" height="61" rx="2"/>
+      </g>
+      <g stroke="#d6ad55" stroke-width="3"><path d="M217 220V281M188 250H246M311 220V281M282 250H340M405 220V281M376 250H434"/></g>
+      <path d="M145 190L535 190 630 154 630 176 535 215 145 215Z" fill="#5b1019" stroke="#e0b45f" stroke-width="3"/>
+      <!-- tangga depan -->
+      <path d="M330 315L390 315 390 355 330 355Z" fill="#542018" stroke="#d6ad55" stroke-width="3"/>
+      <path d="M317 355H405L395 367H327Z" fill="#9a542d" stroke="#e3bb69" stroke-width="2"/>
+      <path d="M308 368H414L403 380H320Z" fill="#71301e" stroke="#d6ad55" stroke-width="2"/>
+      <!-- atap gonjong Minangkabau -->
+      <path d="M112 191Q140 145 171 80Q183 145 225 179L225 194Z" fill="url(#roofFront)" stroke="url(#goldTrim)" stroke-width="5"/>
+      <path d="M204 187Q246 126 275 48Q292 127 330 181L330 198Z" fill="url(#roofFront)" stroke="url(#goldTrim)" stroke-width="5"/>
+      <path d="M315 183Q356 112 389 25Q411 116 448 177L448 197Z" fill="url(#roofFront)" stroke="url(#goldTrim)" stroke-width="5"/>
+      <path d="M438 181Q478 126 509 54Q526 132 563 164L563 190Z" fill="url(#roofFront)" stroke="url(#goldTrim)" stroke-width="5"/>
+      <path d="M535 168Q577 126 607 83Q618 133 655 151L655 174Z" fill="url(#roofSide)" stroke="url(#goldTrim)" stroke-width="5"/>
+      <!-- bidang atap panjang -->
+      <path d="M112 190Q280 132 535 175L630 139 655 158 535 221Q300 181 145 228Z" fill="url(#roofFront)" stroke="#d6ad55" stroke-width="5"/>
+      <path d="M535 175L655 158 630 139 607 83Q625 143 535 190Z" fill="url(#roofSide)" stroke="#b98743" stroke-width="2"/>
+      <path d="M130 193Q315 147 535 181" fill="none" stroke="#f0d28b" stroke-width="3" opacity=".85"/>
+      <!-- ornamen ukiran emas -->
+      <g fill="none" stroke="#e6bd69" stroke-width="2.4" opacity=".9">
+        <path d="M170 201q18-22 36 0t36 0M260 195q18-22 36 0t36 0M350 190q18-22 36 0t36 0M440 190q18-22 36 0t36 0"/>
+        <path d="M185 300q20-22 40 0t40 0M285 300q20-22 40 0t40 0M385 300q20-22 40 0t40 0"/>
+      </g>
+      <path d="M144 315H535" stroke="#f0cf82" stroke-width="5"/>
+      <path d="M150 390H560L650 350" stroke="#d6ad55" stroke-width="3" opacity=".8"/>
+    </svg>
+  </div>
+
+  <div class="intro-title">ILHAM <span style="color:#fff8">&</span> QONITA<small>THE WEDDING CELEBRATION</small></div>
+</div>
+
 <div class="cover" id="cover">
   <div class="cover-inner">
     <div class="cover-top">
@@ -413,15 +575,15 @@ body:not(.locked) > nav{display:flex !important}
   <p class="subtitle">Dua insan, dua keluarga, satu perjalanan menuju kehidupan baru.</p>
   <div class="couple-grid">
     <div class="person">
-      <div class="person-label">Mempelai Pria</div>
       <div class="person-photo"><img src="assets/images/groom.jpg" onerror="this.src='assets/images/cover.jpg'" alt="Calon Mempelai Pria"></div>
+      <div class="person-label">Mempelai Pria</div>
       <h4>Ilham, A.Md.Kom</h4>
       <p>Putra dari<br><b>Bapak Arham</b> & <b>Ibu Hajimar</b></p>
     </div>
     <div class="and-symbol">&</div>
     <div class="person">
-      <div class="person-label">Mempelai Wanita</div>
       <div class="person-photo"><img src="assets/images/bride.jpg" onerror="this.src='assets/images/cover.jpg'" alt="Calon Mempelai Wanita"></div>
+      <div class="person-label">Mempelai Wanita</div>
       <h4>Qonita Izzati Zahra, S.Stat</h4>
       <p>Putri dari<br><b>Bapak Defrizal</b> & <b>Ibu Rasmit Yulita</b></p>
     </div>
@@ -520,18 +682,18 @@ body:not(.locked) > nav{display:flex !important}
         <source src="assets/video/prewedding.mp4" type="video/mp4">
         Browser Anda tidak mendukung video.
     </video>
-  </div><br>
+  </div><div></div>
   <div class="gallery-grid">
     <img src="assets/images/prewed1.jpg" onerror="this.src='assets/images/cover.jpg'" alt="Ilham & Qonita 1" onclick="openImg(this.src)">
     <img src="assets/images/prewed2.jpg" onerror="this.src='assets/images/cover.jpg'" alt="Ilham & Qonita 2" onclick="openImg(this.src)">
     <img src="assets/images/prewed3.jpg" onerror="this.src='assets/images/cover.jpg'" alt="Ilham & Qonita 3" onclick="openImg(this.src)">
-    <img src="assets/images/prewed4.jpg" onerror="this.src='assets/images/cover.jpg'" alt="Ilham & Qonita 4" onclick="openImg(this.src)">
-    <img src="assets/images/prewed5.jpg" onerror="this.src='assets/images/cover.jpg'" alt="Ilham & Qonita 5" onclick="openImg(this.src)">
-    <img src="assets/images/prewed6.jpg" onerror="this.src='assets/images/cover.jpg'" alt="Ilham & Qonita 6" onclick="openImg(this.src)">
-    <img src="assets/images/prewed7.jpg" onerror="this.src='assets/images/cover.jpg'" alt="Ilham & Qonita 7" onclick="openImg(this.src)">
-    <img src="assets/images/prewed8.jpg" onerror="this.src='assets/images/cover.jpg'" alt="Ilham & Qonita 8" onclick="openImg(this.src)">
-    <img src="assets/images/prewed9.jpg" onerror="this.src='assets/images/cover.jpg'" alt="Ilham & Qonita 9" onclick="openImg(this.src)">
-    <img src="assets/images/prewed10.jpg" onerror="this.src='assets/images/cover.jpg'" alt="Ilham & Qonita 10" onclick="openImg(this.src)">
+    <img src="assets/images/prewed4.jpg" onerror="this.src='assets/images/cover.jpg'" alt="Ilham & Qonita 1" onclick="openImg(this.src)">
+    <img src="assets/images/prewed5.jpg" onerror="this.src='assets/images/cover.jpg'" alt="Ilham & Qonita 2" onclick="openImg(this.src)">
+    <img src="assets/images/prewed6.jpg" onerror="this.src='assets/images/cover.jpg'" alt="Ilham & Qonita 3" onclick="openImg(this.src)">
+    <img src="assets/images/prewed7.jpg" onerror="this.src='assets/images/cover.jpg'" alt="Ilham & Qonita 1" onclick="openImg(this.src)">
+    <img src="assets/images/prewed8.jpg" onerror="this.src='assets/images/cover.jpg'" alt="Ilham & Qonita 2" onclick="openImg(this.src)">
+    <img src="assets/images/prewed9.jpg" onerror="this.src='assets/images/cover.jpg'" alt="Ilham & Qonita 3" onclick="openImg(this.src)">
+    <img src="assets/images/prewed10.jpg" onerror="this.src='assets/images/cover.jpg'" alt="Ilham & Qonita 3" onclick="openImg(this.src)">
   </div>
 </section>
 
@@ -544,12 +706,12 @@ body:not(.locked) > nav{display:flex !important}
       <h3>Keluarga Mempelai Pria</h3>
       <ul>
         <li>Ihram [Pak Oncu]</li>
-        <li>Fariani [Etek]</li>
-        <li>Taufiqurrahim [Pak Etek]</li>
+        <li>Ani [Etek]</li>
+        <li>Taufik [Pak Etek]</li>
         <li>Suryati Yunita [Etek]</li>
         <li>Ismail Harun [Abang Sepupu]</li>
         <li>Sefni Kamis [Kakak Ipar]</li>
-        <li>Nova Aditya [Abang Ipar]</li>
+        <li>Aditya Nova [Abang Ipar]</li>
         <li>Marini Srianti [Kakak]</li>
       </ul>
     </div>
@@ -607,6 +769,17 @@ body:not(.locked) > nav{display:flex !important}
 
 <script>
 const cover=document.getElementById('cover'), music=document.getElementById('music'), musicBtn=document.getElementById('musicBtn');
+const birdIntro=document.getElementById('bird-intro');
+window.addEventListener('load',()=>{
+  document.body.classList.add('locked');
+  cover.classList.add('cover-ready');
+  window.setTimeout(()=>{
+    birdIntro.classList.add('leaving');
+    cover.classList.add('cover-ready');
+    window.setTimeout(()=>birdIntro.remove(),1000);
+  },5600);
+});
+
 
 // Nama penerima diambil dari parameter link, contoh: ?to=Ridwan
 const params = new URLSearchParams(window.location.search);
