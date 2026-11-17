@@ -370,6 +370,62 @@ body:not(.locked) > nav{display:flex !important}
 .guestbook-note{text-align:center;color:#fff8;font-size:10px;margin-top:12px}
 @media(max-width:750px){.guestbook{margin-top:32px}.guestbook-heading{font-size:29px}.guestbook-item{padding:14px}}
 
+
+/* ===== Halaman Wedding Gift / Nomor Rekening ===== */
+.gift-section{
+  background:linear-gradient(145deg,#fffaf0 0%,#f5ead5 100%);
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.gift-section .title{color:var(--maroon)}
+.gift-section .gift-intro{
+  max-width:650px;margin:15px auto 32px;
+  color:#6e5550;font-size:13px;line-height:1.9;
+}
+.gift-cards{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:18px;max-width:760px;margin:0 auto;
+}
+.gift-card{
+  background:#fffdf8;border:1px solid #d6ad5580;
+  padding:30px 22px;border-radius:8px;
+  box-shadow:0 12px 32px #4b10100d;
+}
+.gift-card .gift-icon{font-size:27px;color:var(--gold)}
+.gift-card .bank-logo{
+  display:block;width:min(210px,75%);height:auto;max-height:54px;
+  object-fit:contain;margin:13px auto 12px;
+}
+.gift-card .gift-owner{
+  color:#765b50;font-size:13px;margin:0 0 18px;
+}
+.gift-number-label{
+  color:#9a783d;font-size:10px;letter-spacing:2px;
+  margin-bottom:7px;
+}
+.gift-number{
+  color:#3b0610;font:600 clamp(20px,4vw,27px) Montserrat,sans-serif;
+  letter-spacing:1.5px;overflow-wrap:anywhere;margin:0 0 20px;
+}
+.gift-copy{
+  border:1px solid var(--gold);
+  background:linear-gradient(135deg,#f1cf7d,#b98932);
+  color:#2b090d;border-radius:30px;padding:11px 22px;
+  font:600 11px Montserrat,sans-serif;letter-spacing:.7px;
+  cursor:pointer;min-width:160px;
+}
+.gift-copy:active{transform:scale(.98)}
+.gift-note{
+  max-width:650px;margin:28px auto 0;
+  color:#765b50;font:italic 19px "Cormorant Garamond",serif;
+  line-height:1.7;
+}
+@media(max-width:750px){
+  .gift-cards{grid-template-columns:1fr;max-width:430px}
+  .gift-card{padding:26px 18px}
+}
+
 </style>
 </head>
 <body class="locked">
@@ -398,7 +454,7 @@ body:not(.locked) > nav{display:flex !important}
 
 <nav>
   <div class="brand">Ilham & Qonita</div>
-  <div class="links"><a href="#home">HOME</a><a href="#couple">MEMPELAI</a><a href="#story">OUR STORY</a><a href="#gallery">GALERI</a><a href="#family">KELUARGA</a><a href="#rsvp">RSVP</a></div>
+  <div class="links"><a href="#home">HOME</a><a href="#couple">MEMPELAI</a><a href="#story">OUR STORY</a><a href="#gallery">GALERI</a><a href="#family">KELUARGA</a><a href="#gift">GIFT</a><a href="#rsvp">RSVP</a></div>
 </nav>
 
 <main>
@@ -570,6 +626,37 @@ body:not(.locked) > nav{display:flex !important}
     </div>
   </div>
   <div class="family-note">Keluarga besar, ninik mamak, sanak saudara, sahabat dan seluruh kerabat</div>
+</section>
+
+
+<section class="gift-section" id="gift">
+  <h2 class="title">Wedding Gift</h2>
+  <p class="gift-intro">
+    Doa restu Anda merupakan hadiah terindah bagi kami. Namun, apabila ingin
+    berbagi tanda kasih, Anda dapat mengirimkannya melalui nomor rekening berikut.
+  </p>
+
+  <div class="gift-cards">
+    <div class="gift-card">
+      <div class="gift-icon">✦</div>
+      <img class="bank-logo" src="https://upload.wikimedia.org/wikipedia/commons/3/38/CIMB_Niaga_logo.svg" alt="Logo resmi CIMB Niaga">
+      <p class="gift-owner">Atas Nama: <strong>Ilham</strong></p>
+      <div class="gift-number-label">NOMOR REKENING</div>
+      <p class="gift-number" id="rekeningIlham">706658827200</p>
+      <button class="gift-copy" type="button" onclick="copyRekening('rekeningIlham', this)">Salin Nomor Rekening</button>
+    </div>
+
+    <div class="gift-card">
+      <div class="gift-icon">✦</div>
+      <img class="bank-logo" src="https://upload.wikimedia.org/wikipedia/commons/3/38/CIMB_Niaga_logo.svg" alt="Logo resmi CIMB Niaga">
+      <p class="gift-owner">Atas Nama: <strong>Qonita Izzati Zahra</strong></p>
+      <div class="gift-number-label">NOMOR REKENING</div>
+      <p class="gift-number" id="rekeningQonita">707087145100</p>
+      <button class="gift-copy" type="button" onclick="copyRekening('rekeningQonita', this)">Salin Nomor Rekening</button>
+    </div>
+  </div>
+
+  <p class="gift-note">Terima kasih atas segala bentuk perhatian, kasih sayang, dan doa tulus yang diberikan kepada kami. ♡</p>
 </section>
 
 <section class="rsvp" id="rsvp">
@@ -771,6 +858,43 @@ const videoObserver = new IntersectionObserver((entries) => {
 });
 
 videoObserver.observe(preweddingVideo);
+
+function copyRekening(elementId, button){
+  const rekening = document.getElementById(elementId);
+  if(!rekening) return;
+  const nomor = rekening.textContent.replace(/\s/g,'');
+  const originalText = button.textContent;
+
+  const showSuccess = () => {
+    button.textContent = '✓ Berhasil Disalin';
+    setTimeout(() => { button.textContent = originalText; }, 2000);
+  };
+
+  if(navigator.clipboard && window.isSecureContext){
+    navigator.clipboard.writeText(nomor).then(showSuccess).catch(() => fallbackCopy(nomor));
+  }else{
+    fallbackCopy(nomor);
+  }
+
+  function fallbackCopy(value){
+    const temp = document.createElement('textarea');
+    temp.value = value;
+    temp.setAttribute('readonly','');
+    temp.style.position = 'fixed';
+    temp.style.opacity = '0';
+    document.body.appendChild(temp);
+    temp.select();
+    try{
+      const success = document.execCommand('copy');
+      if(success) showSuccess();
+      else alert('Nomor rekening: ' + value);
+    }catch(error){
+      alert('Nomor rekening: ' + value);
+    }
+    temp.remove();
+  }
+}
+
 </script>
 </body>
 </html>
